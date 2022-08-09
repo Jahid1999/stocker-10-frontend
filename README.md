@@ -34,3 +34,14 @@ Install latest version of angular cli <br>
 npm install -g @angular/cli@latest
 ```
 
+# Run app
+Clone the repository
+
+Command for dependency intallation <br>
+```bash
+npm install
+```
+Command for starting the app <br>
+```bash
+npm run bsse10
+```
