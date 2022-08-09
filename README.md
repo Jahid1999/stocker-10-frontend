@@ -1,4 +1,4 @@
-# stocker-10-frontnend
+# stocker-10-frontend
 An academic project of Software Project Management course
 
 # Prerequisite
@@ -36,8 +36,11 @@ npm install -g @angular/cli@latest
 
 # Run app
 Clone the repository
+```bash
+git clone https://github.com/Jahid1999/stocker-10-frontend.git
+```
 
-Command for dependency intallation <br>
+Command for dependency installation <br>
 ```bash
 npm install
 ```
