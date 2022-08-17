@@ -94,7 +94,7 @@ export class GainerLooserComponent implements OnInit {
       chart: {
         type: "bar",
         height: 500,
-        stacked: false,
+        stacked: true,
         toolbar: {
           show: false
         },
@@ -178,9 +178,9 @@ export class GainerLooserComponent implements OnInit {
       },
       // colors:['#F44336', '#E91E63', '#9C27B0'],
       legend: {
-        // position: "bottom",
-        // horizontalAlign: "left",
-        // offsetX: 400
+        position: "bottom",
+        horizontalAlign: "left",
+        offsetX: 400,
         show: false
       }
     };
