@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+th {
+    background-color: rgb(194, 37, 37) !important;
+    color: white !important;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    right: 10px;
+}
+#DataTables_Table_0_wrapper{
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    color: black;
+}
+table[_ngcontent-nei-c17] {
+    
+}
