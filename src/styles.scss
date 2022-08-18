@@ -5,13 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 #DataTables_Table_0{
     text-align: center;
 }
-th {
-    background-color: rgb(194, 37, 37) !important;
-    color: white !important;
-    border-collapse: separate;
-    border-spacing: 0 1em;
-    right: 10px;
-}
+
 tbody, td, tfoot, th, thead, tr{
     left: 1px;
 }
@@ -27,6 +21,7 @@ tbody, td, tfoot, th, thead, tr{
 }
 #DataTables_Table_0 > thead > tr > th{
     background-color: rgb(49, 43, 43) !important;
+    color: white !important;
     text-align: center;
 }
 a{
