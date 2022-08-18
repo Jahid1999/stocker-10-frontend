@@ -2,7 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+#DataTables_Table_0{
+    text-align: center;
+}
 th {
     background-color: rgb(194, 37, 37) !important;
     color: white !important;
@@ -10,11 +12,53 @@ th {
     border-spacing: 0 1em;
     right: 10px;
 }
+tbody, td, tfoot, th, thead, tr{
+    left: 1px;
+}
 #DataTables_Table_0_wrapper{
     border-collapse: separate;
     border-spacing: 0 1em;
     color: black;
 }
-table[_ngcontent-nei-c17] {
+
+#DataTables_Table_0 > tbody > tr > td{
+    border-top: 0px;
+    background-color: #F4F4F2;
+}
+#DataTables_Table_0 > thead > tr > th{
+    background-color: rgb(49, 43, 43) !important;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    
+    border: 1px solid rgba(0, 0, 0, 0.3) !important;
     
 }
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+    background-color: rgb(143, 142, 142) !important;
+}
+#DataTables_Table_0{
+    margin: 0px !important;
+    width: 100% !important;
+}
+
+// table.dataTable thead .sorting:before,
+// table.dataTable thead .sorting_asc:before,
+// table.dataTable thead .sorting_desc:before,
+// table.dataTable thead .sorting_asc_disabled:before,
+// table.dataTable thead .sorting_desc_disabled:before {
+//  content: '&#x2190' !important;
+// }
+// table.dataTable thead .sorting:after,
+// table.dataTable thead .sorting_asc:after,
+// table.dataTable thead .sorting_desc:after,
+// table.dataTable thead .sorting_asc_disabled:after,
+// table.dataTable thead .sorting_desc_disabled:after {
+//     content: "n" !important;
+// }
