@@ -46,7 +46,16 @@ export class HomeTableComponent implements OnInit {
         data: 'trading_code',
         "render": function(data, type, row, meta){
       if(type === 'display'){
-          data = '<a href="' + data + '">' + data + '</a>';
+          
+          if(row.change<0){
+            data = '<a style="color:red;" href="' + data + '">' + data + '</a>';
+          }
+          else if(row.change==0){
+            data = '<a style="color:lightblue;" href="' + data + '">' + data + '</a>';
+          }
+          else{
+            data = '<a style="color:green;" href="' + data + '">' + data + '</a>';
+          }
        }
 
           return data;
@@ -59,7 +68,22 @@ export class HomeTableComponent implements OnInit {
         data: 'closep'
       },{
         title: 'CHANGE',
-        data: 'change'
+        data: 'change',
+        "render": function(data, type, row, meta){
+          if(type === 'display'){
+              if(row.change<0){
+                data = '<span style="color:red;">' + data + '</span>';
+              }
+              else if(row.change==0){
+                data = '<span style="color:lightblue;">' + data + '</span>';
+              }
+              else{
+                data = '<span style="color:green;">' + data + '</span>';
+              }
+           }
+    
+              return data;
+          }
       },{
         title: 'YCP',
         data: 'ycp'
