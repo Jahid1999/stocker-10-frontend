@@ -10,7 +10,7 @@ export class SliderComponent implements OnInit {
 
   public sliderData: any;
   public itemsQuantity: number = 11;
-  public itemWidth: number = 160;
+  public itemWidth: number = 190;
   public itemHeight: number = 100;
 
   constructor(private sliderService: SliderService) { }
