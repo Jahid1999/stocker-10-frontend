@@ -1,0 +1,7 @@
+<div class="wrap" [style.height]="itemHeight + 'px'">
+    <div #slider>
+      <div #content [style.width]="3 * itemsQuantity * itemWidth + 'px'">
+        <ng-content #innerContent></ng-content>
+      </div>
+    </div>
+</div>
