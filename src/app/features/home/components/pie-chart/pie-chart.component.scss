@@ -16,3 +16,45 @@
 .tradeStatisticsValueCard {
   margin: 10px 5px
 }
+.box{
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  height: 40px;
+  width: 80px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  margin: 2px 10px;
+}
+
+.box-group{
+  display: inline-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 38px;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block-button{
+  border: 0px;
+  height: 3em;
+  width: 10em;
+  // padding: 10px 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  background-color: black;
+  color: azure;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.bar-title{
+  background-color: black;padding:8px 0px;color: aliceblue;font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: left;margin-bottom: 10px; font-size: 16px;display: inline-flex;
+}

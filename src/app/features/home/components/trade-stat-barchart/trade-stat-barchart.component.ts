@@ -37,6 +37,7 @@ export class TradeStatBarchartComponent implements OnInit {
   tradeStatDataLabel !: any;
   today!: Date;
   public chartOptions!: Partial<ChartOptions> | any;
+  isBarChart:boolean = true;
 
   constructor(private chartServices:ChartService) {}
 
@@ -114,6 +115,6 @@ export class TradeStatBarchartComponent implements OnInit {
     };
   }
   toggleChart(){
-
+    this.isBarChart = !this.isBarChart;
   }
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
-import { HomeTableComponent } from './home-table/home-table.component';
+import { HomeTableComponent } from './features/home/components/home-table/home-table.component';
 import { BrowserModule } from '@angular/platform-browser';
 import {NgApexchartsModule} from "ng-apexcharts";
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +25,8 @@ import { TradeStatBarchartComponent } from './features/home/components/trade-sta
     HomeTableComponent,
     PieChartComponent,
     AppComponent,
-    TradeStatBarchartComponent
+    TradeStatBarchartComponent,
+
   ],
   imports: [
     BrowserModule,
