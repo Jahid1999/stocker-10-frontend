@@ -1,0 +1,26 @@
+<div id="chart">
+
+  <mat-card class="example-card">
+    <mat-card-content>
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [fill]="chartOptions.fill"
+        [legend]="chartOptions.legend"
+        [labels]="chartOptions.labels"
+        [responsive]="chartOptions.responsive"
+      ></apx-chart>
+
+      <div class="example-button-row">
+        <button mat-raised-button style="color: #1CC674" class="tradeStatisticsValueCard">{{fetchedData.up}}<mat-icon>arrow_circle_up</mat-icon></button>
+        <button mat-raised-button style="color: #1C89C6" class="tradeStatisticsValueCard">{{fetchedData.unchanged}}<mat-icon>not_interested</mat-icon></button>
+        <button mat-raised-button style="color: #C61C1C" class="tradeStatisticsValueCard">{{fetchedData.down}}<mat-icon>arrow_circle_down</mat-icon></button>
+      </div>
+      <div class="example-button-row">
+        <button mat-raised-button style="color: #1CC674" class="tradeStatisticsValueCard">{{fetchedData.up_percentage}}% <mat-icon>arrow_circle_up</mat-icon></button>
+        <button mat-raised-button style="color: #1C89C6" class="tradeStatisticsValueCard">{{fetchedData.unchanged_percentage}}%<mat-icon>not_interested</mat-icon></button>
+        <button mat-raised-button style="color: #C61C1C" class="tradeStatisticsValueCard">{{fetchedData.down_percentage}}%<mat-icon>arrow_circle_down</mat-icon></button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
