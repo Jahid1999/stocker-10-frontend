@@ -20,6 +20,7 @@ import {MatTableModule} from '@angular/material/table';
 import { HomeModule } from './features/home/home.module';
 import { TradeStatBarchartComponent } from './features/home/components/trade-stat-barchart/trade-stat-barchart.component';
 import { CoreModule } from './core/core.module';
+import { TodayDataComponent } from './features/home/components/today-data/today-data.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,7 @@ import { CoreModule } from './core/core.module';
     PieChartComponent,
     AppComponent,
     TradeStatBarchartComponent,
-
+    TodayDataComponent
   ],
   imports: [
     BrowserModule,
