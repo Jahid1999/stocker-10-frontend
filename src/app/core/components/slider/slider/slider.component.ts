@@ -28,14 +28,17 @@ export class SliderComponent implements OnInit {
     this.sliderData.forEach((element: any,index: any) => {
       console.log(typeof element.trade);
       if(element.trade < 0){
-        element['icon'] = "fa fa-arrow-down";
+        element['icon'] = "fa fa-down-long";
         element['textColor'] = "text-danger";
+        element['isFlat'] = false;
       }else if(element.trade == 0){
-        element['icon'] = "";
+        element['icon'] = "fa fa-sort-alt";
         element['textColor'] = "text-primary";
+        element['isFlat'] = true;
       }else{
-        element['icon'] = "fa fa-arrow-up";
+        element['icon'] = "fa fa-up-long";
         element['textColor'] = "text-success";
+        element['isFlat'] = false;
       }
       
     });
