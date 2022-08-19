@@ -21,11 +21,11 @@ export type ChartOptions = {
   fill: ApexFill | any;
 };
 @Component({
-  selector: 'app-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss']
+  selector: 'app-today-data',
+  templateUrl: './today-data.component.html',
+  styleUrls: ['./today-data.component.scss']
 })
-export class BarChartComponent implements OnInit {
+export class TodayDataComponent implements OnInit {
 
   @ViewChild("chart") chart: ChartComponent|any;
   public chartOptions!: Partial<ChartOptions>;
