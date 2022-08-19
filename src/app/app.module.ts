@@ -7,13 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { GainerLooserComponent } from './homepage/gainer-looser/gainer-looser.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TableComponent } from './homepage/table/table.component'
+import { TableComponent } from './homepage/table/table.component';
+import { GraphComponent } from './graph/graph.component';
+import { CompareComponent } from './graph/compare/compare.component';
+import { TodaysDataComponent } from './graph/todays-data/todays-data.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     GainerLooserComponent,
-    TableComponent
+    TableComponent,
+    GraphComponent,
+    CompareComponent,
+    TodaysDataComponent
   ],
   imports: [
     BrowserModule,
