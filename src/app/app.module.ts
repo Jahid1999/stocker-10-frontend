@@ -18,11 +18,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import { HomeModule } from './features/home/home.module';
+import { TradeStatBarchartComponent } from './features/home/components/trade-stat-barchart/trade-stat-barchart.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeTableComponent,
     PieChartComponent,
+    AppComponent,
+    TradeStatBarchartComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,6 @@ import { HomeModule } from './features/home/home.module';
     DataTablesModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     NgApexchartsModule,
     MatInputModule,
     MatSelectModule,
@@ -43,7 +45,8 @@ import { HomeModule } from './features/home/home.module';
     MatTabsModule,
     MatSnackBarModule,
     MatTableModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
