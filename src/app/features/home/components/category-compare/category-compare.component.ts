@@ -113,7 +113,7 @@ export class CategoryCompareComponent implements OnInit {
       yaxis: {
         labels: {
           style: {
-            fontSize: '17px',
+            fontSize: '14px',
             fontFamily: 'Roboto, Helvetica Neue, sans-serif'
           }
         }
