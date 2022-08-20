@@ -22,6 +22,7 @@ import { HomeModule } from './features/home/home.module';
 import { TradeStatBarchartComponent } from './features/home/components/trade-stat-barchart/trade-stat-barchart.component';
 import { CoreModule } from './core/core.module';
 import { TodayDataComponent } from './features/home/components/today-data/today-data.component';
+import { GainerLooserComponent } from './homepage/gainer-looser/gainer-looser.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { TodayDataComponent } from './features/home/components/today-data/today-
     AppComponent,
     TradeStatBarchartComponent,
     TodayDataComponent,
-    CategoryCompareComponent
+    CategoryCompareComponent,
+    GainerLooserComponent,
   ],
   imports: [
     BrowserModule,
