@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CategoryCompareComponent } from './category-compare.component';
 
-describe('CategoryCompareComponent', () => {
+describe('CompareComponent', () => {
   let component: CategoryCompareComponent;
   let fixture: ComponentFixture<CategoryCompareComponent>;
 

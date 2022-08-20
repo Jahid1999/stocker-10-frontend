@@ -7,7 +7,6 @@ import {NgApexchartsModule} from "ng-apexcharts";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CategoryCompareComponent } from './feature/components/category-compare/category-compare.component';
 import { PieChartComponent } from './features/home/components/pie-chart/pie-chart.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
@@ -22,6 +21,7 @@ import { HomeModule } from './features/home/home.module';
 import { TradeStatBarchartComponent } from './features/home/components/trade-stat-barchart/trade-stat-barchart.component';
 import { CoreModule } from './core/core.module';
 import { TodayDataComponent } from './features/home/components/today-data/today-data.component';
+import { CategoryCompareComponent } from './features/home/components/category-compare/category-compare.component';
 import { GainerLooserComponent } from './homepage/gainer-looser/gainer-looser.component';
 @NgModule({
   declarations: [
