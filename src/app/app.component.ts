@@ -27,6 +27,8 @@ export class AppComponent {
     }
     else{
       this.gain = true;
+      this.today = false;
+      this.compare = false;
     }
 
   }
