@@ -9,8 +9,8 @@ import {
   ApexFill
 } from "ng-apexcharts";
 import { Subject,takeUntil  } from "rxjs";
-import { TodayData } from "src/app/shared/models/Today-data-bar-model";
-import { DataService } from "src/app/services/data-service.service";
+import { TodayData } from "src/app/features/home/components/today-data/Today-data-bar-model";
+import { DataService } from "src/app/features/home/components/today-data/data-service.service";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries|any;
@@ -35,7 +35,7 @@ export class TodayDataComponent implements OnInit {
   public dataArray: number[] = [];
   public descriptionArray:string[] = [];
   constructor(private service:DataService) {
-    
+
   }
   ngOnDestroy(): void {
     this.subOff$.next(1)
@@ -62,14 +62,14 @@ export class TodayDataComponent implements OnInit {
           series: [
                 {
                   name: 'Value',
-                  data:this.dataArray      
+                  data:this.dataArray
                 }
           ],
           chart: {
             type: "bar",
             height: 550
           },
-          
+
           plotOptions: {
             bar: {
               horizontal: true,
@@ -97,7 +97,7 @@ export class TodayDataComponent implements OnInit {
             opacity: 1,
             colors:['#285e33'],
           },
-         
+
           dataLabels: {
             enabled: true,
             style: {
@@ -105,19 +105,19 @@ export class TodayDataComponent implements OnInit {
             },
             offsetX: 40
           },
-         
+
           xaxis: {
             categories: this.catgoriesArray,
             lines: {
               show: false,
             }
           },
-  
+
         };
-        // this.chartOptions.xaxis.categories = 
+        // this.chartOptions.xaxis.categories =
         // console.log(this.chartOptions.xaxis.categories);
       }
     })
-   
+
   }
 }

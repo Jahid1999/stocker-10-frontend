@@ -13,7 +13,7 @@ export class DataCompareService {
 
   getCompareData()
   {
-    return this.http.get<DataCompare[]>(this.url).pipe(map((res:any)=>{
+    return this.http.get<DataCompare[]>(this.url).pipe(map((res:DataCompare[])=>{
       return res;
     }))
   }

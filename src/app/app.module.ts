@@ -22,7 +22,7 @@ import { TradeStatBarchartComponent } from './features/home/components/trade-sta
 import { CoreModule } from './core/core.module';
 import { TodayDataComponent } from './features/home/components/today-data/today-data.component';
 import { CategoryCompareComponent } from './features/home/components/category-compare/category-compare.component';
-import { GainerLooserComponent } from './homepage/gainer-looser/gainer-looser.component';
+import { GainerLooserComponent } from './features/home/components/gainer-looser/gainer-looser.component';
 @NgModule({
   declarations: [
     AppComponent,

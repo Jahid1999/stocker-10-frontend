@@ -15,8 +15,8 @@ import {
   ApexGrid
 } from "ng-apexcharts";
 import { of } from "rxjs";
-import { GainerLooser } from "src/app/models/graph"
-import { GraphService } from "src/app/services/graph.service";
+import { GainerLooser } from "src/app/features/home/components/gainer-looser/graph"
+import { GraphService } from "src/app/features/home/components/gainer-looser/graph.service";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -51,7 +51,7 @@ export class GainerLooserComponent implements OnInit {
   //gainer_looser_data_list: GainerLooser[] = [];
 
   constructor(private service: GraphService) {
-    
+
   }
   ngOnInit(): void{
     this.service.getGainerLooser().subscribe(
@@ -93,7 +93,7 @@ export class GainerLooserComponent implements OnInit {
       ],
       chart: {
         type: "bar",
-        height: 500,
+        height: 550,
         stacked: true,
         toolbar: {
           show: false
@@ -114,10 +114,10 @@ export class GainerLooserComponent implements OnInit {
           barHeight: '85%'
         }
       },
-      
+
       dataLabels: {
         enabled: false
-        
+
       },
       // options: {
       //   datalabels: {

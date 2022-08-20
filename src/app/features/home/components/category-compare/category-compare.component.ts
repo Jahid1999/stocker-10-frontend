@@ -51,7 +51,7 @@ export class CategoryCompareComponent implements OnInit {
   ngOnInit(): void {
     this.service.getCompareData().pipe(takeUntil(this.subOff$))
     .subscribe(res=>{
-      this.apiVal = res;
+      this.apiVal = res.sort((a, b) => b.Todays_Value - a.Todays_Value);
       this.initializeData();
       this.graphInitialise();
     })
@@ -71,7 +71,8 @@ export class CategoryCompareComponent implements OnInit {
       ],
       chart: {
         type: "bar",
-        height: 1000
+        height: 550,
+
       },
       legend: {
         markers: {
@@ -84,27 +85,34 @@ export class CategoryCompareComponent implements OnInit {
           dataLabels: {
             position: "top",
           },
-          barHeight:'90px'
+          // barHeight:'90px'
         }
       },
       dataLabels: {
         enabled: true,
-        offsetX: 50,
+        offsetX: 40,
+        offsetY: 5,
         style: {
           fontSize: "12px",
           colors: ["#00"],
-          fontFamily : 'Roboto, Helvetica Neue, sans-serif'
+          fontFamily : 'Roboto, Helvetica Neue, sans-serif',
         },
-        // formatter: function(val, opts?) {
-        //   if(opts.seriesIndex == 0){
-        //     return val + ''
-        //   }
-        //   else return ""
-        // },
+        formatter: function(val, opts?) {
+          if(opts.seriesIndex == 0){
+            return val + ''
+          }
+          else return ""
+        },
+        dropShadow: {
+          enabled: true,
+          top: 1,
+          left: 1,
+          color: '#ffffff',
+        },
       },
       stroke: {
         show: true,
-        width: 1,
+        width: .1,
         colors: ["#fff"]
       },
       xaxis: {
@@ -113,7 +121,7 @@ export class CategoryCompareComponent implements OnInit {
       yaxis: {
         labels: {
           style: {
-            fontSize: '14px',
+            // fontSize: '8px',
             fontFamily: 'Roboto, Helvetica Neue, sans-serif'
           }
         }
