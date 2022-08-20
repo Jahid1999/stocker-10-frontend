@@ -1,7 +1,7 @@
 import { Injectable , OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
-import { TodayData } from 'src/app/features/home/components/today-data/Today-data-bar-model';
+import { TodayData } from './Today-data-bar-model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class DataService {
 
   recieveTodayData()
   {
-    return this.http.get<TodayData[]>(this.url).pipe(map((res:any)=>{
+    return this.http.get<TodayData[]>(this.url).pipe(map((res:TodayData[])=>{
       // console.log(res);
       return res;
     }))

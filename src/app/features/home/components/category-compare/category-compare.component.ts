@@ -51,7 +51,7 @@ export class CategoryCompareComponent implements OnInit {
   ngOnInit(): void {
     this.service.getCompareData().pipe(takeUntil(this.subOff$))
     .subscribe(res=>{
-      this.apiVal = res.sort((a, b) => b.Todays_Value - a.Todays_Value);
+      this.apiVal = res.sort((a:DataCompare, b:DataCompare) => b.Todays_Value - a.Todays_Value);
       this.initializeData();
       this.graphInitialise();
     })
@@ -90,15 +90,19 @@ export class CategoryCompareComponent implements OnInit {
       },
       dataLabels: {
         enabled: true,
-        offsetX: 40,
-        offsetY: 5,
+        offsetX: 50,
+        // offsetY: 4.5,
         style: {
           fontSize: "12px",
           colors: ["#00"],
           fontFamily : 'Roboto, Helvetica Neue, sans-serif',
         },
         formatter: function(val, opts?) {
-          if(opts.seriesIndex == 0){
+          if(val > opts.w.config.series[1-opts.seriesIndex].data[opts.dataPointIndex]){
+            // if(opts.seriesIndex == 1){
+            //   console.log('got.......')
+            //   opts.w.config.dataLabels.yaxis = 0
+            // }
             return val + ''
           }
           else return ""
