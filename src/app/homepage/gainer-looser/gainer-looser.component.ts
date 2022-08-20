@@ -42,7 +42,7 @@ export type ChartOptions = {
 export class GainerLooserComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent | any;
   public chartOptions: Partial<ChartOptions> | any;
-  gainer_looser_data_list: GainerLooser[] | any ;
+  public gainer_looser_data_list: GainerLooser[]  = [];
   category_name_list: string [] = new Array(21);
   winner_mark_list: number[] = new Array(21);
   neutral_mark_list: number[] = new Array(21);
