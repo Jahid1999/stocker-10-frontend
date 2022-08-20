@@ -54,70 +54,70 @@ export class TodayDataComponent implements OnInit {
           description = '('+this.data[x].Percentage+')';
           this.descriptionArray.push(description);
         }
-        // for (let x in this.descriptionArray){
-        //   this.chartOptions.series[x].name = this.descriptionArray[x];
-        // }
-
-        this.chartOptions = {
-          series: [
-                {
-                  name: 'Value',
-                  data:this.dataArray      
-                }
-          ],
-          chart: {
-            type: "bar",
-            height: 550
-          },
-          
-          plotOptions: {
-            bar: {
-              horizontal: true,
-              dataLabels: {
-                position: 'top'
-              }
-            }
-          },
-          // dataLabels: {
-          //   enabled: true,
-          //   textAnchor: "start",
-          //   style: {
-          //     colors: ["#333"]
-          //   },
-          //   formatter: function(val: string, opt: { w: { globals: { labels: { [x: string]: string; }; }; }; dataPointIndex: string | number; }) {
-          //     console.log(val);
-          //     return  val+' '+ opt.dataPointIndex;
-          //   },
-          //   offsetX: 0,
-          //   dropShadow: {
-          //     enabled: true
-          //   }
-          // },
-          fill: {
-            opacity: 1,
-            colors:['#285e33'],
-          },
-         
-          dataLabels: {
-            enabled: true,
-            style: {
-              colors: ['#333']
-            },
-            offsetX: 40
-          },
-         
-          xaxis: {
-            categories: this.catgoriesArray,
-            lines: {
-              show: false,
-            }
-          },
-  
-        };
+        this.setChart();
         // this.chartOptions.xaxis.categories = 
         // console.log(this.chartOptions.xaxis.categories);
       }
     })
    
   }
+  setChart(){
+    this.chartOptions = {
+      series: [
+            {
+              name: 'Value',
+              data:this.dataArray      
+            }
+      ],
+      chart: {
+        type: "bar",
+        height: 550
+      },
+      
+      plotOptions: {
+        bar: {
+          horizontal: true,
+          dataLabels: {
+            position: 'top'
+          }
+        }
+      },
+      // dataLabels: {
+      //   enabled: true,
+      //   textAnchor: "start",
+      //   style: {
+      //     colors: ["#333"]
+      //   },
+      //   formatter: function(val: string, opt: { w: { globals: { labels: { [x: string]: string; }; }; }; dataPointIndex: string | number; }) {
+      //     console.log(val);
+      //     return  val+' '+ opt.dataPointIndex;
+      //   },
+      //   offsetX: 0,
+      //   dropShadow: {
+      //     enabled: true
+      //   }
+      // },
+      fill: {
+        opacity: 1,
+        colors:['#285e33'],
+      },
+     
+      dataLabels: {
+        enabled: true,
+        style: {
+          colors: ['#333']
+        },
+        offsetX: 40
+      },
+     
+      xaxis: {
+        categories: this.catgoriesArray,
+        lines: {
+          show: false,
+        }
+      },
+
+    };
+  }
+
 }
