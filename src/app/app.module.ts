@@ -7,6 +7,7 @@ import {NgApexchartsModule} from "ng-apexcharts";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoryCompareComponent } from './feature/components/category-compare/category-compare.component';
 import { PieChartComponent } from './features/home/components/pie-chart/pie-chart.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
@@ -28,7 +29,8 @@ import { TodayDataComponent } from './features/home/components/today-data/today-
     PieChartComponent,
     AppComponent,
     TradeStatBarchartComponent,
-    TodayDataComponent
+    TodayDataComponent,
+    CategoryCompareComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { TodayDataComponent } from './features/home/components/today-data/today-
     HomeModule,
     HttpClientModule,
     HomeModule,
-    CoreModule
+    CoreModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
