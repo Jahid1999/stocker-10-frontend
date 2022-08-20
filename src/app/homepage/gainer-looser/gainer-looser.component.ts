@@ -15,7 +15,7 @@ import {
   ApexGrid
 } from "ng-apexcharts";
 import { of } from "rxjs";
-import { GainerLooser } from "src/app/models/gainer-looser";
+import { GainerLooser } from "src/app/models/graph"
 import { GraphService } from "src/app/services/graph.service";
 
 export type ChartOptions = {
