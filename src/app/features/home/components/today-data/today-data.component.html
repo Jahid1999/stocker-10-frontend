@@ -1,0 +1,10 @@
+<div id="chart" *ngIf="data.length != 0">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="chartOptions.plotOptions"
+      [xaxis]="chartOptions.xaxis"
+      [fill]="chartOptions.fill"
+    ></apx-chart>
+</div>
