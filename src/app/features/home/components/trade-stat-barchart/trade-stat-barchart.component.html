@@ -2,6 +2,7 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
 />
+<div *ngIf="dataAvailable">
 <div class="bar-title" >
   <i style="margin: 0px 85px 0px 10px;" class="fa fa-solid fa-chevron-left"></i>
 
@@ -16,7 +17,7 @@
   <i *ngIf="!isBarChart" class="fa fa-chart-simple fa-xl"></i>
 </button>
 
-<div *ngIf="dataAvailable" id="chart">
+<div id="chart">
   <div *ngIf="isBarChart">
     <apx-chart
       [series]="chartOptions.series"
@@ -74,10 +75,7 @@
       </div>
     </div>
   </div>
-  <div
-    class="center"
-    style="font-weight: 600; margin: 20px 0px 10px 42px; color: rgb(81, 81, 81)"
-  >
+  <div style="font-weight: 600; margin: 20px 0px 20px 120px; color: rgb(81, 81, 81)">
     {{ today | date: "medium" }}
   </div>
   <div style="display: inline-flex;margin-left: 35px;">
@@ -85,4 +83,5 @@
     <button style="margin-left:20px" class="block-button">10 DAYS</button>
   </div>
   <!-- <div class="box-group"></div> -->
+</div>
 </div>
