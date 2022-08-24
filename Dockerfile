@@ -5,7 +5,7 @@ WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 RUN rm /usr/local/app/package-lock.json
 
-RUN npm install -g npm@8.18.0`
+RUN npm install -g npm@8.18.0
 
 RUN npm install -g @angular/cli@latest
 #RUN npm install -g @angular-devkit/build-angular:browser
