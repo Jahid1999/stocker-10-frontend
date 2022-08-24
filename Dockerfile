@@ -15,7 +15,9 @@ FROM node:latest as build
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 
-RUN npm install
+RUN npm install -g npm@@8.11.0
+
+RUN npm install -g @angular/cli@latest
 
 RUN npm run build --prod
 
