@@ -8,7 +8,7 @@ import { DataCompare } from './data.model';
 })
 export class DataCompareService {
 
-  private url:string = 'http://20.237.1.65/api/cat_compare/'
+  private url:string = 'http://20.42.24.211/api/cat_compare/'
   constructor(private http:HttpClient){}
 
   getCompareData()

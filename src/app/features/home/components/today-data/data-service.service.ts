@@ -7,7 +7,7 @@ import { TodayData } from './Today-data-bar-model';
   providedIn: 'root'
 })
 export class DataService {
-  private url:string = 'http://20.237.1.65/api/cat_todays_value/'
+  private url:string = 'http://20.42.24.211/api/cat_todays_value/'
   // private TodayData: any[] = []
   private recievedData:any
   constructor(private http:HttpClient){}
