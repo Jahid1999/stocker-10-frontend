@@ -1,4 +1,4 @@
-FROM node:18-alpine as my-app-build
+FROM node:14-alpine as my-app-build
 
 WORKDIR /usr/local/app
 
