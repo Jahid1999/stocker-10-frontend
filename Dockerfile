@@ -5,17 +5,17 @@ WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 RUN rm /usr/local/app/package-lock.json
 
-RUN npm i -g npm@8.11.0
+RUN npm i 
 
 RUN npm install -g @angular/cli@latest
 #RUN npm install -g @angular-devkit/build-angular:browser
 #RUN npm install -g @angular-devkit/build-angular:dev-server
 #RUN npm install -g @angular-devkit/schematics
 
-RUN npm install -g @angular-devkit/architect 0.1401.1
-RUN npm install -g @angular-devkit/core 14.1.1 
-RUN npm install -g @angular-devkit/schematics 14.1.1
-RUN npm install -g@schematics/angular 14.1.1 
+#RUN npm install -g @angular-devkit/architect 0.1401.1
+#RUN npm install -g @angular-devkit/core 14.1.1 
+#RUN npm install -g @angular-devkit/schematics 14.1.1
+#RUN npm install -g@schematics/angular 14.1.1 
 
 #RUN npm update
 
