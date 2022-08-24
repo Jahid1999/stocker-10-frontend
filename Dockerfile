@@ -6,6 +6,7 @@ COPY ./ /usr/local/app/
 
 RUN npm install -g npm@8.11.0
 RUN npm install -g @angular/cli@8.0.6
+RUN npm install -g @angular-devkit/build-angular
 
 RUN npm run bsse10
 
