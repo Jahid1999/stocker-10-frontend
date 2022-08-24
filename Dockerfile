@@ -1,4 +1,4 @@
-FROM node:14-alpine as my-app-build
+FROM node:18-alpine as my-app-build
 
 WORKDIR /usr/local/app
 
@@ -8,7 +8,7 @@ RUN rm /usr/local/app/package-lock.json
 
 Run npm cache clean --force
 
-RUN npm install -g node_modules
+RUN npm install --force
 
 RUN npm install -g @angular/cli@latest
 #RUN npm install -g @angular-devkit/build-angular:browser
