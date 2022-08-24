@@ -17,10 +17,10 @@ jobs:
         run: docker login --username 'aajahid' --password '${{secrets.DOCKER_PASSWORD}}'
 
       - name: tag docker image
-        run: docker tag managementfontend:'${{github.sha}}' '${{secrets.DOCKER_USERNAME}}'/managementfontend:'${{github.sha}}'
+        run: docker tag managementfontend:'${{github.sha}}' 'aajahid'/managementfontend:'${{github.sha}}'
 
       - name: push docker image
-        run: docker push '${{secrets.DOCKER_USERNAME}}'/managementfontend:'${{github.sha}}'
+        run: docker push 'aajahid'/managementfontend:'${{github.sha}}'
 
       - name: Azure Kubernetes set context
         uses: Azure/aks-set-context@v1
@@ -33,7 +33,7 @@ jobs:
         uses: Azure/k8s-create-secret@v1.1
         with:
           container-registry-url: https://index.docker.io/v1/
-          container-registry-username: "${{secrets.DOCKER_USERNAME}}"
+          container-registry-username: "aajahid"
           container-registry-password: "${{secrets.DOCKER_PASSWORD}}"
           secret-type: docker-registry
           secret-name: docker-image-pull-secret
@@ -45,6 +45,6 @@ jobs:
           manifests: |
             k8s/deployment.yml
             k8s/service.yml
-          images: "${{secrets.DOCKER_USERNAME}}/managementfontend:${{github.sha}}"
+          images: "$aajahid/managementfontend:${{github.sha}}"
           imagepullsecrets: docker-image-pull-secret
           action: deploy
