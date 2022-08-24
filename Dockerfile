@@ -5,6 +5,8 @@ WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 RUN rm /usr/local/app/package-lock.json
 
+Run npm cache clean --force
+
 RUN npm install -g npm@8.18.0
 
 RUN npm install -g @angular/cli@latest
@@ -16,8 +18,6 @@ RUN npm install -g @angular/cli@latest
 #RUN npm install -g @angular-devkit/core 14.1.1 
 #RUN npm install -g @angular-devkit/schematics 14.1.1
 #RUN npm install -g@schematics/angular 14.1.1 
-
-RUN npm i @angular-devkit/build-angular:dev-server --save-dev
 
 RUN npm run build
 
