@@ -12,6 +12,8 @@ RUN npm install -g @angular/cli@latest
 #RUN npm install -g @angular-devkit/build-angular:dev-server
 #RUN npm install -g @angular-devkit/schematics
 
+RUN npm update
+
 RUN npm run build
 
 FROM nginx:alpine
