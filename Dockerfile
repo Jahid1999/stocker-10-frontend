@@ -10,7 +10,7 @@
 
 #RUN npm run bsse10
 
-FROM node:latest as build
+FROM node:16.17-alpine as build
 
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
