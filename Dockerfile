@@ -6,8 +6,9 @@ COPY ./ /usr/local/app/
 RUN rm /usr/local/app/package-lock.json
 
 
+Run npm cache clean --force
 
-RUN npm install -g npm@8.18.0
+RUN npm install -g auto-install
 
 RUN npm install -g @angular/cli@latest
 #RUN npm install -g @angular-devkit/build-angular:browser
@@ -18,10 +19,6 @@ RUN npm install -g @angular/cli@latest
 #RUN npm install -g @angular-devkit/core 14.1.1 
 #RUN npm install -g @angular-devkit/schematics 14.1.1
 #RUN npm install -g@schematics/angular 14.1.1 
-
-Run npm cache clean --force
-
-RUN npm install 
 
 RUN npm run build
 
