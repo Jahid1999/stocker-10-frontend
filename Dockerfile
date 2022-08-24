@@ -6,8 +6,6 @@ COPY ./ /usr/local/app/
 
 RUN npm install -g npm@8.11.0
 
-RUN node_modules/.bin/ng serve --prod
-
-RUN npm run bsse10
+RUN ng serve --host 0.0.0.0
 
 EXPOSE  4200
