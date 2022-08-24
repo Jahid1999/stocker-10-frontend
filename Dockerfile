@@ -4,7 +4,7 @@ WORKDIR /usr/local/app
 
 COPY ./package.json ./
 
-RUN npm install 
+RUN npm i latest-version
 COPY ./ ./
 
 RUN npm install -g @angular/cli@latest
