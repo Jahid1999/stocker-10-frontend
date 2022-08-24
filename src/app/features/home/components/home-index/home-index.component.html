@@ -1,1 +1,24 @@
-<p>home-index works!</p>
+<section>
+  <div class="row">
+    <div class="col-8"><app-home-table></app-home-table></div>
+    <div class="col-4"><app-trade-stat-barchart></app-trade-stat-barchart></div>
+    <div>
+        <!-- 1st button -->
+        <button mat-button [style.border-bottom]="state === 0 ? 'solid 3px black' : ''"
+        (click)="setState(0,'today')">TODAY'S DATA</button>
+      
+        <!-- 2nd button -->
+        <button mat-button [style.border-bottom]="state === 1 ? 'solid 3px black' : ''"
+        (click)="setState(1,'compare')">COMPARE</button>
+      
+        <button mat-button [style.border-bottom]="state === 2 ? 'solid 3px black' : ''"
+        (click)="setState(2,'gain')">GAINER LOOSER</button>
+      
+      </div>
+      
+      
+      <div  *ngIf="this.today" ><app-today-data></app-today-data></div>
+      <div *ngIf="this.compare"><app-category-compare></app-category-compare></div>
+      <div *ngIf="this.gain"><app-gainer-looser></app-gainer-looser></div>
+  </div>
+</section>
