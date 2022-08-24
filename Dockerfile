@@ -3,7 +3,7 @@ FROM node:18-alpine as my-app-build
 WORKDIR /usr/local/app
 
 COPY ./ /usr/local/app/
-#RUN rm package-lock.json
+RUN rm /usr/local/app/package-lock.json
 
 RUN npm i -g npm@8.11.0
 
