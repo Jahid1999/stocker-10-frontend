@@ -37,6 +37,8 @@ export class TradeStatBarchartComponent implements OnInit {
   tradeStatDataLabel !: any;
   today!: Date;
   public chartOptions!: Partial<ChartOptions> | any;
+  public pieChartOptions!: Partial<ChartOptions> | any;
+
   isBarChart:boolean = true;
 
   constructor(private chartServices:ChartService) {}
@@ -44,6 +46,7 @@ export class TradeStatBarchartComponent implements OnInit {
   ngOnInit(): void {
       this.loadData();
       this.setChart();
+      this.setPieChart();
   }
 
   loadData(){
@@ -111,6 +114,42 @@ export class TradeStatBarchartComponent implements OnInit {
           "Down",
         ],
       },
+
+    };
+  }
+  setPieChart(){
+    this.pieChartOptions = {
+      series: this.tradeStatData,
+      chart: {
+        type: "donut",
+        height: 350,
+        width:350,
+        stacked: true,
+      },
+      labels: [ "Flat","Up","Down"],
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width: 1,
+        colors: ["#fff"]
+      },
+      legend:{
+        show:false,
+      },
+      fill: {
+        colors:['#0e274d', '#164d22', '#5c020b'],
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+          }
+        }
+      ]
 
     };
   }

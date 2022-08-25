@@ -6,6 +6,8 @@ import {
   ApexResponsive,
   ApexChart
 } from "ng-apexcharts";
+import {ChartService} from "../trade-stat-barchart/services/chart.service";
+import {ChartModel} from "../../../../models/trade-state-chart.model";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries | any;
@@ -21,18 +23,16 @@ export type ChartOptions = {
 export class PieChartComponent implements OnInit{
   @ViewChild("chart") chart: ChartComponent | any;
   public chartOptions: Partial<ChartOptions> | any;
-  public  fetchedData:any = {
-    up: 156,
-    down: 133,
-    unchanged: 93,
-    up_percentage: 40.84,
-    down_percentage: 34.82,
-    unchanged_percentage: 24.35
-  };
-  constructor() {}
+  today!: Date;
+  chartModel!: ChartModel;
+
+  constructor(private chartServices:ChartService) {}
   ngOnInit() {
+    this.loadChart();
+  }
+  setChart(){
     this.chartOptions = {
-      series: [this.fetchedData.unchanged_percentage, this.fetchedData.up_percentage, this.fetchedData.down_percentage],
+      series: [this.chartModel.unchanged, this.chartModel.up, this.chartModel.down],
       chart: {
         type: "donut"
       },
@@ -59,5 +59,15 @@ export class PieChartComponent implements OnInit{
         }
       ]
     };
+  }
+  loadChart(){
+    this.chartServices.getTradeStatBarchartData().subscribe((data:any)=>{
+      this.chartModel.unchanged = data.unchanged;
+      this.chartModel.up = data.up;
+      this.chartModel.down = data.down;
+      this.today = new Date();
+      console.log(this.chartModel);
+      this.setChart();
+    })
   }
 }
