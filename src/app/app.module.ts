@@ -16,6 +16,7 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     HomeModule,
     CoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

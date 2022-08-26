@@ -6,6 +6,7 @@ import { SliderComponent } from './components/slider/slider/slider.component';
 import { InnerContentComponent } from './components/slider/inner-content/inner-content.component';
 import { DuplicateDirective } from './directives/duplicate.directive';  
 import { SliderService } from './services/slider.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SliderService } from './services/slider.service';
   ],
   imports: [
     CommonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent,
