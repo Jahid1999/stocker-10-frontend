@@ -34,12 +34,13 @@ export class TradeStatBarchartComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
   dataAvailable = false;
   tradeStatData: Number[] = [];
+  pieChartData: Number[] = [];
   tradeStatDataLabel !: any;
   today!: Date;
   public chartOptions!: Partial<ChartOptions> | any;
   public pieChartOptions!: Partial<ChartOptions> | any;
 
-  isBarChart:boolean = true;
+  isBarChart:boolean = false;
 
   constructor(private chartServices:ChartService) {}
 
@@ -55,6 +56,9 @@ export class TradeStatBarchartComponent implements OnInit {
       this.tradeStatData.push(data.unchanged);
       this.tradeStatData.push(data.up);
       this.tradeStatData.push(data.down);
+    /*  this.pieChartData.push(data.unchanged_percentage);
+      this.pieChartData.push(data.up_percentage);
+      this.pieChartData.push(data.down_percentage);*/
       this.dataAvailable = true;
       this.today = new Date();
       console.log(data)
@@ -128,7 +132,17 @@ export class TradeStatBarchartComponent implements OnInit {
       },
       labels: [ "Flat","Up","Down"],
       dataLabels: {
-        enabled: false
+        enabled: true,
+        formatter: function (val:any) {
+          return val.toFixed(2) + "%"
+        },
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '65%'
+          }
+        }
       },
       stroke: {
         width: 1,
@@ -137,6 +151,7 @@ export class TradeStatBarchartComponent implements OnInit {
       legend:{
         show:false,
       },
+      colors:['#0e274d', '#164d22', '#5c020b'],
       fill: {
         colors:['#0e274d', '#164d22', '#5c020b'],
       },

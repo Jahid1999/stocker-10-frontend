@@ -34,6 +34,9 @@
   <div *ngIf="!isBarChart">
     <apx-chart
       [series]="pieChartOptions.series"
+      [colors]="pieChartOptions.colors"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="pieChartOptions.plotOptions"
       [chart]="pieChartOptions.chart"
       [fill]="pieChartOptions.fill"
       [legend]="pieChartOptions.legend"
