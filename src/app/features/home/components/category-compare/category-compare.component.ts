@@ -12,7 +12,8 @@ import {
   ApexStroke,
   ApexFill,
   ApexLegend,
-  ApexYAxis
+  ApexYAxis,
+  ApexTooltip
 } from "ng-apexcharts";
 
 export type ChartOptions = {
@@ -24,7 +25,8 @@ export type ChartOptions = {
   yaxis:ApexYAxis
   stroke: ApexStroke,
   fill: ApexFill,
-  legend: ApexLegend
+  legend: ApexLegend,
+  tooltip: ApexTooltip
 };
 
 @Component({
@@ -61,11 +63,11 @@ export class CategoryCompareComponent implements OnInit {
     this.chartOptions = {
       series: [
         {
-          name: "Todays",
+          name: "Today's",
           data: this.todayDatas,
         },
         {
-          name: "Yesterdays",
+          name: "Yesterday's",
           data: this.yesterdayDatas
         }
       ],
@@ -133,6 +135,14 @@ export class CategoryCompareComponent implements OnInit {
       fill: {
         colors: ['#285e33', '#5e2828']
       },
+      tooltip: {
+        y: {
+          formatter: undefined,
+          title: {
+              formatter: (seriesName) => seriesName.slice(0,seriesName.length-2),
+          },
+        },
+      }
     };
   }
 
