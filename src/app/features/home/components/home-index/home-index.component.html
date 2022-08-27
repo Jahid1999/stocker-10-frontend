@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-8"><app-home-table></app-home-table></div>
     <div class="col-4"><app-trade-stat-barchart></app-trade-stat-barchart></div>
+  </div>
+  <div class="row">
     <div>
         <!-- 1st button -->
         <button mat-button [style.border-bottom]="state === 0 ? 'solid 3px black' : ''"
@@ -14,7 +16,7 @@
         <button mat-button [style.border-bottom]="state === 2 ? 'solid 3px black' : ''"
         (click)="setState(2,'gain')">GAINER LOOSER</button>
       
-      </div>
+    </div>
       
       
       <div  *ngIf="this.today" ><app-today-data></app-today-data></div>
