@@ -51,7 +51,7 @@ export class SharePatternComponent implements OnInit {
   }
   setPieChart(){
     this.pieChartOptions = {
-      series: [123.42,80.34,321],
+      series: [123.42,80.34,91,101,76],
       chart: {
         type: "donut",
         height: 350,
@@ -79,9 +79,9 @@ export class SharePatternComponent implements OnInit {
       legend:{
         show:false,
       },
-      colors:['#0e274d', '#164d22', '#5c020b'],
+      colors:['#0e274d', '#164d22', '#5c020b', '#C61C1C','#1CC674'],
       fill: {
-        colors:['#0e274d', '#164d22', '#5c020b'],
+        colors:['#0e274d', '#164d22', '#5c020b', '#C61C1C','#1CC674'],
       },
       responsive: [
         {
@@ -100,15 +100,23 @@ export class SharePatternComponent implements OnInit {
     this.lineGraph = {
       series: [
         {
-          name: "Session Duration",
+          name: "Government",
+          data: [30, 27, 14, 44, 31, 21, 67, 15, 9, 2, 55, 19]
+        },
+        {
+          name: "Institute",
           data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
         },
         {
-          name: "Page Views",
+          name: "Foreign",
+          data: [76, 12, 28, 64, 63, 76, 22, 53, 1, 9, 25, 88]
+        },
+        {
+          name: "Directors",
           data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
         },
         {
-          name: "Total Visits",
+          name: "Public Share",
           data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
         }
       ],
@@ -149,18 +157,18 @@ export class SharePatternComponent implements OnInit {
           trim: false
         },
         categories: [
-          "01 Jan",
-          "02 Jan",
-          "03 Jan",
-          "04 Jan",
-          "05 Jan",
-          "06 Jan",
-          "07 Jan",
-          "08 Jan",
-          "09 Jan",
-          "10 Jan",
-          "11 Jan",
-          "12 Jan"
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
         ]
       },
       tooltip: {
