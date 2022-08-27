@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './features/home/home.module';
 import { CoreModule } from './core/core.module';
+import { CompanyProfileModule } from './features/company-profile/company-profile.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,7 @@ import { CoreModule } from './core/core.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HomeModule,
+    CompanyProfileModule,
     CoreModule,
   ],
   providers: [],
