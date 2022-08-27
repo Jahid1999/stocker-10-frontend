@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CompanyProfileIndexComponent implements OnInit {
 
   public company_name: string = '';
+  
 
   constructor(private router: ActivatedRoute) { }
 
