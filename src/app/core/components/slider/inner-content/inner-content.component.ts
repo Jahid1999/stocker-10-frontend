@@ -28,7 +28,8 @@ export class InnerContentComponent implements OnInit {
   offset: number = 0;
   timeOutVariable: any = null;
 
-  private animationPlayer: AnimationPlayer | any;
+  public  animationPlayer: AnimationPlayer | any;
+  
   @ViewChild('slider') private slider: ElementRef | any;
   @ViewChild('content') private content: ElementRef | any;
   @ViewChild('innerContent') private innerContent: ElementRef | any;
@@ -82,6 +83,7 @@ export class InnerContentComponent implements OnInit {
       }
     }
     this.animationPlayer.play();
+  
   }
 
   private buildAnimation(offset: any, time: any) {

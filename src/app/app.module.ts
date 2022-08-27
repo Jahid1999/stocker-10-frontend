@@ -18,6 +18,7 @@ import { CompanyProfileModule } from './features/company-profile/company-profile
     HomeModule,
     CompanyProfileModule,
     CoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
