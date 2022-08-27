@@ -44,7 +44,9 @@ export class CategoryCompareComponent implements OnInit {
   public todayDatas:number[] = [];
   public yesterdayDatas:number[] = [];
   public categories:string[] = [];
-  public todayParcentages:number[] = [];
+  public static todayParcentages:number[] = [];
+  public static yesterdayParcentages:number[] = [];
+
 
   public subOff$ = new Subject()
 
@@ -87,27 +89,30 @@ export class CategoryCompareComponent implements OnInit {
           dataLabels: {
             position: "top",
           },
-          // barHeight:'90px'
+          barHeight:'85'
         }
       },
       dataLabels: {
         enabled: true,
-        offsetX: 50,
-        // offsetY: 4.5,
+        offsetX: 60,
         style: {
-          fontSize: "12px",
+          fontSize: "10px",
           colors: ["#00"],
-          fontFamily : 'Roboto, Helvetica Neue, sans-serif',
+          fontFamily : 'Roboto',
         },
-        formatter: function(val, opts?) {
+        formatter: function(val:number, opts?) {
+          let text = '';
           if(val > opts.w.config.series[1-opts.seriesIndex].data[opts.dataPointIndex]){
-            // if(opts.seriesIndex == 1){
-            //   console.log('got.......')
-            //   opts.w.config.dataLabels.yaxis = 0
-            // }
-            return val + ''
+            text += Math.ceil(val) + ' ~ '
+            if(opts.seriesIndex === 0){
+              text += CategoryCompareComponent.todayParcentages[opts.dataPointIndex]
+            }
+            else{
+              text += CategoryCompareComponent.yesterdayParcentages[opts.dataPointIndex]
+            }
+            text += '%'
           }
-          else return ""
+          return text
         },
         dropShadow: {
           enabled: true,
@@ -127,7 +132,6 @@ export class CategoryCompareComponent implements OnInit {
       yaxis: {
         labels: {
           style: {
-            // fontSize: '8px',
             fontFamily: 'Roboto, Helvetica Neue, sans-serif'
           }
         }
@@ -137,9 +141,13 @@ export class CategoryCompareComponent implements OnInit {
       },
       tooltip: {
         y: {
-          formatter: undefined,
+          // formatter: (val, opts?)=>{
+          //   return val
+          // },
           title: {
-              formatter: (seriesName) => seriesName.slice(0,seriesName.length-2),
+              formatter: (seriesName) => {
+                return seriesName.slice(0,seriesName.length-2)
+              },
           },
         },
       }
@@ -151,7 +159,9 @@ export class CategoryCompareComponent implements OnInit {
       this.todayDatas.push(obj["Todays_Value"]);
       this.yesterdayDatas.push(obj["Yesterdays_Value"])
       this.categories.push(obj["Category"])
-      this.todayParcentages.push(obj["Todays_percentage"])
+      // this.todayParcentages.push(obj["Todays_percentage"])
+      CategoryCompareComponent.todayParcentages.push(obj["Todays_percentage"])
+      CategoryCompareComponent.yesterdayParcentages.push(obj["Yesterdays_percentage"])
     }
   }
 
