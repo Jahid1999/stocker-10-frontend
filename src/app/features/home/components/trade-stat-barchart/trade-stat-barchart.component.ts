@@ -34,16 +34,20 @@ export class TradeStatBarchartComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
   dataAvailable = false;
   tradeStatData: Number[] = [];
+  pieChartData: Number[] = [];
   tradeStatDataLabel !: any;
   today!: Date;
   public chartOptions!: Partial<ChartOptions> | any;
-  isBarChart:boolean = true;
+  public pieChartOptions!: Partial<ChartOptions> | any;
+
+  isBarChart:boolean = false;
 
   constructor(private chartServices:ChartService) {}
 
   ngOnInit(): void {
       this.loadData();
       this.setChart();
+      this.setPieChart();
   }
 
   loadData(){
@@ -53,6 +57,9 @@ export class TradeStatBarchartComponent implements OnInit {
       this.tradeStatData.push(data.unchanged);
       this.tradeStatData.push(data.up);
       this.tradeStatData.push(data.down);
+    /*  this.pieChartData.push(data.unchanged_percentage);
+      this.pieChartData.push(data.up_percentage);
+      this.pieChartData.push(data.down_percentage);*/
       this.dataAvailable = true;
       this.today = new Date();
       console.log(data)
@@ -112,6 +119,53 @@ export class TradeStatBarchartComponent implements OnInit {
           "Down",
         ],
       },
+
+    };
+  }
+  setPieChart(){
+    this.pieChartOptions = {
+      series: this.tradeStatData,
+      chart: {
+        type: "donut",
+        height: 350,
+        width:350,
+        stacked: true,
+      },
+      labels: [ "Flat","Up","Down"],
+      dataLabels: {
+        enabled: true,
+        formatter: function (val:any) {
+          return val.toFixed(2) + "%"
+        },
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '65%'
+          }
+        }
+      },
+      stroke: {
+        width: 1,
+        colors: ["#fff"]
+      },
+      legend:{
+        show:false,
+      },
+      colors:['#0e274d', '#164d22', '#5c020b'],
+      fill: {
+        colors:['#0e274d', '#164d22', '#5c020b'],
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+          }
+        }
+      ]
 
     };
   }

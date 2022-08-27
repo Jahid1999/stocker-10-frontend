@@ -26,10 +26,10 @@ class Info{
 })
 export class HomeTableComponent implements OnInit {
    dtOptions: DataTables.Settings = {};
-  private _jsonURL = 'http://20.237.1.65/api/home_company_data/'
+  private _jsonURL = 'http://20.42.24.211/api/home_company_data/'
   dataAvail = true
   constructor(private http:HttpClient) { }
-   
+
    ngOnInit(): void {
 
      this.dtOptions = {
@@ -46,7 +46,7 @@ export class HomeTableComponent implements OnInit {
         data: 'trading_code',
         "render": function(data, type, row, meta){
       if(type === 'display'){
-          
+
           if(row.change<0){
             data = '<a style="color:red;" href="' + data + '">' + data + '</a>';
           }
@@ -81,7 +81,7 @@ export class HomeTableComponent implements OnInit {
                 data = '<span style="color:green;">' + data + '</span>';
               }
            }
-    
+
               return data;
           }
       },{
@@ -89,12 +89,12 @@ export class HomeTableComponent implements OnInit {
         data: 'ycp'
       }
      ]
-     
-    
+
+
     };
 
      this.getJSON().subscribe(data => {
-      data = data.filter(function(dat:any){return dat.trading_code!="";}) 
+      data = data.filter(function(dat:any){return dat.trading_code!="";})
       this.dtOptions.data = data
 
        this.dataAvail = true

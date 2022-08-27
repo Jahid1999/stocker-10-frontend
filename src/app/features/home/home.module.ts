@@ -4,7 +4,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeIndexComponent } from './components/home-index/home-index.component';
 import { TradeStatBarchartComponent } from './components/trade-stat-barchart/trade-stat-barchart.component';
 import { HomeTableComponent } from './components/home-table/home-table.component';
-import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 
 import {MatInputModule} from '@angular/material/input';
@@ -29,7 +28,6 @@ import { GainerLooserComponent } from './components/gainer-looser/gainer-looser.
     HomeIndexComponent,
     TradeStatBarchartComponent,
     HomeTableComponent,
-    PieChartComponent,
     TodayDataComponent,
     CategoryCompareComponent,
     GainerLooserComponent,
@@ -53,7 +51,6 @@ import { GainerLooserComponent } from './components/gainer-looser/gainer-looser.
   exports: [
     TradeStatBarchartComponent,
     HomeTableComponent,
-    PieChartComponent,
     TodayDataComponent,
     CategoryCompareComponent,
     GainerLooserComponent,
