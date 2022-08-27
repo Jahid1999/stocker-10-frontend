@@ -52,6 +52,7 @@ export class TradeStatBarchartComponent implements OnInit {
 
   loadData(){
     this.chartServices.getTradeStatBarchartData().subscribe((data:any)=>{
+      console.log(data)
       this.tradeStatDataLabel = data;
       this.tradeStatData.push(data.unchanged);
       this.tradeStatData.push(data.up);
