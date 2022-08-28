@@ -1,6 +1,6 @@
 .myclass{
-    width: 775px;
     position: relative;
+    // overflow: auto;
 }
 #DataTables_Table_0{
     width: inherit;
@@ -12,7 +12,11 @@ table.dataTable{
     background-color: black !important;
 }
 
-
+@media screen and (max-width: 575px) {
+    .myclass{
+        font-size: 10px;
+    }
+  }
 
 
 
