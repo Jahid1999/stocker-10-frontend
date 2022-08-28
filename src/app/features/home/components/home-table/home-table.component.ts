@@ -33,7 +33,7 @@ export class HomeTableComponent implements OnInit {
    ngOnInit(): void {
 
      this.dtOptions = {
-      searching:false,
+      searching:true,
       lengthChange:false,
       language: {
         paginate:{next: ">",last:"Last",first:"First",previous:"<"}
