@@ -22,3 +22,8 @@
 .input-border{
     border: 1px solid #000;
 }
+.header-position{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
