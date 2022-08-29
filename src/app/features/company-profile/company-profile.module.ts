@@ -5,6 +5,7 @@ import { CompanyProfileRoutingModule } from './company-profile-routing.module';
 import { TecIndicatorTableComponent } from './tec-indicator-table/tec-indicator-table.component';
 import { ComparisonTableComponent } from './comparison-table/comparison-table.component';
 import { DataTablesModule } from 'angular-datatables';
+import { NewsComponent } from './news/news.component';
 
 
 
@@ -12,7 +13,8 @@ import { DataTablesModule } from 'angular-datatables';
   declarations: [
     CompanyProfileIndexComponent,
     TecIndicatorTableComponent,
-    ComparisonTableComponent
+    ComparisonTableComponent,
+    NewsComponent
   ],
   imports: [
     CommonModule,
