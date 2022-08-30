@@ -2,12 +2,13 @@ import { Injectable , OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 import { TodayData } from './Today-data-bar-model';
+import { apiBaseUrl } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private url:string = 'http://20.42.24.211/api/cat_todays_value/'
+  private url:string = `${apiBaseUrl}cat_todays_value/`
   // private TodayData: any[] = []
   private recievedData:any
   constructor(private http:HttpClient){}

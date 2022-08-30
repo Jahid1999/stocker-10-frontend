@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject ,Observable, observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { apiBaseUrl } from 'src/environments/environment';
 
 class Info{
   trading_code: string;
@@ -26,7 +27,7 @@ class Info{
 })
 export class HomeTableComponent implements OnInit {
    dtOptions: DataTables.Settings = {};
-  private _jsonURL = 'http://20.42.24.211/api/home_company_data/'
+  private _jsonURL = `${apiBaseUrl}home_company_data/`
   dataAvail = true
   constructor(private http:HttpClient) { }
 

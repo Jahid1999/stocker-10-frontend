@@ -2,13 +2,14 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map } from "rxjs";
 import { News } from "./news.model"
+import { apiBaseUrl } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataCompareService {
 
-  private url:string = 'http://20.42.24.211/api/cat_compare/'
+  private url:string = `${apiBaseUrl}cat_compare/`
   constructor(private http:HttpClient){}
 
   getNewsData()

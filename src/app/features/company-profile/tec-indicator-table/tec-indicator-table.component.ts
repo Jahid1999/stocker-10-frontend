@@ -1,6 +1,7 @@
 import { Component, OnInit,Input  } from '@angular/core';
 import { Subject ,Observable, observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { apiBaseUrl } from 'src/environments/environment';
 @Component({
   selector: 'app-tec-indicator-table',
   templateUrl: './tec-indicator-table.component.html',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TecIndicatorTableComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  private _jsonURL = 'http://20.42.24.211/api/technical_indicators_staticis/'
+  private _jsonURL = `${apiBaseUrl}technical_indicators_staticis/`
   // dataAvail = true
   // @Input() public tec_indctrs: any;
   tec_indctrs = [{
