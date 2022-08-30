@@ -102,6 +102,10 @@ export class CategoryCompareComponent implements OnInit {
           barHeight:'85'
         }
       },
+      // dataLabels: {
+      //   enabled: true
+
+      // },
       dataLabels: {
         enabled: true,
         offsetX: 60,
