@@ -6,6 +6,7 @@ import { TecIndicatorTableComponent } from './tec-indicator-table/tec-indicator-
 import { ComparisonTableComponent } from './comparison-table/comparison-table.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 
 
@@ -14,7 +15,8 @@ import { NewsComponent } from './news/news.component';
     CompanyProfileIndexComponent,
     TecIndicatorTableComponent,
     ComparisonTableComponent,
-    NewsComponent
+    NewsComponent,
+    ProfileCardComponent
   ],
   imports: [
     CommonModule,
