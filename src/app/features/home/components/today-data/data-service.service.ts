@@ -1,24 +1,24 @@
-import { Injectable , OnDestroy, OnInit } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 import { TodayData } from './Today-data-bar-model';
+import { apiEndpoints } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-  private url:string = 'http://20.42.24.211/api/cat_todays_value/'
+  private url: string = `${apiEndpoints.baseURL}/cat_todays_value/`;
   // private TodayData: any[] = []
-  private recievedData:any
-  constructor(private http:HttpClient){}
+  private recievedData: any;
+  constructor(private http: HttpClient) {}
 
-  recieveTodayData()
-  {
-    return this.http.get<TodayData[]>(this.url).pipe(map((res:TodayData[])=>{
-      // console.log(res);
-      return res;
-    }))
-
+  recieveTodayData() {
+    return this.http.get<TodayData[]>(this.url).pipe(
+      map((res: TodayData[]) => {
+        // console.log(res);
+        return res;
+      })
+    );
   }
-
 }
