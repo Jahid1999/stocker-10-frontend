@@ -6,23 +6,23 @@ import { TecIndicatorTableComponent } from './tec-indicator-table/tec-indicator-
 import { ComparisonTableComponent } from './comparison-table/comparison-table.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
-
-
+import { SharePatternComponent } from './share-pattern/share-pattern.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
     CompanyProfileIndexComponent,
     TecIndicatorTableComponent,
     ComparisonTableComponent,
-    NewsComponent
+    NewsComponent,
+    SharePatternComponent,
   ],
   imports: [
     CommonModule,
     CompanyProfileRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    NgApexchartsModule,
   ],
-  exports: [
-    CompanyProfileIndexComponent
-  ]
+  exports: [CompanyProfileIndexComponent],
 })
-export class CompanyProfileModule { }
+export class CompanyProfileModule {}
