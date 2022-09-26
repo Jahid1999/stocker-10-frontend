@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { DataCompareService } from './data-compare.service';
 import { DataCompare } from './data.model';
@@ -37,6 +37,8 @@ export type ChartOptions = {
 export class CategoryCompareComponent implements OnInit {
 
   @ViewChild("chart") chart!: ChartComponent;
+  @Input() dataCompareFromParent: DataCompare[] | any ;
+
   public chartOptions!: ChartOptions;
 
   public apiVal:DataCompare[] = [];
@@ -53,14 +55,20 @@ export class CategoryCompareComponent implements OnInit {
   constructor(private service:DataCompareService) { }
 
   ngOnInit(): void {
-    this.service.getCompareData().pipe(takeUntil(this.subOff$))
-    .subscribe(res=>{
-      this.apiVal = res.sort((a:DataCompare, b:DataCompare) => b.Todays_Value - a.Todays_Value);
-      this.initializeData();
-      this.graphInitialise();
-    })
+    // this.service.getCompareData().pipe(takeUntil(this.subOff$))
+    // .subscribe(res=>{
+    //   this.apiVal = res.sort((a:DataCompare, b:DataCompare) => b.Todays_Value - a.Todays_Value);
+    //   this.initializeData();
+    //   this.graphInitialise();
+    // })
 
+    this.apiVal = this.dataCompareFromParent ;
+    this.apiVal.sort((a, b) => b.Todays_Value - a.Todays_Value);
+    // console.log(this.apiVal)
+    this.initializeData();
+    this.graphInitialise();
   }
+
   graphInitialise() {
     this.chartOptions = {
       series: [
@@ -76,7 +84,9 @@ export class CategoryCompareComponent implements OnInit {
       chart: {
         type: "bar",
         height: 550,
-
+        toolbar: {
+          show: true
+        },
       },
       legend: {
         markers: {
@@ -92,6 +102,10 @@ export class CategoryCompareComponent implements OnInit {
           barHeight:'85'
         }
       },
+      // dataLabels: {
+      //   enabled: true
+
+      // },
       dataLabels: {
         enabled: true,
         offsetX: 60,
