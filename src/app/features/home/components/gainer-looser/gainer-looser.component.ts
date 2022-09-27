@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -15,7 +15,7 @@ import {
   ApexGrid
 } from "ng-apexcharts";
 import { of } from "rxjs";
-import { GainerLooser } from "src/app/features/home/components/gainer-looser/graph"
+import { GainerLooser } from "src/app/features/home/components/gainer-looser/gainer-looser"
 import { GraphService } from "src/app/features/home/components/gainer-looser/graph.service";
 
 export type ChartOptions = {
@@ -41,6 +41,7 @@ export type ChartOptions = {
 
 export class GainerLooserComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent | any;
+  @Input() gainLooserDataFromParent: GainerLooser[] | any ;
   public chartOptions: Partial<ChartOptions> | any;
   public gainer_looser_data_list: GainerLooser[]  = [];
   category_name_list: string [] = new Array(21);
@@ -54,14 +55,18 @@ export class GainerLooserComponent implements OnInit {
 
   }
   ngOnInit(): void{
-    this.service.getGainerLooser().subscribe(
-      (response: any)=>{
-        this.gainer_looser_data_list = response ;
-        console.log( this.gainer_looser_data_list.length + "========================================" + this.gainer_looser_data_list[0].Category)
-        this.setArray() ;
-        this.setChart();
-        console.log(this.category_name_list);
-    });
+    this.gainer_looser_data_list = this.gainLooserDataFromParent ;
+    this.setArray();
+    this.setChart();
+
+    // this.service.getGainerLooser().subscribe(
+    //   (response: any)=>{
+    //     this.gainer_looser_data_list = response ;
+    //     console.log( this.gainer_looser_data_list.length + "========================================" + this.gainer_looser_data_list[0].Category)
+    //     this.setArray() ;
+    //     this.setChart();
+    //     console.log(this.category_name_list);
+    // });
   }
 
   setArray(){
@@ -96,7 +101,7 @@ export class GainerLooserComponent implements OnInit {
         height: 550,
         stacked: true,
         toolbar: {
-          show: false
+          show: true
         },
         parentHeightOffset: 0
       },
@@ -116,7 +121,7 @@ export class GainerLooserComponent implements OnInit {
       },
 
       dataLabels: {
-        enabled: false
+        enabled: true
 
       },
       // options: {

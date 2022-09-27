@@ -1,4 +1,39 @@
+
+
 <section>
+  <div class="row hometable">
+    <div class="col-md-8 col-12 mb-2"><app-home-table></app-home-table></div>
+    <div class="col-md-4 col-12 mb-2">
+      <app-trade-stat-barchart></app-trade-stat-barchart>
+    </div>
+  </div>
+
+  <div>
+    <mat-tab-group #tabGroup>
+      <mat-tab label="TODAY'S DATA"> 
+        <div *ngIf="todays_data_list.length!=0">
+          <app-today-data [todaysDataFromParent]='todays_data_list' *ngIf="tabGroup.selectedIndex === 0"></app-today-data></div>
+        <div *ngIf="todays_data_list.length==0"></div> 
+      </mat-tab>
+      <mat-tab label="COMPARE"> 
+        <div *ngIf="data_compare_list.length!=0">
+          <app-category-compare [dataCompareFromParent]="data_compare_list" *ngIf="tabGroup.selectedIndex === 1"></app-category-compare></div>
+        <div *ngIf="data_compare_list.length==0"></div> 
+      </mat-tab>
+      <mat-tab label="GAINER LOOSER"> 
+        <div *ngIf="gainer_looser_data_list.length!=0">
+          <app-gainer-looser [gainLooserDataFromParent]='gainer_looser_data_list' *ngIf="tabGroup.selectedIndex === 2"></app-gainer-looser> </div>
+        <div *ngIf="gainer_looser_data_list.length==0"></div> 
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  
+</section>
+
+
+
+
+<!-- <section>
   <div class="row hometable">
     <div class="col-md-8 col-12 mb-2"><app-home-table></app-home-table></div>
     <div class="col-md-4 col-12 mb-2">
@@ -7,7 +42,7 @@
   </div>
   <div class="row">
     <div>
-      <!-- 1st button -->
+      
       <button
         mat-button
         [style.border-bottom]="state === 0 ? 'solid 3px black' : ''"
@@ -16,7 +51,7 @@
         TODAY'S DATA
       </button>
 
-      <!-- 2nd button -->
+      
       <button
         mat-button
         [style.border-bottom]="state === 1 ? 'solid 3px black' : ''"
@@ -40,4 +75,4 @@
     </div>
     <div *ngIf="this.gain"><app-gainer-looser></app-gainer-looser></div>
   </div>
-</section>
+</section> -->
