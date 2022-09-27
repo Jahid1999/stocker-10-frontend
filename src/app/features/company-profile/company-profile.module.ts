@@ -8,6 +8,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
 import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { ReportsComponent } from './reports/reports.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ComparisonTableComponent,
     NewsComponent,
     SharePatternComponent,
+    ReportsComponent,
   ],
   imports: [
     CommonModule,
     CompanyProfileRoutingModule,
     DataTablesModule,
+    MatTableModule,
     NgApexchartsModule,
   ],
   exports: [CompanyProfileIndexComponent],
