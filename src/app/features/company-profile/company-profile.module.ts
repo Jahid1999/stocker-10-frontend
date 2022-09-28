@@ -12,6 +12,8 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { OtherIndicatorsComponent } from './other-indicators/other-indicators.component';
+import { ReportsComponent } from './reports/reports.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { OtherIndicatorsComponent } from './other-indicators/other-indicators.co
     SharePatternComponent,
     OtherIndicatorsComponent,
     ProfileCardComponent,
+    ReportsComponent,
   ],
   imports: [
     CommonModule,
     CompanyProfileRoutingModule,
     DataTablesModule,
+    MatTableModule,
     NgApexchartsModule,
   ],
   exports: [CompanyProfileIndexComponent],
