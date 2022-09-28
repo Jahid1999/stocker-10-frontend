@@ -1,0 +1,47 @@
+name: Deployment To AWS EC2
+on:
+  push:
+    branches: [none]
+  pull_request:
+    branches: [none]
+  
+concurrency:
+  group: build-and-test
+  #cancel-in-progress: true
+  
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: docker build
+        run: docker build -t spm:'latest' .
+
+      - name: docker login
+        run: docker login --username 'aajahid' --password '${{secrets.DOCKER_PASSWORD}}'
+
+      - name: tag docker image
+        run: docker tag spm:'latest' '${{secrets.DOCKER_USERNAME}}'/spm:'latest'
+
+      - name: push docker image
+        run: docker push '${{secrets.DOCKER_USERNAME}}'/spm:'latest'
+        
+  Deploy:
+    needs: Build
+    runs-on: ubuntu-latest
+    
+    steps:  
+    - name: ls -a via ssh
+      uses: fifsky/ssh-action@master
+      with:
+        command: |
+              cd spm
+              sudo docker-compose stop
+              sudo docker-compose rm -f
+              sudo docker-compose pull   
+              sudo docker-compose up -d
+        host: ${{ secrets.HOSTNAME  }}
+        user: ${{ secrets.USER_NAME  }}
+        key: ${{ secrets.PEM_FILE  }}
