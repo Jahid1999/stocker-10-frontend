@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SliderService {
 
+  private url:string = 'http://20.42.24.211/api/home_company_data/'
+
   constructor(private http: HttpClient) { }
 
-  public tempGetSliderData(){
-    
+  public tempGetSliderData(): Observable<any>{
+    return this.http.get<any>(this.url);
   }
 
   public getSliderData(){

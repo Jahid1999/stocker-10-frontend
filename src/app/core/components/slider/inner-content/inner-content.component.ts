@@ -14,9 +14,9 @@ import {
 })
 export class InnerContentComponent implements OnInit {
 
-  @Input() itemWidth: number = 160;
-  @Input() itemHeight: number = 100;
-  @Input() itemsQuantity: number = 11;
+  @Input() itemWidth: number = 0;
+  @Input() itemHeight: number = 0;
+  @Input() itemsQuantity: number = 0;
 
   @Input() showControls = true;
   @Input() showSelectors = true;
@@ -40,7 +40,12 @@ export class InnerContentComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.startAutoScrolling();
+    console.log('asi');
+    if(this.itemsQuantity>0){
+      console.log(this.itemsQuantity);
+      this.startAutoScrolling();
+    }
+
   }
 
   ngOnDestroy(): void {
