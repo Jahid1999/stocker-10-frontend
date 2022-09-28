@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -28,6 +28,8 @@ export type ChartOptions = {
 export class TodayDataComponent implements OnInit {
 
   @ViewChild("chart") chart: ChartComponent | any;
+  @Input() todaysDataFromParent: TodayData[] | any ;
+  
   public chartOptions!: Partial<ChartOptions>;
   public data: TodayData[] = []
   public subOff$ = new Subject()
@@ -42,15 +44,20 @@ export class TodayDataComponent implements OnInit {
     this.subOff$.complete()
   }
   ngOnInit(): void {
-    this.service.recieveTodayData().pipe(takeUntil(this.subOff$))
-      .subscribe({
-        next: res => {
-          this.data = res;
-          this.data.sort((a, b) => parseFloat(b.Value) - parseFloat(a.Value));
-          this.initializeData();
-          this.setChart();
-        }
-      })
+    // this.service.recieveTodayData().pipe(takeUntil(this.subOff$))
+    //   .subscribe({
+    //     next: res => {
+    //       this.data = res;
+    //       this.data.sort((a, b) => parseFloat(b.Value) - parseFloat(a.Value));
+    //       this.initializeData();
+    //       this.setChart();
+    //     }
+    //   })
+
+      this.data = this.todaysDataFromParent ;
+      this.data.sort((a, b) => parseFloat(b.Value) - parseFloat(a.Value));
+      this.initializeData();
+      this.setChart();
 
   }
   initializeData() {

@@ -9,6 +9,8 @@ import { NewsComponent } from './news/news.component';
 import { MarketSummaryComponent } from './market-summary/market-summary.component';
 
 
+import { SharePatternComponent } from './share-pattern/share-pattern.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -16,15 +18,15 @@ import { MarketSummaryComponent } from './market-summary/market-summary.componen
     TecIndicatorTableComponent,
     ComparisonTableComponent,
     NewsComponent,
-    MarketSummaryComponent
+    MarketSummaryComponent,
+    SharePatternComponent,
   ],
   imports: [
     CommonModule,
     CompanyProfileRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    NgApexchartsModule,
   ],
-  exports: [
-    CompanyProfileIndexComponent
-  ]
+  exports: [CompanyProfileIndexComponent],
 })
-export class CompanyProfileModule { }
+export class CompanyProfileModule {}

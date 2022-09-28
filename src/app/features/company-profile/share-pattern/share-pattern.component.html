@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-8">
+    <apx-chart
+      [series]="lineGraph.series"
+      [chart]="lineGraph.chart"
+      [xaxis]="lineGraph.xaxis"
+      [stroke]="lineGraph.stroke"
+      [tooltip]="lineGraph.tooltip"
+      [dataLabels]="lineGraph.dataLabels"
+      [legend]="lineGraph.legend"
+      [markers]="lineGraph.markers"
+      [grid]="lineGraph.grid"
+      [yaxis]="lineGraph.yaxis"
+      [title]="lineGraph.title"
+    ></apx-chart>
+  </div>
+  <div class="col-4">
+    <apx-chart
+      [series]="pieChartOptions.series"
+      [colors]="pieChartOptions.colors"
+      [dataLabels]="pieChartOptions.dataLabels"
+      [plotOptions]="pieChartOptions.plotOptions"
+      [chart]="pieChartOptions.chart"
+      [fill]="pieChartOptions.fill"
+      [legend]="pieChartOptions.legend"
+      [labels]="pieChartOptions.labels"
+      [responsive]="pieChartOptions.responsive"
+    ></apx-chart>
+
+  </div>
+</div>
