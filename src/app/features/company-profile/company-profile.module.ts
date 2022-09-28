@@ -6,6 +6,9 @@ import { TecIndicatorTableComponent } from './tec-indicator-table/tec-indicator-
 import { ComparisonTableComponent } from './comparison-table/comparison-table.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
+import { MarketSummaryComponent } from './market-summary/market-summary.component';
+
+
 import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { OtherIndicatorsComponent } from './other-indicators/other-indicators.component';
@@ -16,6 +19,7 @@ import { OtherIndicatorsComponent } from './other-indicators/other-indicators.co
     TecIndicatorTableComponent,
     ComparisonTableComponent,
     NewsComponent,
+    MarketSummaryComponent,
     SharePatternComponent,
     OtherIndicatorsComponent,
   ],
