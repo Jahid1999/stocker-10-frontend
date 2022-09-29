@@ -1,16 +1,15 @@
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeModule } from './features/home/home.module';
 import { CoreModule } from './core/core.module';
 import { CompanyProfileModule } from './features/company-profile/company-profile.module';
+import { HomeModule } from './features/home/home.module';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -18,9 +17,9 @@ import { CompanyProfileModule } from './features/company-profile/company-profile
     HomeModule,
     CompanyProfileModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
