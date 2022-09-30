@@ -6,7 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CompanyProfileModule } from './features/company-profile/company-profile.module';
+import { GraphModule } from './features/graph/graph.module';
 import { HomeModule } from './features/home/home.module';
+import { TechnicalIndicatorsModule } from './features/technical-indicators/technical-indicators.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,8 +19,10 @@ import { HomeModule } from './features/home/home.module';
     AppRoutingModule,
     HomeModule,
     CompanyProfileModule,
+    TechnicalIndicatorsModule,
     CoreModule,
     HttpClientModule,
+    GraphModule
   ],
   providers: [],
   bootstrap: [AppComponent],
