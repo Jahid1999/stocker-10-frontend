@@ -1,9 +1,9 @@
 name: Deployment To AWS EC2
 on:
   push:
-    branches: [master]
+    branches: [none]
   pull_request:
-    branches: [master]
+    branches: [none]
   
 concurrency:
   group: build-and-test
