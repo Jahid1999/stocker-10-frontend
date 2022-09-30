@@ -1,0 +1,35 @@
+<!-- <div>
+    <p class="px-3 py-2 bg-dark text-white w-50 text-center">Quaterly</p>
+  </div> -->
+
+  <!-- <table datatable [dtOptions]="dtOptions" class=" hover" style="border-bottom: none;"> </table>    -->
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <!-- <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+  </table> --> 
+  <table mat-table [dataSource] ="dataSource" class="reportTable">
+    <ng-container matColumnDef="quartarly">
+      <th mat-header-cell *matHeaderCellDef> Quarterly </th>
+      <td mat-cell *matCellDef="let element"> {{element.quartarly}} </td>
+    </ng-container>
+    <ng-container matColumnDef="anual">
+      <th mat-header-cell *matHeaderCellDef class="annual" > Annual </th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-list-item routerLinkActive="list-item-active">
+            <button mat-button (click)="getPDF()">
+                <i class="fa fa-download" aria-hidden="true"></i>
+            </button>
+          </a>
+      </td>
+    </ng-container>
+    
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

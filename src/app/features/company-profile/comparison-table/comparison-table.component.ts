@@ -58,6 +58,9 @@ export class ComparisonTableComponent implements OnInit {
     },
   ];
   constructor(private http: HttpClient) {}
+  addClicked(){
+    console.log("kfrb")
+  }
 
   ngOnInit(): void {
     this.dtOptions = {
