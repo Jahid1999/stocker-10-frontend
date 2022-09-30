@@ -1,8 +1,7 @@
 name: Deployment To AWS S3
+
 on:
   push:
-    branches: [master]
-  pull_request:
     branches: [master]
   
 concurrency:
