@@ -13,6 +13,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { OtherIndicatorsComponent } from './other-indicators/other-indicators.component';
 import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from "@angular/material/button";
 
 // @ts-ignore
 @NgModule({
@@ -33,6 +34,7 @@ import { MatTableModule } from '@angular/material/table';
     DataTablesModule,
     MatTableModule,
     NgApexchartsModule,
+    MatButtonModule,
   ],
   exports: [CompanyProfileIndexComponent],
 })
