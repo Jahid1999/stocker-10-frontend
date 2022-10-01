@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, Observable, observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { apiEndpoints } from 'src/environments/environment';
+import { apiEndpoints } from 'src/api-endpoints';
 
 class Info {
   trading_code: string;
