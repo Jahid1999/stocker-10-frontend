@@ -4,11 +4,13 @@ import { CompanyGraphIndexComponent } from './components/company-graph-index/com
 import {CompanyGraphRoutingModule} from "../company-graph/company-graph-routing.module";
 import { ObvGraphComponent } from './components/obv-graph/obv-graph.component';
 import {NgApexchartsModule} from "ng-apexcharts";
+import { SmaGraphComponent } from './components/sma-graph/sma-graph.component';
 
 @NgModule({
   declarations: [
     CompanyGraphIndexComponent,
-    ObvGraphComponent
+    ObvGraphComponent,
+    SmaGraphComponent
   ],
   imports: [
     CommonModule,
