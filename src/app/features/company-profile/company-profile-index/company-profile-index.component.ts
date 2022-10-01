@@ -8,12 +8,15 @@ import { ActivatedRoute } from '@angular/router';
 export class CompanyProfileIndexComponent implements OnInit {
 
   public company_name: string = '';
-  
+
 
   constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.company_name = this.router.snapshot.params['company-name'];
+  }
+  navigateToGraphPage(){
+    console.log(this.company_name);
   }
 
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { DataCompare } from './data.model';
-import { apiEndpoints } from 'src/environments/environment';
+import { apiEndpoints } from 'src/api-endpoints';
 
 @Injectable({
   providedIn: 'root',

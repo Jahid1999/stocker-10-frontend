@@ -5,10 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { CompanyGraphModule } from './features/company-graph/company-graph.module';
 import { CompanyProfileModule } from './features/company-profile/company-profile.module';
-import { GraphModule } from './features/graph/graph.module';
 import { HomeModule } from './features/home/home.module';
-import { TechnicalIndicatorsModule } from './features/technical-indicators/technical-indicators.module';
 
 
 @NgModule({
@@ -19,10 +18,9 @@ import { TechnicalIndicatorsModule } from './features/technical-indicators/techn
     AppRoutingModule,
     HomeModule,
     CompanyProfileModule,
-    TechnicalIndicatorsModule,
+    CompanyGraphModule,
     CoreModule,
     HttpClientModule,
-    GraphModule
   ],
   providers: [],
   bootstrap: [AppComponent],

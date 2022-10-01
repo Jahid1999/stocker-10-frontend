@@ -31,59 +31,27 @@ export type ChartOptions = {
   fill: ApexFill;
   title: ApexTitleSubtitle;
 };
-
 @Component({
-  selector: 'app-market-summary',
-  templateUrl: './market-summary.component.html',
-  styleUrls: ['./market-summary.component.scss']
+  selector: 'app-obv-graph',
+  templateUrl: './obv-graph.component.html',
+  styleUrls: ['./obv-graph.component.scss']
 })
-export class MarketSummaryComponent implements OnInit {
+export class ObvGraphComponent implements OnInit {
 
   constructor() { }
 
   @ViewChild("chart") chart : ChartComponent|any;
   public lineGraph : Partial<ChartOptions>|any;
-  slide:any = 0;
-  id= '0'
-  marketSummary:any= {};
-
   ngOnInit(): void {
-    this.setLineChart();
-    this.loadData();
+    this.setOBVGraph();
   }
-
-  loadData(){
-    this.marketSummary = {
-      prevClose: 134,
-      open: 143,
-      daysRange: '130-150.12',
-      q1Eps:14.13,
-      q2Eps: 13.14,
-      q3Eps: 14.13,
-      q4Eps: 0,
-      authorizedCapital: 100,
-
-      mccap: 1025,
-      volume: 140,
-      halfReturn: 3.32,
-      fullReturn: 2.63,
-      lastAgm: '25-07-2022',
-      listed: 2021,
-      category: 'A',
-      creditRating: 'N/A',
-      shares:14131314,
-      paidUpCap: 50
-    }
-  }
-  setLineChart(){
+  setOBVGraph(){
     let ts2 = 1484418600000;
     let dates = [];
     for (let i = 0; i < 120; i++) {
       ts2 = ts2 + 86400000;
       dates.push([ts2, dataSeries[1][i].value]);
     }
-    console.log("dates = ",dates);
-
     this.lineGraph = {
       series: [
         {
@@ -92,7 +60,7 @@ export class MarketSummaryComponent implements OnInit {
         }
       ],
       chart: {
-        height: 350,
+        height: 400,
         type: "area",
         zoom: {
           type: 'x',
@@ -145,11 +113,4 @@ export class MarketSummaryComponent implements OnInit {
     };
   }
 
-  next(){
-    if(this.slide <1) this.slide++
-  }
-
-  previous(){
-    if(this.slide>0) this.slide--;
-  }
 }

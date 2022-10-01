@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyProfileIndexComponent } from './company-profile-index/company-profile-index.component';
+import {
+  CompanyGraphIndexComponent
+} from "../company-graph/components/company-graph-index/company-graph-index.component";
 const routes: Routes = [
   {
     path: ':company-name',
     component: CompanyProfileIndexComponent
-  }
+  },
 ];
 
 @NgModule({

@@ -11,8 +11,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/company-profile/company-profile.module').then(m => m.CompanyProfileModule )
   },
   {
-    path:'graph',
-    loadChildren:()=>import('./features/graph/graph.module').then(m=>m.GraphModule)
+    path: 'company-profile/:company-name',
+    loadChildren: () => import('./features/company-graph/company-graph.module').then(m => m.CompanyGraphModule )
   }
 ];
 

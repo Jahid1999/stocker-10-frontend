@@ -8,14 +8,15 @@ import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
 import { MarketSummaryComponent } from './market-summary/market-summary.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
-
 import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { OtherIndicatorsComponent } from './other-indicators/other-indicators.component';
 import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
-import { BbGraphComponent } from './bb-graph/bb-graph.component';
 import { CandleSeriesService, ChartModule, LineSeriesService, BollingerBandsService, DateTimeService, RangeAreaSeriesService } from '@syncfusion/ej2-angular-charts';
+import {MatButtonModule} from "@angular/material/button";
+
+// @ts-ignore
 @NgModule({
   declarations: [
     CompanyProfileIndexComponent,
@@ -27,7 +28,6 @@ import { CandleSeriesService, ChartModule, LineSeriesService, BollingerBandsServ
     OtherIndicatorsComponent,
     ProfileCardComponent,
     ReportsComponent,
-    BbGraphComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +35,8 @@ import { CandleSeriesService, ChartModule, LineSeriesService, BollingerBandsServ
     DataTablesModule,
     MatTableModule,
     NgApexchartsModule,
-    ChartModule
+    ChartModule,
+    MatButtonModule,
   ],
   exports: [CompanyProfileIndexComponent],
   providers: [ CandleSeriesService, LineSeriesService, BollingerBandsService, DateTimeService, RangeAreaSeriesService]
