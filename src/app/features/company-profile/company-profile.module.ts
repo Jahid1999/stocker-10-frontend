@@ -16,6 +16,8 @@ import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
 import { BbGraphComponent } from './bb-graph/bb-graph.component';
 import { CandleSeriesService, ChartModule, LineSeriesService, BollingerBandsService, DateTimeService, RangeAreaSeriesService } from '@syncfusion/ej2-angular-charts';
+
+
 @NgModule({
   declarations: [
     CompanyProfileIndexComponent,
@@ -35,7 +37,7 @@ import { CandleSeriesService, ChartModule, LineSeriesService, BollingerBandsServ
     DataTablesModule,
     MatTableModule,
     NgApexchartsModule,
-    ChartModule
+    ChartModule,
   ],
   exports: [CompanyProfileIndexComponent],
   providers: [ CandleSeriesService, LineSeriesService, BollingerBandsService, DateTimeService, RangeAreaSeriesService]
