@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'company-profile',
     loadChildren: () => import('./features/company-profile/company-profile.module').then(m => m.CompanyProfileModule )
+  },
+  {
+    path: 'company-profile/:company-name',
+    loadChildren: () => import('./features/company-graph/company-graph.module').then(m => m.CompanyGraphModule )
   }
 ];
 
