@@ -15,6 +15,7 @@ import { OtherIndicatorsComponent } from './other-indicators/other-indicators.co
 import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     CompanyProfileIndexComponent,
