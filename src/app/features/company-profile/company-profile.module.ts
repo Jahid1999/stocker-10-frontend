@@ -8,7 +8,6 @@ import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
 import { MarketSummaryComponent } from './market-summary/market-summary.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
-
 import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { OtherIndicatorsComponent } from './other-indicators/other-indicators.component';

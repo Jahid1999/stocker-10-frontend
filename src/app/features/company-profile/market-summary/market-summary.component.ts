@@ -82,6 +82,7 @@ export class MarketSummaryComponent implements OnInit {
       ts2 = ts2 + 86400000;
       dates.push([ts2, dataSeries[1][i].value]);
     }
+    console.log("dates = ",dates);
 
     this.lineGraph = {
       series: [
