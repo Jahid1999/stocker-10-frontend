@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraphIndexComponent } from './graph-index.component';
+import { BbGraphComponent } from './bb-graph.component';
 
-describe('GraphIndexComponent', () => {
-  let component: GraphIndexComponent;
-  let fixture: ComponentFixture<GraphIndexComponent>;
+describe('BbGraphComponent', () => {
+  let component: BbGraphComponent;
+  let fixture: ComponentFixture<BbGraphComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraphIndexComponent ]
+      declarations: [ BbGraphComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GraphIndexComponent);
+    fixture = TestBed.createComponent(BbGraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
