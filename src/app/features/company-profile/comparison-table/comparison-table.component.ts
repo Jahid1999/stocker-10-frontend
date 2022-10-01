@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subject, Observable, observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { apiEndpoints } from 'src/environments/environment';
+import { apiEndpoints } from 'src/api-endpoints';
 
 @Component({
   selector: 'app-comparison-table',
@@ -58,8 +58,8 @@ export class ComparisonTableComponent implements OnInit {
     },
   ];
   constructor(private http: HttpClient) {}
-  addClicked(){
-    console.log("kfrb")
+  addClicked() {
+    console.log('kfrb');
   }
 
   ngOnInit(): void {
