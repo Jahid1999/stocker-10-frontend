@@ -11,7 +11,7 @@ import { apiEndpoints } from 'src/api-endpoints';
 })
 export class TecIndicatorTableComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  private _jsonURL = `${apiEndpoints.baseURL}/technical_indicators_staticis/`;
+  private _jsonURL = `${apiEndpoints.baseURL}/technical_indicators_staticis/`
   // dataAvail = true
   // @Input() public tec_indctrs: any;
   tec_indctrs = [{
