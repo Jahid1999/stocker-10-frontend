@@ -8,13 +8,14 @@ import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
 import { MarketSummaryComponent } from './market-summary/market-summary.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
-
 import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { OtherIndicatorsComponent } from './other-indicators/other-indicators.component';
 import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from "@angular/material/button";
 
+// @ts-ignore
 @NgModule({
   declarations: [
     CompanyProfileIndexComponent,
@@ -33,6 +34,7 @@ import { MatTableModule } from '@angular/material/table';
     DataTablesModule,
     MatTableModule,
     NgApexchartsModule,
+    MatButtonModule,
   ],
   exports: [CompanyProfileIndexComponent],
 })

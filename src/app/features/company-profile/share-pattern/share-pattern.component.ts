@@ -58,7 +58,7 @@ export class SharePatternComponent implements OnInit {
         width:350,
         stacked: true,
       },
-      labels: [ "Flat","Up","Down"],
+      labels: [ "Government","Institute", "Foreign", "Directors", "Public Share"],
       dataLabels: {
         enabled: true,
         formatter: function (val:any) {
@@ -198,7 +198,11 @@ export class SharePatternComponent implements OnInit {
       },
       grid: {
         borderColor: "#f1f1f1"
-      }
+      },
+      colors:['#0e274d', '#164d22', '#5c020b', '#C61C1C','#1CC674'],
+      fill: {
+        colors:['#0e274d', '#164d22', '#5c020b', '#C61C1C','#1CC674'],
+      },
     };
   }
 

@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Subject, Observable, observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { apiEndpoints } from 'src/environments/environment';
+import { apiEndpoints } from 'src/api-endpoints';
+
 @Component({
   selector: 'app-tec-indicator-table',
   templateUrl: './tec-indicator-table.component.html',
