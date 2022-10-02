@@ -50,6 +50,18 @@ a {
   width: 100% !important;
 }
 
+.table.dataTable tbody td{
+    padding: 8em 10em;
+}
+th{
+    padding: 0.5em !important;
+    width: 20% !important;
+}
+td{
+    padding: 0.5em !important;
+    width: 20% !important;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
