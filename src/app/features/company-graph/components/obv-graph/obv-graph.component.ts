@@ -72,7 +72,7 @@ export class ObvGraphComponent implements OnInit {
         enabled: false
       },
       stroke: {
-        colors:['#4287f5'],
+        colors:['#AAC4FF'],
         width: 2,
       },
 
