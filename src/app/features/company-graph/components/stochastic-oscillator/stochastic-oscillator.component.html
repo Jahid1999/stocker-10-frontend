@@ -1,0 +1,20 @@
+<p>stochastic-oscillator works!</p>
+<div >
+  <apx-chart
+    [series]="candlestickChart.series"
+    [chart]="candlestickChart.chart"
+    [xaxis]="candlestickChart.xaxis"
+    [yaxis]="candlestickChart.yaxis"
+    [title]="candlestickChart.title"
+  ></apx-chart>
+  <apx-chart
+  [series]="oscillatorChart.series"
+  [chart]="oscillatorChart.chart"
+  [xaxis]="oscillatorChart.xaxis"
+  [colors]="oscillatorChart.colors"
+  [legend]="oscillatorChart.legend"
+  [yaxis]="oscillatorChart.yaxis"
+  [title]="oscillatorChart.title"
+  [stroke]="oscillatorChart.stroke"
+></apx-chart>
+</div>
