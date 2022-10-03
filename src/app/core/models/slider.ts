@@ -1,12 +1,12 @@
 export class Slider{
 
-    public name!: string;
+    public trading_code!: string;
     public trade!: number;
     public price!: number;
     public percentage!: number;
 
     constructor(){
-        this.name = '';
+        this.trading_code = '';
         this.trade = 0;
         this.price = 0;
         this.percentage = 0;
