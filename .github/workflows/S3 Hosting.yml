@@ -1,0 +1,33 @@
+name: Deploy To AWS S3
+on:
+  push:
+    branches: [master]
+  
+concurrency:
+  group: build-and-test
+  #cancel-in-progress: true
+  
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+      
+    steps:
+
+      - name: check
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: NPM Install
+        run: npm install --force
+
+      - name: Production Build
+        run: npm run build 
