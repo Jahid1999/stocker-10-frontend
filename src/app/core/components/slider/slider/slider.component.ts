@@ -26,7 +26,6 @@ export class SliderComponent implements OnInit {
         this.dataProcessingForSlider(response);
         this.itemsQuantity = this.sliders.length;
         this.addIconForTrade(this.sliders);
-        // console.log(this.sliders);
         this.isLoad = true;
       }
     });
