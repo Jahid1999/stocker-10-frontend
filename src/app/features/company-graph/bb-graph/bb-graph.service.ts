@@ -23,11 +23,10 @@ export class BbGraphService {
     );
   }
 
-  getCompanyNameCode(name: string) {
+  getCompanyNameCode() {
     let url = "http://63.33.210.220/api/home_company_data/";
     return this.http.get<any[]>(url).pipe(
       map((res: any) => {
-        console.log(res)
         return res
       })
     )

@@ -14,7 +14,7 @@ export class BbGraphComponent implements OnInit {
   bbData: bbData[] | any ;
   dataPoints:any[] = [];
   companyCode:string = '';
-  currentRoute: string = '';
+  currentRoute: string = ' ';
   chartOptions = {
     animationEnabled: true,
     exportEnabled: true,
@@ -35,21 +35,20 @@ export class BbGraphComponent implements OnInit {
       dataPoints: this.dataPoints
     }]}
   constructor(private service:BbGraphService,private router: Router) {
-   // console.log(router.url);
-    // router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
-    //       .subscribe((event: { url: string; }) => 
-    //        {
-    //           this.currentRoute = event.url;          
-    //           console.log(event);
-    //        });
-    
+    let text = router.url;
+    let str = '';
+    const myArray = text.split("/");
+    let arr = myArray[2].split("%20")
+    for (let x of arr){
+      str= str+x+' ';
+    }
+    this.companyCode = str;
+    this.companyCode = this.companyCode.slice(0,-1)
   }
   ngOnInit(): void {
-    this.service.getCompanyNameCode("aamra networks limited").subscribe((res:any)=>{
-       console.log(res)
+    this.service.getCompanyNameCode().subscribe((res:any)=>{
        res.forEach((val: any) => {
-        if (val.trading_code == "aamra networks limited") {
-          console.log(val.scrip)
+        if (val.trading_code == this.companyCode) {
           this.companyCode =  val.scrip;
         }
       })
