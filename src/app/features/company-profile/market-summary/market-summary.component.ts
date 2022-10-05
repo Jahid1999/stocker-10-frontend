@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -43,20 +43,21 @@ export type ChartOptions = {
 export class MarketSummaryComponent implements OnInit {
 
   constructor(private summaryService: MarketSummaryService) { }
-
+  @Input() companyCode = '';
   @ViewChild("chart") chart : ChartComponent|any;
   public lineGraph : Partial<ChartOptions>|any;
   slide:any = 0;
   id= '0'
   marketSummary:any= {};
   graphReady = false;
+
   ngOnInit(): void {
     this.setLineChart();
     this.loadData();
   }
 
   loadData(){
-    this.summaryService.getMarketSummary('').subscribe(data=>{
+    this.summaryService.getMarketSummary(this.companyCode).subscribe(data=>{
       this.marketSummary = data;
       console.log(data)
     })
@@ -71,7 +72,7 @@ export class MarketSummaryComponent implements OnInit {
     //   dates.push([ts2, dataSeries[1][i].value]);
     // }
     // console.log("dates = ",dates);
-    this.summaryService.getGraphData('').subscribe((data:any)=>{
+    this.summaryService.getGraphData(this.companyCode).subscribe((data:any)=>{
         console.log(data.length)
         for(let i=0;i<data.length;i++){
           //console.log(data[i].date)

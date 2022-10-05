@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-company-graph-index',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyGraphIndexComponent implements OnInit {
 
-  constructor() { }
+  public company_name = '';
+
+  constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log("Hello");
+    this.company_name = this.router.snapshot.params['company-name'];
+    console.log(this.company_name)
   }
 
 }

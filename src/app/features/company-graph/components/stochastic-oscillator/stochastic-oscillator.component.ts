@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -42,11 +42,9 @@ export type ChartOptions = {
 })
 export class StochasticOscillatorComponent implements OnInit {
 
-
   public candlestickChart : Partial<ChartOptions>|any;
   public oscillatorChart : Partial<ChartOptions>|any;
-  slide:any = 0;
-  id= '0';
+  @Input() companyCode ='';
   dataReady = false;
   kseries:any = [];
   dseries:any = [];
@@ -81,7 +79,7 @@ export class StochasticOscillatorComponent implements OnInit {
     }
   }
   loadStochasticData(){
-    this.stochasticService.getStochasticData('').subscribe((data:any)=>{
+    this.stochasticService.getStochasticData(this.companyCode).subscribe((data:any)=>{
       this.setPeriod(data);
       this.setKSeries(data);
       this.setDSeries(data);
