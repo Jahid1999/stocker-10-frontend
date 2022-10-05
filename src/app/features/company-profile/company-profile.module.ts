@@ -38,10 +38,6 @@ import {MatButtonModule} from "@angular/material/button";
     MatTableModule,
     NgApexchartsModule,
     ChartModule,
-<<<<<<< HEAD
-    MatButtonModule,
-=======
->>>>>>> eabf5888a8f4007673862ff2b69054f50aeaa6ba
   ],
   exports: [CompanyProfileIndexComponent],
   providers: [ CandleSeriesService, LineSeriesService, BollingerBandsService, DateTimeService, RangeAreaSeriesService]

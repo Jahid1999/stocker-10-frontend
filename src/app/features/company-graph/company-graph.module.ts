@@ -5,12 +5,14 @@ import {CompanyGraphRoutingModule} from "../company-graph/company-graph-routing.
 import { ObvGraphComponent } from './components/obv-graph/obv-graph.component';
 import {NgApexchartsModule} from "ng-apexcharts";
 import { BbGraphComponent } from './bb-graph/bb-graph.component';
-
+import * as CanvasJSAngularChart from 'src/assets/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
   declarations: [
     CompanyGraphIndexComponent,
     ObvGraphComponent,
-    BbGraphComponent
+    BbGraphComponent,
+    CanvasJSChart
   ],
   imports: [
     CommonModule,
