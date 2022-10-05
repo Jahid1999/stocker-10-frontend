@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
 <div class="container">
     <div class="row">
-        <div *ngIf="loadSlider">
+        <div *ngIf="isLoad">
             <app-inner-content #slider [itemWidth]=itemWidth [itemHeight]=itemHeight [itemsQuantity]=itemsQuantity [showControls]="true">
                 <div class="inline">
                     <ng-container *appDuplicate>
-                    <div *ngFor="let item of sliderData;let indexOfelement=index;">
+                    <div *ngFor="let item of sliders;let indexOfelement=index;">
                         <div class="card slider-card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex flex-column">
                                         <p class="card-text {{item.textColor}} textBold">
-                                            {{item.name}}
+                                            {{item.trading_code}}
                                         </p>
                                         <p class="card-text {{item.textColor}}">
                                             {{item.trade.toFixed(2)}}
@@ -19,10 +19,10 @@
                                     </div>
                                     <div class="d-flex flex-column">
                                         <p class="card-text {{item.textColor}} textBold">
-                                            {{item.price.toFixed(2)}}
+                                            {{item.price}}
                                         </p>
                                         <p class="card-text {{item.textColor}}">
-                                            {{item.percentage.toFixed(2)}}%
+                                            {{item.percentage}}%
                                         </p>
                                     </div>
                                     <div class="d-flex flex-column align-self-center">

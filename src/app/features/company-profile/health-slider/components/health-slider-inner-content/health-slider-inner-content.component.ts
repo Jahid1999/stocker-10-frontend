@@ -1,18 +1,12 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
-import {
-  animate,
-  AnimationBuilder,
-  AnimationFactory,
-  AnimationPlayer,
-  style,
-} from '@angular/animations'
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style} from "@angular/animations";
 
 @Component({
-  selector: 'app-inner-content',
-  templateUrl: './inner-content.component.html',
-  styleUrls: ['./inner-content.component.scss']
+  selector: 'app-health-slider-inner-content',
+  templateUrl: './health-slider-inner-content.component.html',
+  styleUrls: ['./health-slider-inner-content.component.scss']
 })
-export class InnerContentComponent implements OnInit {
+export class HealthSliderInnerContentComponent implements OnInit {
 
   @Input() itemWidth: number = 0;
   @Input() itemHeight: number = 0;

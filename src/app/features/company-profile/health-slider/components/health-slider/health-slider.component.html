@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
+<div class="container">
+  <div class="row">
+    <div *ngIf="isLoad">
+      <app-health-slider-inner-content #slider [itemWidth]=itemWidth [itemHeight]=itemHeight [itemsQuantity]=itemsQuantity
+                                       [showControls]="true">
+        <div class="inline">
+          <ng-container *appHealthSliderDuplicateDirective>
+            <div *ngFor="let item of healthIndicatorSliders;let indexOfelement=index;">
+              <div class="card slider-card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                      <p class="card-text textBold">
+                        {{item.name}}
+                      </p>
+                      <p class="card-text">
+                        {{item.value}}
+                      </p>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <i class="fa-regular fa-circle-question"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </app-health-slider-inner-content>
+    </div>
+  </div>
+</div>
+

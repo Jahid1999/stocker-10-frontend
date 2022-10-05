@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -14,7 +15,7 @@ import {
   ApexFill,
   ApexLegend,ApexTooltip,
 } from "ng-apexcharts";
-import { dataSeries } from "./data-series";
+import {ObvDataService} from "./service/obv-data.service";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -38,25 +39,39 @@ export type ChartOptions = {
 })
 export class ObvGraphComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("chart") chart : ChartComponent|any;
   public lineGraph : Partial<ChartOptions>|any;
+  public company_code: string = '';
+  public obvGraphData : any[][] = [];
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private router:Router,
+              private _obvService:ObvDataService) { }
+
+
   ngOnInit(): void {
-    this.setOBVGraph();
+    this.company_code = this.activatedRoute.snapshot.params['company-name'];
+    this.getOBVGraphData();
   }
+
+  getOBVGraphData(){
+    this._obvService.getOBVGraphData(this.company_code).subscribe((response:any)=>{
+      console.log(response);
+      response.forEach((item:any)=>{
+        this.obvGraphData.push([item.DateEpoch,item.OBV]);
+      });
+      this.setOBVGraph();
+    },(error) => {
+      console.log("error = ",error);
+    });
+  }
+
   setOBVGraph(){
-    let ts2 = 1484418600000;
-    let dates = [];
-    for (let i = 0; i < 120; i++) {
-      ts2 = ts2 + 86400000;
-      dates.push([ts2, dataSeries[1][i].value]);
-    }
     this.lineGraph = {
       series: [
         {
           name: "Price",
-          data: dates
+          data: this.obvGraphData
         }
       ],
       chart: {
@@ -72,7 +87,7 @@ export class ObvGraphComponent implements OnInit {
         enabled: false
       },
       stroke: {
-        colors:['#4287f5'],
+        colors:['#AAC4FF'],
         width: 2,
       },
 
@@ -83,13 +98,8 @@ export class ObvGraphComponent implements OnInit {
         }
       },
       yaxis: {
-        labels: {
-          formatter: function (val:any) {
-            return (val / 1000000).toFixed(0);
-          },
-        },
         title: {
-          text: 'Price'
+          text: 'OBV'
         },
       },
       xaxis: {
@@ -99,7 +109,6 @@ export class ObvGraphComponent implements OnInit {
         colors: ['#4287f5'],
         type: 'gradient',
         gradient: {
-
           shadeIntensity: 1,
           inverseColors: false,
           opacityFrom: 0.7,

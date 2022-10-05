@@ -4,7 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { SliderComponent } from './components/slider/slider/slider.component';
 import { InnerContentComponent } from './components/slider/inner-content/inner-content.component';
-import { DuplicateDirective } from './directives/duplicate.directive';  
+import { DuplicateDirective } from './directives/duplicate.directive';
 import { SliderService } from './services/slider.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     DuplicateDirective,
   ],
   providers:[
-    SliderService,
+    SliderService
   ]
 })
 export class CoreModule { }

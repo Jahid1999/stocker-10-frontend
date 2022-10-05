@@ -1,0 +1,28 @@
+<div>
+  <p class="text-left"><b class="border-bottom">MACD</b></p>
+  <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [yaxis]="chartOptions.yaxis"
+      [xaxis]="chartOptions.xaxis"
+      [stroke]="chartOptions.stroke"
+      [plotOptions]="chartOptions.plotOptions"
+      [dataLabels]="chartOptions.dataLabels"
+      [legend]="chartOptions.legend"
+    ></apx-chart>
+  </div>
+</div>
+<!-- <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [yaxis]="chartOptions.yaxis"
+      [xaxis]="chartOptions.xaxis"
+      [labels]="chartOptions.labels"
+      [stroke]="chartOptions.stroke"
+      [plotOptions]="chartOptions.plotOptions"
+      [markers]="chartOptions.markers"
+      [fill]="chartOptions.fill"
+      [tooltip]="chartOptions.tooltip"
+      [dataLabels]="chartOptions.dataLabels"
+    ></apx-chart> -->

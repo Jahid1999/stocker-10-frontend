@@ -14,6 +14,9 @@ import { OtherIndicatorsComponent } from './other-indicators/other-indicators.co
 import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatButtonModule} from "@angular/material/button";
+import { HealthSliderComponent } from './health-slider/components/health-slider/health-slider.component';
+import { HealthSliderDuplicateDirective } from './health-slider/directives/health-slider-duplicate.directive';
+import { HealthSliderInnerContentComponent } from './health-slider/components/health-slider-inner-content/health-slider-inner-content.component';
 
 // @ts-ignore
 @NgModule({
@@ -27,6 +30,9 @@ import {MatButtonModule} from "@angular/material/button";
     OtherIndicatorsComponent,
     ProfileCardComponent,
     ReportsComponent,
+    HealthSliderComponent,
+    HealthSliderDuplicateDirective,
+    HealthSliderInnerContentComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +42,9 @@ import {MatButtonModule} from "@angular/material/button";
     NgApexchartsModule,
     MatButtonModule,
   ],
-  exports: [CompanyProfileIndexComponent],
+  exports: [
+    CompanyProfileIndexComponent,
+    HealthSliderDuplicateDirective
+  ],
 })
 export class CompanyProfileModule {}
