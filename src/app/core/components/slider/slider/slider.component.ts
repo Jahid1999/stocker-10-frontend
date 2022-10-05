@@ -9,44 +9,41 @@ import { Slider } from 'src/app/core/models/slider';
 })
 export class SliderComponent implements OnInit {
 
-  public sliderData: any;
   public itemsQuantity: number = 0;
   public itemWidth: number = 190;
   public itemHeight: number = 100;
 
   public sliders: any = [];
-  public loadSlider: boolean = false;
-  
+  public isLoad: boolean = false
 
   constructor(private sliderService: SliderService) { }
 
 
   ngOnInit(): void {
-    this.sliderData = this.sliderService.getSliderData();
-    this.itemsQuantity = this.sliderData.length;
-    this.addIconForTarde(this.sliderData);
 
-    // this.sliderService.tempGetSliderData().subscribe((response)=>{
-    //   if(response){
-    //     this.dataProcessingForSlider(response);
-    //     this.itemsQuantity = this.sliders.length;
-    //     this.addIconForTarde(this.sliders);
-    //     console.log(this.sliders);
-    //   }
-    // });
+    this.sliderService.getSliderData().subscribe((response)=>{
+      if(response){
+        this.dataProcessingForSlider(response);
+        this.itemsQuantity = this.sliders.length;
+        this.addIconForTrade(this.sliders);
+        this.isLoad = true;
+      }
+    });
   }
+
 
   public dataProcessingForSlider(data: any){
     data.forEach((element: any, index: any)=>{
       let slider: Slider = new Slider();
-      slider.price = element.ltp;
-      slider.trade = element.ltp - element.ycp;
-      slider.percentage = (element.ltp - element.ycp)/element.ycp;
-      this.sliders.push(slider); 
+      slider.trading_code = element.trading_code;
+      slider.price = element.ycp;
+      slider.trade = element.difference;
+      slider.percentage = element.percetage;
+      this.sliders.push(slider);
     });
   }
 
-  public addIconForTarde(sliderData: any){
+  public addIconForTrade(sliderData: any){
     sliderData.forEach((element: any,index: any) => {
       if(element.trade < 0){
         element['icon'] = "fa fa-down-long";
@@ -61,9 +58,9 @@ export class SliderComponent implements OnInit {
         element['textColor'] = "text-success";
         element['isFlat'] = false;
       }
-      
+
     });
-    this.loadSlider = true;
+
   }
 
 }

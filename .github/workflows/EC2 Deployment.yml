@@ -28,20 +28,4 @@ jobs:
       - name: push docker image
         run: docker push '${{secrets.DOCKER_USERNAME}}'/spm:'latest'
         
-  Deploy:
-    needs: Build
-    runs-on: ubuntu-latest
-    
-    steps:  
-    - name: ls -a via ssh
-      uses: fifsky/ssh-action@master
-      with:
-        command: |
-              cd spm
-              sudo docker-compose stop
-              sudo docker-compose rm -f
-              sudo docker-compose pull   
-              sudo docker-compose up -d
-        host: ${{ secrets.HOSTNAME  }}
-        user: ${{ secrets.USER_NAME  }}
-        key: ${{ secrets.PEM_FILE  }}
+

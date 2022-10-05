@@ -15,6 +15,9 @@ import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
 import { CandleSeriesService, ChartModule, LineSeriesService, BollingerBandsService, DateTimeService, RangeAreaSeriesService } from '@syncfusion/ej2-angular-charts';
 import {MatButtonModule} from "@angular/material/button";
+import { HealthSliderComponent } from './health-slider/components/health-slider/health-slider.component';
+import { HealthSliderDuplicateDirective } from './health-slider/directives/health-slider-duplicate.directive';
+import { HealthSliderInnerContentComponent } from './health-slider/components/health-slider-inner-content/health-slider-inner-content.component';
 
 // @ts-ignore
 
@@ -30,6 +33,9 @@ import {MatButtonModule} from "@angular/material/button";
     OtherIndicatorsComponent,
     ProfileCardComponent,
     ReportsComponent,
+    HealthSliderComponent,
+    HealthSliderDuplicateDirective,
+    HealthSliderInnerContentComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +45,8 @@ import {MatButtonModule} from "@angular/material/button";
     NgApexchartsModule,
     ChartModule,
   ],
-  exports: [CompanyProfileIndexComponent],
+  exports: [CompanyProfileIndexComponent,    HealthSliderDuplicateDirective],
   providers: [ CandleSeriesService, LineSeriesService, BollingerBandsService, DateTimeService, RangeAreaSeriesService]
+  
 })
 export class CompanyProfileModule {}
