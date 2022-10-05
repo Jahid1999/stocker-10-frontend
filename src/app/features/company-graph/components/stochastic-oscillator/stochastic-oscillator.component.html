@@ -7,7 +7,7 @@
     [yaxis]="candlestickChart.yaxis"
     [title]="candlestickChart.title"
   ></apx-chart>
-  <apx-chart
+  <apx-chart *ngIf="dataReady"
   [series]="oscillatorChart.series"
   [chart]="oscillatorChart.chart"
   [xaxis]="oscillatorChart.xaxis"

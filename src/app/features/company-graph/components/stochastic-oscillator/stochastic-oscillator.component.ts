@@ -16,6 +16,7 @@ import {
 
 } from "ng-apexcharts";
 import { seriesData } from "./data-series";
+import { StochasticOscillatorService } from './service/stochastic-oscillator.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -45,16 +46,50 @@ export class StochasticOscillatorComponent implements OnInit {
   public candlestickChart : Partial<ChartOptions>|any;
   public oscillatorChart : Partial<ChartOptions>|any;
   slide:any = 0;
-  id= '0'
-  marketSummary:any= {};
-
-  constructor() { }
+  id= '0';
+  dataReady = false;
+  kseries:any = [];
+  dseries:any = [];
+  date: any = [];
+  ovb: any = [];
+  ovs: any = [];
+  constructor(private stochasticService: StochasticOscillatorService) { }
 
   ngOnInit(): void {
+    this.loadStochasticData()
     this.setChart();
-    this.findK_series();
   }
 
+  setPeriod(data:any){
+    for(let i=data.length-1;i>=(data.length-365);i--){
+      this.date.push(data[i].DateEpoch);
+
+    }
+  }
+
+  setKSeries(data:any){
+    for(let i=data.length-1;i>=(data.length-365);i--){
+      this.kseries.push(data[i-365].Stochastic);
+    }
+  }
+
+  setDSeries(data: any){
+    for(let i=2;i<this.kseries.length;i++){
+      //let d = (this.kseries[i]+this.kseries[i-1]+this.kseries[i-2])/3;
+      this.dseries.push((this.kseries[i]+this.kseries[i-1]+this.kseries[i-2])/3);
+      this.ovs.push(20); this.ovb.push(80);
+    }
+  }
+  loadStochasticData(){
+    this.stochasticService.getStochasticData('').subscribe((data:any)=>{
+      this.setPeriod(data);
+      this.setKSeries(data);
+      this.setDSeries(data);
+
+      this.setOscillatorChart(this.kseries, this.dseries)
+    })
+
+  }
   findK_series(){
     let max=0, min=9000;
     let kdata = [];
@@ -74,34 +109,42 @@ export class StochasticOscillatorComponent implements OnInit {
       let d = (kdata[i]['k-value']+kdata[i-1]['k-value']+kdata[i-2]['k-value'])/3;
       dData.push(d);
     }
-    dData.forEach(element => {
-      console.log(element)
-    });
-    kdata.forEach(element => {
-      console.log(element)
-    });
+    // dData.forEach(element => {
+    //   console.log(element)
+    // });
+    // kdata.forEach(element => {
+    //   console.log(element)
+    // });
     this.setOscillatorChart(kdata, dData)
   }
 
 
   setOscillatorChart(kdata:any, dData: any){
-    let kvalue: any = [];
-    let date: any = [];
-    kdata.forEach((element: any) => {
-       kvalue.push(element["k-value"].toFixed(2));
-       date.push(element["date"]);
-    });
-    console.log(kvalue)
+    // let kvalue: any = [];
+    // let date: any = [];
+    // kdata.forEach((element: any) => {
+    //    kvalue.push(element["k-value"].toFixed(2));
+    //    date.push(element["date"]);
+    // });
+    // console.log(kvalue)
     this.oscillatorChart = {
       series:[
         {
           name : "%K",
-          data: kvalue.slice(2)
+          data: kdata.slice(2)
         },
-
         {
           name: "%D",
           data: dData
+        },
+
+        {
+          name: "Overbought",
+          data: this.ovb,
+        },
+        {
+          name: "Oversold",
+          data: this.ovs,
         }
       ],
       chart: {
@@ -113,9 +156,10 @@ export class StochasticOscillatorComponent implements OnInit {
         text: "Stochastic Oscilator (14-day period)",
         align: "center"
       },
-      colors:['#4287f5','#fc7b03'],
+      colors:['#4287f5','#fc7b03','#ff0000','#0a6b15'],
       stroke: {
-        width: 2,
+        width: [2,2,1,1],
+        dashArray: [0, 0, 4,4]
       },
       legend: {
         show: true,
@@ -135,12 +179,12 @@ export class StochasticOscillatorComponent implements OnInit {
       },
       xaxis: {
         type: "datetime",
-        categories:date.slice(2)
+        categories:this.date.slice(2)
       },
       yaxis: [{
         labels: {
             formatter: function (val:any) {
-                return val.toFixed(2)
+                if(val) return val.toFixed(2)
             }
         },
         tooltip: {
@@ -148,6 +192,7 @@ export class StochasticOscillatorComponent implements OnInit {
         }
     }]
     }
+    this.dataReady =true
   }
 
   setChart(){
