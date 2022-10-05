@@ -6,6 +6,8 @@ import { ObvGraphComponent } from './components/obv-graph/obv-graph.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { MACDComponent } from './components/macd/macd.component';
 import { SmaGraphComponent } from './components/sma-graph/sma-graph.component';
+import { AdmGraphComponent } from './components/adm-graph/adm-graph.component';
+import { RsiGraphComponent } from './components/rsi-graph/rsi-graph.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { SmaGraphComponent } from './components/sma-graph/sma-graph.component';
     ObvGraphComponent,
     MACDComponent,
     SmaGraphComponent,
+    AdmGraphComponent,
+    RsiGraphComponent,
   ],
   imports: [CommonModule, CompanyGraphRoutingModule, NgApexchartsModule],
   exports: [CompanyGraphIndexComponent],
