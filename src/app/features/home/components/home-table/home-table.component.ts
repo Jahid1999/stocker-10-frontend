@@ -111,7 +111,6 @@ export class HomeTableComponent implements OnInit {
         return dat.trading_code != '';
       });
       this.dtOptions.data = data;
-
       this.dataAvail = true;
     });
   }
