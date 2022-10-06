@@ -7,6 +7,8 @@ import {NgApexchartsModule} from "ng-apexcharts";
 import { MACDComponent } from './components/macd/macd.component';
 import { StochasticOscillatorComponent } from './components/stochastic-oscillator/stochastic-oscillator.component'
 import { SmaGraphComponent } from './components/sma-graph/sma-graph.component';
+import { AdmGraphComponent } from './components/adm-graph/adm-graph.component';
+import { RsiGraphComponent } from './components/rsi-graph/rsi-graph.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { SmaGraphComponent } from './components/sma-graph/sma-graph.component';
     MACDComponent,
     StochasticOscillatorComponent,
     SmaGraphComponent,
+    AdmGraphComponent,
+    RsiGraphComponent,
   ],
   imports: [CommonModule, CompanyGraphRoutingModule, NgApexchartsModule],
   exports: [CompanyGraphIndexComponent],
