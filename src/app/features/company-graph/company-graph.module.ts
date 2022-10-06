@@ -9,20 +9,22 @@ import * as CanvasJSAngularChart from 'src/assets/canvasjs.angular.component';
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 import { MACDComponent } from './components/macd/macd.component';
 import {SmaGraphComponent } from './components/sma-graph/sma-graph.component';
+import { ComBbGraphComponent } from './com-bb-graph/com-bb-graph.component';
 
 @NgModule({
   declarations: [
     CompanyGraphIndexComponent,
     ObvGraphComponent,
     BbGraphComponent,
-    CanvasJSChart
+    CanvasJSChart,
+    MACDComponent,
+    SmaGraphComponent,
+    ComBbGraphComponent,
   ],
   imports: [
     CommonModule,
     CompanyGraphRoutingModule,
     NgApexchartsModule,
-    MACDComponent,
-    SmaGraphComponent,
   ],
   exports: [CompanyGraphIndexComponent],
 })

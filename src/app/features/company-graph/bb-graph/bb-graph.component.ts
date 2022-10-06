@@ -38,20 +38,21 @@ export class BbGraphComponent implements OnInit {
     let text = router.url;
     let str = '';
     const myArray = text.split("/");
-    let arr = myArray[2].split("%20")
-    for (let x of arr){
-      str= str+x+' ';
-    }
-    this.companyCode = str;
-    this.companyCode = this.companyCode.slice(0,-1)
+    console.log(myArray)
+    // let arr = myArray[2].split("%20")
+    // for (let x of arr){
+    //   str= str+x+' ';
+    // }
+    this.companyCode = myArray[2];
+    // this.companyCode = this.companyCode.slice(0,-1)
   }
   ngOnInit(): void {
-    this.service.getCompanyNameCode().subscribe((res:any)=>{
-       res.forEach((val: any) => {
-        if (val.trading_code == this.companyCode) {
-          this.companyCode =  val.scrip;
-        }
-      })
+    // this.service.getCompanyNameCode().subscribe((res:any)=>{
+    //    res.forEach((val: any) => {
+    //     if (val.trading_code == this.companyCode) {
+    //       this.companyCode =  val.scrip;
+    //     }
+    //   })
        this.service.recieveBbData(this.companyCode).subscribe(
         (response: any)=>{
           this.bbData = response ;
@@ -64,7 +65,7 @@ export class BbGraphComponent implements OnInit {
           });
           this.chart.render();
       });
-    })
+    // })
    
     }
     getChartInstance(chart: object) {
