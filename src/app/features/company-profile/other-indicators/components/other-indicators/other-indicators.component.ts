@@ -12,6 +12,9 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
+import {OtherIndicatorsService} from "../../services/other-indicators.service";
+import {ActivatedRoute} from "@angular/router";
+import {DatePipe} from "@angular/common";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -36,11 +39,45 @@ export class OtherIndicatorsComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent | any;
   public chartOptions: Partial<ChartOptions> | any;
 
-  constructor() { }
+  public company_code: any;
+  public isGraphReady: any = false;
+  public dates: any = [];
+  public DYValues: any = [];
+  public MACDValues: any = [];
+  public PERATIOValues: any = [];
+
+  constructor(private route: ActivatedRoute,
+              private otherIndicatorsService: OtherIndicatorsService,
+              private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.setBarChartData();
+    // this.setBarChartData();
+    this.company_code = this.route.snapshot.paramMap.get('company-name');
+    this.otherIndicatorsService.getOtherIndicatorsData(this.company_code).subscribe((response: any)=>{
+      if(response){
+        this.processingTheData(response);
+        console.log(this.dates);
+        console.log(this.DYValues);
+        console.log(this.MACDValues);
+        console.log(this.PERATIOValues);
+        this.setBarChartData();
+        this.isGraphReady = true;
+      }
+    },(error: any)=>{
+      console.log(error.message);
+    });
   }
+
+  processingTheData(data: any){
+    for(let key in data){
+      let date = this.datePipe.transform(key, "dd MMM yyyy");
+      this.dates.push(date);
+      this.DYValues.push(data[key][0].toFixed(2));
+      this.MACDValues.push(data[key][1].toFixed(2));
+      this.PERATIOValues.push(data[key][2].toFixed(2));
+    }
+  }
+
 
   setBarChartData(){
     this.chartOptions = {
@@ -51,15 +88,15 @@ export class OtherIndicatorsComponent implements OnInit {
       series: [
         {
           name: "DIVIDENT YIELD",
-          data: [4.4, 5.5, 5.7, 5.6, 6.1]
+          data: this.DYValues
         },
         {
           name: "PE RATIO",
-          data: [5.5, 3.5, 4.9, 7, 7.6]
+          data: this.PERATIOValues
         },
         {
           name: "MACD",
-          data: [7.1, 4.1, 3.6, 2.6, 4.5]
+          data: this.MACDValues
         }
       ],
       chart: {
@@ -82,13 +119,7 @@ export class OtherIndicatorsComponent implements OnInit {
         colors: ["transparent"]
       },
       xaxis: {
-        categories: [
-          "2017",
-          "2018",
-          "2019",
-          "2020",
-          "2021"
-        ]
+        categories: this.dates
       },
       yaxis: {
         title: {

@@ -15,26 +15,8 @@ export class HealthSliderComponent implements OnInit {
   public itemHeight: number = 100;
 
   public healthIndicatorSliders: any = [];
-  public company_name: any;
+  public company_code: any;
 
-  public tempHealthIndicatorSliders: any = [
-    {
-      name: "EPS",
-      value: 98.69
-    },
-    {
-      name: "PE RATIO",
-      value: 24.64
-    },
-    {
-      name: "PEG",
-      value: 2.98
-    },
-    {
-      name: "DY",
-      value: 12.23
-    },
-  ];
   public isLoad: boolean = false;
 
   constructor(private route: ActivatedRoute,
@@ -42,17 +24,17 @@ export class HealthSliderComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    this.company_name = this.route.snapshot.paramMap.get('company-name');
-    this.healthSliderService.getHealthSliderData(this.company_name).subscribe((response: any)=>{
+    this.company_code = this.route.snapshot.paramMap.get('company-name');
+    this.healthSliderService.getHealthSliderData(this.company_code).subscribe((response: any)=>{
       if(response){
         this.dataProcessingForSlider(response);
         this.itemsQuantity = this.healthIndicatorSliders.length;
         this.isLoad = true;
       }
+    },(error: any)=>{
+      console.log(error.message);
     });
   }
-
 
   public dataProcessingForSlider(data: any){
     for(let key in data){
