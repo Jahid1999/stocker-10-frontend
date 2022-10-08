@@ -116,9 +116,9 @@ export class HomeTableComponent implements OnInit {
   }
 
   public getJSON(): Observable<any> {
-    
+
     return this.http.get<any>(this._jsonURL);
-    
+
   }
 
   // infos: Info[] = [];
