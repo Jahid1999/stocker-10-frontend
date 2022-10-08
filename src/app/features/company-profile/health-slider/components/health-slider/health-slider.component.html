@@ -1,21 +1,42 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+/>
 <div class="container">
+  <div class="header pt-3">
+    <div class="row">
+      <div class="col-md-3 report" style="padding: 0">
+        <b>HEALTH INDICATOR</b>
+        <hr style="height: 3px; background: black" />
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div *ngIf="isLoad">
-      <app-health-slider-inner-content #slider [itemWidth]=itemWidth [itemHeight]=itemHeight [itemsQuantity]=itemsQuantity
-                                       [showControls]="true">
+      <app-health-slider-inner-content
+        #slider
+        [itemWidth]="itemWidth"
+        [itemHeight]="itemHeight"
+        [itemsQuantity]="itemsQuantity"
+        [showControls]="true"
+      >
         <div class="inline">
           <ng-container *appHealthSliderDuplicateDirective>
-            <div *ngFor="let item of healthIndicatorSliders;let indexOfelement=index;">
+            <div
+              *ngFor="
+                let item of healthIndicatorSliders;
+                let indexOfelement = index
+              "
+            >
               <div class="card slider-card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
                     <div class="d-flex flex-column">
                       <p class="card-text textBold">
-                        {{item.name}}
+                        {{ item.name }}
                       </p>
                       <p class="card-text">
-                        {{item.value}}
+                        {{ item.value }}
                       </p>
                     </div>
                     <div class="d-flex flex-column">
@@ -31,4 +52,3 @@
     </div>
   </div>
 </div>
-
