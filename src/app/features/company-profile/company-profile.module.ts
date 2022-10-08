@@ -12,13 +12,22 @@ import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
-import {MatButtonModule} from "@angular/material/button";
+import {
+  CandleSeriesService,
+  ChartModule,
+  LineSeriesService,
+  BollingerBandsService,
+  DateTimeService,
+  RangeAreaSeriesService,
+} from '@syncfusion/ej2-angular-charts';
+import { MatButtonModule } from '@angular/material/button';
 import { HealthSliderComponent } from './health-slider/components/health-slider/health-slider.component';
 import { HealthSliderDuplicateDirective } from './health-slider/directives/health-slider-duplicate.directive';
 import { HealthSliderInnerContentComponent } from './health-slider/components/health-slider-inner-content/health-slider-inner-content.component';
-import {OtherIndicatorsComponent} from "./other-indicators/components/other-indicators/other-indicators.component";
+import { OtherIndicatorsComponent } from './other-indicators/components/other-indicators/other-indicators.component';
 
 // @ts-ignore
+
 @NgModule({
   declarations: [
     CompanyProfileIndexComponent,
@@ -45,6 +54,14 @@ import {OtherIndicatorsComponent} from "./other-indicators/components/other-indi
   exports: [
     CompanyProfileIndexComponent,
     HealthSliderDuplicateDirective,
+    ChartModule,
+  ],
+  providers: [
+    CandleSeriesService,
+    LineSeriesService,
+    BollingerBandsService,
+    DateTimeService,
+    RangeAreaSeriesService,
   ],
 })
 export class CompanyProfileModule {}

@@ -5,10 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { CompanyGraphModule } from './features/company-graph/company-graph.module';
 import { CompanyProfileModule } from './features/company-profile/company-profile.module';
-import { CompanyGraphModule} from "./features/company-graph/company-graph.module";
 import { HomeModule } from './features/home/home.module';
 import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [AppComponent],
