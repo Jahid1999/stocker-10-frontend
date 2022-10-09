@@ -57,7 +57,7 @@ export class RsiGraphComponent implements OnInit {
         this.rsiGraphData.push([parseInt(key), response[key]]);
         // console.log(key + ":======:" + response[key]);
       }
-      // this.setADMGraph();
+      
       this.setRSIGraph();
     },(error) => {
       console.log("error = ",error);
@@ -90,7 +90,7 @@ export class RsiGraphComponent implements OnInit {
         enabled: false
       },
       stroke: {
-        colors:['#AAC4FF'],
+        colors:['#0000f0'],
         width: 2,
         curve: 'smooth',
       },
@@ -115,13 +115,13 @@ export class RsiGraphComponent implements OnInit {
         type: 'datetime',
       },
       fill: {
-        colors: ['#4287f5'],
+        colors: ['#0000f0'],
         type: 'gradient',
         gradient: {
           shadeIntensity: 1,
           inverseColors: false,
-          opacityFrom: 0.7,
-          opacityTo: .6,
+          opacityFrom: .8,
+          opacityTo: .9,
           stops: [0, 90, 100]
         },
       },
