@@ -1,0 +1,18 @@
+<!-- <ejs-chart id='chartcontainer' style="display:block;" [title]='title' [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+          [chartArea]= 'chartArea'>
+        <e-series-collection>
+            <e-series [dataSource]='data' type='Candle' xName='x' high='high' low='low' open='open' close='close' volume='volume' name='Apple Inc'> </e-series>
+        </e-series-collection>
+        <e-indicators>
+            <e-indicator type='BollingerBands' xName='x' field="Close" fill="blue"  seriesName='Apple Inc'> </e-indicator>
+        </e-indicators>
+    </ejs-chart> -->
+    <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [yaxis]="chartOptions.yaxis"
+          [title]="chartOptions.title"
+        ></apx-chart>
+      </div>

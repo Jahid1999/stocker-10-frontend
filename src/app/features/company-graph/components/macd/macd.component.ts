@@ -129,10 +129,7 @@ export class MACDComponent implements OnInit{
         intersect: false,
         y: {
           formatter: function(y:any) {
-            if (typeof y !== "undefined") {
-              return y.toFixed(2);
-            }
-            return y;
+            return y.toFixed(2);
           }
         }
       }
