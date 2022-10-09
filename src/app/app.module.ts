@@ -9,10 +9,11 @@ import { CompanyGraphModule } from './features/company-graph/company-graph.modul
 import { CompanyProfileModule } from './features/company-profile/company-profile.module';
 import { HomeModule } from './features/home/home.module';
 import { DatePipe } from '@angular/common';
+import { FaqComponent } from './features/faq/faq.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FaqComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
