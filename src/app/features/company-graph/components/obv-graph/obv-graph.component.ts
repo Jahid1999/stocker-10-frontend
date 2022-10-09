@@ -56,11 +56,12 @@ export class ObvGraphComponent implements OnInit {
 
   getOBVGraphData(){
     this._obvService.getOBVGraphData(this.company_code).subscribe((response:any)=>{
-      console.log(response);
+      // console.log(response);
       response.forEach((item:any)=>{
         this.obvGraphData.push([item.DateEpoch,item.OBV]);
       });
       this.setOBVGraph();
+      console.log(this.obvGraphData[0])
     },(error) => {
       console.log("error = ",error);
     });
