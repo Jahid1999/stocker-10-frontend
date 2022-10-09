@@ -1,23 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { apiEndpoints } from 'src/environments/environment';
+import { apiEndpoints } from 'src/api-endpoints';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StochasticOscillatorService {
-
   dataReady = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getStochasticData(companyCode: string){
+  getStochasticData(companyCode: string) {
     //companyCode = 'ACI';
-    return this.http.get(apiEndpoints.baseURL+'/stochastic/'+companyCode);
+    return this.http.get(apiEndpoints.baseURL + '/stochastic/' + companyCode);
   }
 
-  getCandleData(companyCode: string){
+  getCandleData(companyCode: string) {
     //companyCode = 'ACI';
-    return this.http.get(apiEndpoints.baseURL+'/candle_graph/'+companyCode);
+    return this.http.get(apiEndpoints.baseURL + '/candle_graph/' + companyCode);
   }
 }
