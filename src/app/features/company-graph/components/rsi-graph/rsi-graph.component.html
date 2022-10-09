@@ -1,6 +1,5 @@
-<div *ngIf="rsiGraphData.length !==0">
-  <h3>Relative Strength Index</h3>
-  <div class="row" style="margin:2em 0em 10em 0em;">
+<div *ngIf="rsiGraphData.length !== 0">
+  <div class="row" style="margin: 2em 0em 10em 0em">
     <div class="col-12">
       <apx-chart
         [series]="lineGraph.series"
@@ -14,7 +13,6 @@
         [grid]="lineGraph.grid"
         [yaxis]="lineGraph.yaxis"
         [fill]="lineGraph.fill"
-        [title]="lineGraph.title"
       ></apx-chart>
     </div>
   </div>
