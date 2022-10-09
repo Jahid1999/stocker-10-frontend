@@ -120,7 +120,7 @@ export class TecIndicatorTableComponent implements OnInit {
   }
 
   navigateToGraphPage() {
-    console.log(this.company_name);
+    // console.log(this.company_name);
 
     this.router.navigateByUrl(`company-profile/${this.company_name}/graph`);
   }

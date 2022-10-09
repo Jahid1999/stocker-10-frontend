@@ -5,33 +5,32 @@ import { BbGraphService } from './bb-graph.service';
 @Component({
   selector: 'app-com-bb-graph',
   templateUrl: './com-bb-graph.component.html',
-  styleUrls: ['./com-bb-graph.component.scss']
+  styleUrls: ['./com-bb-graph.component.scss'],
 })
 export class ComBbGraphComponent implements OnInit {
-
   chart: any;
-  datapointsRange:any[] = []
-  datapointsCandle:any[] = []
-  datapointsAvg:any[] = []
+  datapointsRange: any[] = [];
+  datapointsCandle: any[] = [];
+  datapointsAvg: any[] = [];
   companyCode: any;
-  rangeData: any[] =[];
-  candleData:any[]=[];
-  smaData:any[] = []
+  rangeData: any[] = [];
+  candleData: any[] = [];
+  smaData: any[] = [];
   getChartInstance(chart: object) {
     this.chart = chart;
     // let sma = this.calculateSMA(this.chartOptions.data[0].dataPoints, 7);
-    this.chart.addTo("data", {
-      type: "line",
-      showInLegend: true, 
+    this.chart.addTo('data', {
+      type: 'line',
+      showInLegend: true,
       markerSize: 0,
-      color:"yellow",
-      yValueFormatString: "$#,###.00", 
-      name: "Simple Moving Average",
-      dataPoints: this.datapointsAvg
+      color: 'yellow',
+      yValueFormatString: '$#,###.00',
+      name: 'Simple Moving Average',
+      dataPoints: this.datapointsAvg,
     });
     this.addAverageSeries();
   }
-  
+
   // calculateSMA(dps: any, period: any){
   //   let avg = function(dps:any) {
   //     let sum = 0, period = 0, val;
@@ -53,49 +52,56 @@ export class ComBbGraphComponent implements OnInit {
   //   }
   //   return result;
   // }
- 
+
   chartOptions = {
-    zoomEnabled: true, 
-    zoomType: "x",
-    title:{
-      text:"Technical Indicators: SMA"
+    zoomEnabled: true,
+    zoomType: 'x',
+    title: {
+      text: 'Technical Indicators: SMA',
     },
-    subtitles: [{
-      text:"Simple Moving Average"
-    }],
+    subtitles: [
+      {
+        text: 'Simple Moving Average',
+      },
+    ],
     axisY: {
-      title: "Price in USD",
-      prefix: "$"
+      title: 'Price in USD',
+      prefix: '$',
     },
     axisX: {
-      valueFormatString: "MMM D",
+      valueFormatString: 'MMM D',
     },
     legend: {
-      verticalAlign: "bottom",
-      dockInsidePlotArea: "inside",
-      cursor: "pointer",
-      itemclick: function (e:any) {
-        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+      verticalAlign: 'bottom',
+      dockInsidePlotArea: 'inside',
+      cursor: 'pointer',
+      itemclick: function (e: any) {
+        if (
+          typeof e.dataSeries.visible === 'undefined' ||
+          e.dataSeries.visible
+        ) {
           e.dataSeries.visible = false;
         } else {
           e.dataSeries.visible = true;
         }
         e.chart.render();
-      }
+      },
     },
     toolTip: {
-      shared: true
+      shared: true,
     },
-    data: [{
-      type: "candlestick",
-      showInLegend: true,
-      name: "Stock Price",
-      yValueFormatString: "$#,###.00",
-      xValueType: "dateTime",
-      color: "red",
-      dataPoints: this.datapointsCandle
-    }]
-  }
+    data: [
+      {
+        type: 'candlestick',
+        showInLegend: true,
+        name: 'Stock Price',
+        yValueFormatString: '$#,###.00',
+        xValueType: 'dateTime',
+        color: 'red',
+        dataPoints: this.datapointsCandle,
+      },
+    ],
+  };
   // chartOptions = {
   //   theme: "light2",
   //   exportEnabled: true,
@@ -149,15 +155,12 @@ export class ComBbGraphComponent implements OnInit {
   //   }]
   // }
 
-
-
-  
   // getChartInstance(chart: object) {
   //   this.chart = chart;
 
   // }
- 
-addAverageSeries() {
+
+  addAverageSeries() {
     let chart = this.chart;
 
     // theme: "light2",
@@ -187,25 +190,26 @@ addAverageSeries() {
     //   shared: true
     // },
     chart.options.data.push({
-      zoomEnabled: true, 
-      zoomType: "x",
-      type: "rangeArea",
-      name: "Average",
+      zoomEnabled: true,
+      zoomType: 'x',
+      type: 'rangeArea',
+      name: 'Average',
       showInLegend: true,
-      color: "#7986CB",
+      color: '#7986CB',
       // yValueFormatString: "##.0 °C",
       // xValueFormatString: "MMMM YYYY",
-      toolTipContent: "{x}<br><span style='\"'color:{color}'\"'>Min</span>: {y[0]}<br><span style='\"'color:{color}'\"'>Max</span>: {y[1]}",
+      toolTipContent:
+        "{x}<br><span style='\"'color:{color}'\"'>Min</span>: {y[0]}<br><span style='\"'color:{color}'\"'>Max</span>: {y[1]}",
       markerSize: 0,
-      dataPoints: this.datapointsRange
+      dataPoints: this.datapointsRange,
     });
     chart.render();
   }
-  constructor(private service:BbGraphService,private router: Router) {
+  constructor(private service: BbGraphService, private router: Router) {
     let text = router.url;
     let str = '';
-    const myArray = text.split("/");
-    console.log(myArray)
+    const myArray = text.split('/');
+    // console.log(myArray)
     // let arr = myArray[2].split("%20")
     // for (let x of arr){
     //   str= str+x+' ';
@@ -214,54 +218,48 @@ addAverageSeries() {
     // this.companyCode = this.companyCode.slice(0,-1)
   }
   ngOnInit(): void {
-    this.service.recieveBbData(this.companyCode).subscribe(
-      (response: any)=>{
-        this.rangeData = response ;
-        let val:any;
-        this.rangeData.forEach((val:any) => {
-          let arr  = []
-          arr.push(val.BOLD,val.BOLU)
-          let time = this.toDateTime(val.DateEpoch)
-          this.datapointsRange.push({x:time,y:arr});
-        });
-        this.chart.render();
+    this.service.recieveBbData(this.companyCode).subscribe((response: any) => {
+      this.rangeData = response;
+      let val: any;
+      this.rangeData.forEach((val: any) => {
+        let arr = [];
+        arr.push(val.BOLD, val.BOLU);
+        let time = this.toDateTime(val.DateEpoch);
+        this.datapointsRange.push({ x: time, y: arr });
+      });
+      this.chart.render();
     });
-    this.service.recieveCandleData(this.companyCode).subscribe(
-      (res:any)=>{
-        this.candleData = res;
-        let val:any;
-        this.candleData.forEach((val:any) => {
-          let time = this.toEpochTime(val.x)
-          
-          this.datapointsCandle.push({x:time,y:val.y});
-        });
-        this.chart.render();
-      }
-    );
-    this.service.recieveSMA(this.companyCode).subscribe(
-      (res:any)=>{
-        console.log(res[0])
-        this.smaData = res;
-        const entries = Object.entries(this.smaData);
-        entries.forEach((val:any) => {
-          console.log(val)
-          const time = this.toDateTime(Number(val[0]))
-          this.datapointsAvg.push({x:time,y:val[1]})
-        });
-        
-        this.chart.render();
-      }
-    );
+    this.service.recieveCandleData(this.companyCode).subscribe((res: any) => {
+      this.candleData = res;
+      let val: any;
+      this.candleData.forEach((val: any) => {
+        let time = this.toEpochTime(val.x);
+
+        this.datapointsCandle.push({ x: time, y: val.y });
+      });
+      this.chart.render();
+    });
+    this.service.recieveSMA(this.companyCode).subscribe((res: any) => {
+      // console.log(res[0])
+      this.smaData = res;
+      const entries = Object.entries(this.smaData);
+      entries.forEach((val: any) => {
+        // console.log(val)
+        const time = this.toDateTime(Number(val[0]));
+        this.datapointsAvg.push({ x: time, y: val[1] });
+      });
+
+      this.chart.render();
+    });
   }
   toDateTime(secs: number) {
     const result = new Date(secs);
     return result;
   }
-  toEpochTime(date:string){
-    let myArray = date.split(" ");
-    myArray = myArray[0].split("/");
-    const time = myArray[2]+'-'+myArray[1]+'-'+myArray[0]
-    return new Date(time)
+  toEpochTime(date: string) {
+    let myArray = date.split(' ');
+    myArray = myArray[0].split('/');
+    const time = myArray[2] + '-' + myArray[1] + '-' + myArray[0];
+    return new Date(time);
   }
-
 }

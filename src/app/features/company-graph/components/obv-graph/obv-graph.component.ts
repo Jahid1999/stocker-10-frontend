@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -13,9 +13,10 @@ import {
   ApexPlotOptions,
   ApexTitleSubtitle,
   ApexFill,
-  ApexLegend,ApexTooltip,
-} from "ng-apexcharts";
-import {ObvDataService} from "./service/obv-data.service";
+  ApexLegend,
+  ApexTooltip,
+} from 'ng-apexcharts';
+import { ObvDataService } from './service/obv-data.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -35,72 +36,75 @@ export type ChartOptions = {
 @Component({
   selector: 'app-obv-graph',
   templateUrl: './obv-graph.component.html',
-  styleUrls: ['./obv-graph.component.scss']
+  styleUrls: ['./obv-graph.component.scss'],
 })
 export class ObvGraphComponent implements OnInit {
-
-  @ViewChild("chart") chart : ChartComponent|any;
-  public lineGraph : Partial<ChartOptions>|any;
+  @ViewChild('chart') chart: ChartComponent | any;
+  public lineGraph: Partial<ChartOptions> | any;
   public company_code: string = '';
-  public obvGraphData : any[][] = [];
+  public obvGraphData: any[][] = [];
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private router:Router,
-              private _obvService:ObvDataService) { }
-
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private _obvService: ObvDataService
+  ) {}
 
   ngOnInit(): void {
     this.company_code = this.activatedRoute.snapshot.params['company-name'];
     this.getOBVGraphData();
   }
 
-  getOBVGraphData(){
-    this._obvService.getOBVGraphData(this.company_code).subscribe((response:any)=>{
-      // console.log(response);
-      response.forEach((item:any)=>{
-        this.obvGraphData.push([item.DateEpoch,item.OBV]);
-      });
-      this.setOBVGraph();
-      console.log(this.obvGraphData[0])
-    },(error) => {
-      console.log("error = ",error);
-    });
+  getOBVGraphData() {
+    this._obvService.getOBVGraphData(this.company_code).subscribe(
+      (response: any) => {
+        // console.log(response);
+        response.forEach((item: any) => {
+          this.obvGraphData.push([item.DateEpoch, item.OBV]);
+        });
+        this.setOBVGraph();
+        // console.log(this.obvGraphData[0])
+      },
+      (error) => {
+        console.log('error = ', error);
+      }
+    );
   }
 
-  setOBVGraph(){
+  setOBVGraph() {
     this.lineGraph = {
       series: [
         {
-          name: "Price",
-          data: this.obvGraphData
-        }
+          name: 'Price',
+          data: this.obvGraphData,
+        },
       ],
       chart: {
         height: 400,
-        type: "area",
+        type: 'area',
         zoom: {
           type: 'x',
           enabled: true,
-          autoScaleYaxis: true
+          autoScaleYaxis: true,
         },
       },
       dataLabels: {
-        enabled: false
+        enabled: false,
       },
       stroke: {
-        colors:['#AAC4FF'],
+        colors: ['#AAC4FF'],
         width: 2,
       },
 
       markers: {
         size: 0,
         hover: {
-          sizeOffset: 6
-        }
+          sizeOffset: 6,
+        },
       },
       yaxis: {
         title: {
-          text: 'OBV'
+          text: 'OBV',
         },
       },
       xaxis: {
@@ -113,14 +117,13 @@ export class ObvGraphComponent implements OnInit {
           shadeIntensity: 1,
           inverseColors: false,
           opacityFrom: 0.7,
-          opacityTo: .6,
-          stops: [0, 90, 100]
+          opacityTo: 0.6,
+          stops: [0, 90, 100],
         },
       },
       grid: {
-        borderColor: "#f1f1f1"
-      }
+        borderColor: '#f1f1f1',
+      },
     };
   }
-
 }

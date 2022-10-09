@@ -4,14 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-technical-indicator-index',
   templateUrl: './technical-indicator-index.component.html',
-  styleUrls: ['./technical-indicator-index.component.scss']
+  styleUrls: ['./technical-indicator-index.component.scss'],
 })
 export class TechnicalIndicatorIndexComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    console.log('called')
+    // console.log('called')
   }
-
 }
