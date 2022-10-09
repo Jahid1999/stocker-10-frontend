@@ -52,10 +52,10 @@ export class RsiGraphComponent implements OnInit {
 
   getRSIGraphData(){
     this.service.getRSI(this.company_code).subscribe((response:any)=>{
-      console.log(response);
+      // console.log(response);
       for (var key in response) {
         this.rsiGraphData.push([parseInt(key), response[key]]);
-        console.log(key + ":======:" + response[key]);
+        // console.log(key + ":======:" + response[key]);
       }
       // this.setADMGraph();
       this.setRSIGraph();
@@ -130,5 +130,5 @@ export class RsiGraphComponent implements OnInit {
       }
     };
   }
-  
+
 }

@@ -69,7 +69,7 @@ export class AdmGraphComponent implements OnInit {
 
   getADMGraphData(){
     this.service.getAverageDirectionalIndex(this.company_code).subscribe((response:any)=>{
-      console.log(response);
+      // console.log(response);
       response.forEach((item:any)=>{
         this.admGraphData.push([item.DateEpoch, item.ADX]);
       });
@@ -79,7 +79,7 @@ export class AdmGraphComponent implements OnInit {
       console.log("error = ",error);
     });
   }
-  
+
   setADMGraph2(){
     this.chartOptions1 = {
       series: [
@@ -181,7 +181,7 @@ export class AdmGraphComponent implements OnInit {
             return val.toFixed(2);
           }
         }
-        
+
       }
     };
   }
