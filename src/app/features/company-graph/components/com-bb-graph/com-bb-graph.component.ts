@@ -25,48 +25,26 @@ export class ComBbGraphComponent implements OnInit {
       markerSize: 0,
       color: 'yellow',
       yValueFormatString: '$#,###.00',
-      name: 'Simple Moving Average',
+      name: 'Bollinger Bands',
       dataPoints: this.datapointsAvg,
     });
     this.addAverageSeries();
   }
 
-  // calculateSMA(dps: any, period: any){
-  //   let avg = function(dps:any) {
-  //     let sum = 0, period = 0, val;
-  //     for (let i = 0; i < dps.length; i++) {
-  //       val = dps[i].y[3]; sum += val; period++;
-  //     }
-  //     return sum / period;
-  //   };
-  //   let result = [], val;
-  //   period = period || 5;
-  //   for (let i=0; i < period; i++)
-  //     result.push({ x: dps[i].x , y: null});
-  //   for (let i=period - 1, len=dps.length; i < len; i++) {
-  //     val = avg(dps.slice(i - period + 1, i));
-  //     if (isNaN(val))
-  //       result.push({ x: dps[i].x, y: null});
-  //     else
-  //       result.push({ x: dps[i].x, y: val});
-  //   }
-  //   return result;
-  // }
-
   chartOptions = {
     zoomEnabled: true,
     zoomType: 'x',
     title: {
-      text: 'Technical Indicators: SMA',
+      text: 'Technical Indicators: BB',
     },
     subtitles: [
       {
-        text: 'Simple Moving Average',
+        text: 'Bollinger Bands',
       },
     ],
     axisY: {
-      title: 'Price in USD',
-      prefix: '$',
+      title: 'Price',
+      // prefix: '$',
     },
     axisX: {
       valueFormatString: 'MMM D',

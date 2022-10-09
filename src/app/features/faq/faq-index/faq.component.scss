@@ -1,0 +1,27 @@
+.page-header {
+  background: #f5f5f5;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 30px;
+
+  p {
+    font-size: 14px;
+    padding-top: 5px;
+    margin: 0;
+  }
+}
+
+.qa {
+  text-align: justify;
+  .question {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .answer {
+    font-size: 16px;
+  }
+}

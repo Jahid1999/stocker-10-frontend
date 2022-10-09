@@ -1,5 +1,5 @@
 <div>
-  <div id="chart">
+  <div id="chart" *ngIf="macdHistogramData.length != 0">
     <apx-chart
       [series]="chartOptions.series"
       [chart]="chartOptions.chart"
@@ -13,16 +13,3 @@
     ></apx-chart>
   </div>
 </div>
-<!-- <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [yaxis]="chartOptions.yaxis"
-      [xaxis]="chartOptions.xaxis"
-      [labels]="chartOptions.labels"
-      [stroke]="chartOptions.stroke"
-      [plotOptions]="chartOptions.plotOptions"
-      [markers]="chartOptions.markers"
-      [fill]="chartOptions.fill"
-      [tooltip]="chartOptions.tooltip"
-      [dataLabels]="chartOptions.dataLabels"
-    ></apx-chart> -->

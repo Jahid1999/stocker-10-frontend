@@ -38,7 +38,7 @@ export class MACDComponent implements OnInit{
   public company_code: string = '';
   // public data:any[] = []
   private macdLineData:any[] = []
-  private macdHistogramData:any[] = []
+  public macdHistogramData:any[] = []
   private signalLineData:any[] = []
 
 

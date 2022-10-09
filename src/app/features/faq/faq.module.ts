@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChartModule } from '@syncfusion/ej2-angular-charts';
-import { FaqComponent } from './faq.component';
-// @ts-ignore
+import { FaqComponent } from './faq-index/faq.component';
+import { FaqRoutingModule } from './faq-routing.module';
 
 @NgModule({
   declarations: [FaqComponent],
-  imports: [CommonModule],
-  exports: [ChartModule],
-  providers: [],
+  imports: [CommonModule, FaqRoutingModule],
+  exports: [],
 })
 export class FaqModule {}
