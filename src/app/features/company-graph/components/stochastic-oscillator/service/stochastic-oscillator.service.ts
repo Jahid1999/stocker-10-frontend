@@ -15,4 +15,9 @@ export class StochasticOscillatorService {
     //companyCode = 'ACI';
     return this.http.get(apiEndpoints.baseURL+'/stochastic/'+companyCode);
   }
+
+  getCandleData(companyCode: string){
+    //companyCode = 'ACI';
+    return this.http.get(apiEndpoints.baseURL+'/candle_graph/'+companyCode);
+  }
 }

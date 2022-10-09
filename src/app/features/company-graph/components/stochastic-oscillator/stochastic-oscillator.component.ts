@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import { data } from 'jquery';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -15,9 +16,9 @@ import {
   ApexLegend,ApexTooltip
 
 } from "ng-apexcharts";
-import { seriesData } from "./data-series";
+import { aciData, seriesData } from "./data-series";
 import { StochasticOscillatorService } from './service/stochastic-oscillator.service';
-
+import * as moment from 'moment'
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -51,11 +52,13 @@ export class StochasticOscillatorComponent implements OnInit {
   date: any = [];
   ovb: any = [];
   ovs: any = [];
+  candleData:any = [];
   constructor(private stochasticService: StochasticOscillatorService) { }
 
   ngOnInit(): void {
-    this.loadStochasticData()
-    this.setChart();
+
+    this.loadCandleChartData();
+    this.loadStochasticData();
   }
 
   setPeriod(data:any){
@@ -143,12 +146,12 @@ export class StochasticOscillatorComponent implements OnInit {
         {
           name: "Oversold",
           data: this.ovs,
-        }
+        },
       ],
       chart: {
         type: "line",
         height: 350,
-        width: 720
+        //width: 720
       },
       title: {
         text: "Stochastic Oscilator (14-day period)",
@@ -190,13 +193,36 @@ export class StochasticOscillatorComponent implements OnInit {
         }
     }]
     }
-    this.dataReady =true
-  }
 
-  setChart(){
-   seriesData.forEach((element:any) => {
-    element.x = [element["x"].getFullYear(),element["x"].getMonth()+1,element["x"].getDate()].join('-')
-   });
+  }
+  loadCandleChartData(){
+    this.stochasticService.getCandleData(this.companyCode).subscribe((data:any)=>{
+      this.candleData = data;
+      this.candleData.forEach((element:any) => {
+        let momObject = moment(element["x"], "DD/MM/YYYY");
+        element.x = (momObject.toDate());
+        element.x.setDate(element.x.getDate()+1);
+        // console.log(new Date(element["x"]))
+        // element.x = new Date(element["x"])
+        //element.x = [element["x"].getFullYear(),element["x"].getMonth()+1,element["x"].getDate()].join('-')
+       });
+      this.candleData = this.candleData.slice(this.candleData.length-365);
+      this.setCandleChart(this.candleData);
+    })
+    //this.setCandleChart(aciData);
+  }
+  setCandleChart(seriesData:any){
+
+
+   console.log(seriesData.length)
+  //  seriesData.forEach((element:any) => {
+  //   let momObject = moment(element["x"], "DD/MM/YYYY");
+  //   element.x = (momObject.toDate());
+  //   element.x.setDate(element.x.getDate()+1);
+  //   // console.log(new Date(element["x"]))
+  //   // element.x = new Date(element["x"])
+  //   //element.x = [element["x"].getFullYear(),element["x"].getMonth()+1,element["x"].getDate()].join('-')
+  //  });
 
     this.candlestickChart = {
       series : [{
@@ -208,7 +234,7 @@ export class StochasticOscillatorComponent implements OnInit {
       chart: {
         type: "candlestick",
         height: 350,
-        width: 720
+
       },
       title: {
         text: "Stock price",
@@ -217,11 +243,17 @@ export class StochasticOscillatorComponent implements OnInit {
       xaxis: {
         type: "datetime",
       },
-      yaxis: {
+      yaxis: [{
+        labels: {
+            formatter: function (val:any) {
+                if(val) return val.toFixed(2)
+            }
+        },
         tooltip: {
           enabled: true
         }
-      }
+    }]
     }
+    this.dataReady =true;
   }
 }

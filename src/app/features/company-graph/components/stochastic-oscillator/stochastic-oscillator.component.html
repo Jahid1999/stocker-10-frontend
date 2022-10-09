@@ -1,5 +1,5 @@
-<p>stochastic-oscillator works!</p>
-<div >
+<h2>Stochastic Indicator</h2>
+<div *ngIf="dataReady">
   <apx-chart
     [series]="candlestickChart.series"
     [chart]="candlestickChart.chart"
@@ -7,7 +7,7 @@
     [yaxis]="candlestickChart.yaxis"
     [title]="candlestickChart.title"
   ></apx-chart>
-  <apx-chart *ngIf="dataReady"
+  <apx-chart
   [series]="oscillatorChart.series"
   [chart]="oscillatorChart.chart"
   [xaxis]="oscillatorChart.xaxis"
