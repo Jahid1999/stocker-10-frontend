@@ -1,0 +1,50 @@
+<div class="p-2">
+  <div>
+    <div class="graph-header">
+      <span>SMA</span>
+    </div>
+    <app-sma-graph></app-sma-graph>
+  </div>
+  <div>
+    <div class="graph-header">
+      <span>MACD</span>
+    </div>
+    <app-macd></app-macd>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>On Balance Volume (OBV)</span>
+    </div>
+    <app-obv-graph></app-obv-graph>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>Stochastic Indicator</span>
+    </div>
+    <app-stochastic-oscillator [companyCode]="company_name">
+    </app-stochastic-oscillator>
+  </div>
+
+  <div>
+    <div class="graph-header" style="padding-bottom: 1em">
+      <span>Average Directional Movement Index (ADX)</span>
+    </div>
+    <app-adm-graph></app-adm-graph>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>Relative Strength Index (RSI)</span>
+    </div>
+    <app-rsi-graph></app-rsi-graph>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>Bollinger Bands (BB)</span>
+    </div>
+    <app-com-bb-graph></app-com-bb-graph>
+  </div>
+</div>

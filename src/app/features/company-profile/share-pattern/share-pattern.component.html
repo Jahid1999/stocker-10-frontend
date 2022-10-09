@@ -1,31 +1,43 @@
-<div class="row">
-  <div class="col-8">
-    <apx-chart
-      [series]="lineGraph.series"
-      [chart]="lineGraph.chart"
-      [xaxis]="lineGraph.xaxis"
-      [stroke]="lineGraph.stroke"
-      [tooltip]="lineGraph.tooltip"
-      [dataLabels]="lineGraph.dataLabels"
-      [legend]="lineGraph.legend"
-      [markers]="lineGraph.markers"
-      [grid]="lineGraph.grid"
-      [yaxis]="lineGraph.yaxis"
-      [title]="lineGraph.title"
-    ></apx-chart>
+<div>
+  <div class="header">
+    <div class="row">
+      <div class="col-md-3 report" style="padding-left: 0">
+        <b>SHARE PATTERN</b>
+        <hr style="height: 3px; background: black" />
+      </div>
+    </div>
   </div>
-  <div class="col-4">
-    <apx-chart
-      [series]="pieChartOptions.series"
-      [colors]="pieChartOptions.colors"
-      [dataLabels]="pieChartOptions.dataLabels"
-      [plotOptions]="pieChartOptions.plotOptions"
-      [chart]="pieChartOptions.chart"
-      [fill]="pieChartOptions.fill"
-      [legend]="pieChartOptions.legend"
-      [labels]="pieChartOptions.labels"
-      [responsive]="pieChartOptions.responsive"
-    ></apx-chart>
 
+  <div class="row">
+    <div class="col-md-8">
+      <apx-chart
+        [series]="lineGraph.series"
+        [chart]="lineGraph.chart"
+        [xaxis]="lineGraph.xaxis"
+        [stroke]="lineGraph.stroke"
+        [tooltip]="lineGraph.tooltip"
+        [dataLabels]="lineGraph.dataLabels"
+        [legend]="lineGraph.legend"
+        [markers]="lineGraph.markers"
+        [grid]="lineGraph.grid"
+        [yaxis]="lineGraph.yaxis"
+        [title]="lineGraph.title"
+        [colors]="lineGraph.colors"
+        [fill]="lineGraph.fill"
+      ></apx-chart>
+    </div>
+    <div class="col-md-4">
+      <apx-chart
+        [series]="pieChartOptions.series"
+        [colors]="pieChartOptions.colors"
+        [dataLabels]="pieChartOptions.dataLabels"
+        [plotOptions]="pieChartOptions.plotOptions"
+        [chart]="pieChartOptions.chart"
+        [fill]="pieChartOptions.fill"
+        [legend]="pieChartOptions.legend"
+        [labels]="pieChartOptions.labels"
+        [responsive]="pieChartOptions.responsive"
+      ></apx-chart>
+    </div>
   </div>
 </div>

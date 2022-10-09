@@ -52,18 +52,18 @@ export class HomeTableComponent implements OnInit {
             if (type === 'display') {
               if (row.change < 0) {
                 data =
-                  '<a style="color:red;" href="' + data + '">' + data + '</a>';
+                  '<a style="color:red;" href="' + row.scrip + '">' + data + '</a>';
               } else if (row.change == 0) {
                 data =
                   '<a style="color:lightblue;" href="' +
-                  data +
+                  row.scrip +
                   '">' +
                   data +
                   '</a>';
               } else {
                 data =
                   '<a style="color:green;" href="' +
-                  data +
+                  row.scrip +
                   '">' +
                   data +
                   '</a>';
@@ -106,17 +106,19 @@ export class HomeTableComponent implements OnInit {
     };
 
     this.getJSON().subscribe((data) => {
+      // console.log(data);
       data = data.filter(function (dat: any) {
         return dat.trading_code != '';
       });
       this.dtOptions.data = data;
-
       this.dataAvail = true;
     });
   }
 
   public getJSON(): Observable<any> {
+
     return this.http.get<any>(this._jsonURL);
+
   }
 
   // infos: Info[] = [];

@@ -1,14 +1,17 @@
 <app-profile-card></app-profile-card> <br /><br />
 <app-tec-indicator-table></app-tec-indicator-table>
-<app-market-summary></app-market-summary>
+<app-health-slider></app-health-slider>
+<app-market-summary [companyCode]="company_name"></app-market-summary>
 <app-share-pattern></app-share-pattern>
 <app-comparison-table></app-comparison-table>
 <app-other-indicators></app-other-indicators>
 <div>
-  <div class="row">
-    <div class="col-md-2 report">
-      <h4 class="heading">REPORTS AND NEWS</h4>
-      <hr />
+  <div class="header">
+    <div class="row mb-3">
+      <div class="col-md-3 report">
+        <b>REPORTS AND NEWS</b>
+        <hr style="height: 3px; background: black" />
+      </div>
     </div>
   </div>
   <div class="row">

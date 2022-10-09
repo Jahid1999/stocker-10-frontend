@@ -1,29 +1,33 @@
-.myclass{
-    position: relative;
-    // overflow: auto;
+.myclass {
+  position: relative;
+  // overflow: auto;
 }
-#DataTables_Table_0{
-    width: inherit;
+#DataTables_Table_0 {
+  width: inherit;
 }
-table.dataTable{
-    border-spacing: 5px;
+table.dataTable {
+  border-spacing: 5px;
 }
-#DataTables_Table_0 > thead > tr > th:nth-child(2){
-    background-color: black !important;
+#DataTables_Table_0 > thead > tr > th:nth-child(2) {
+  background-color: black !important;
+}
+
+.tec-header {
+  font-style: bold;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.875px;
+  color: black;
+}
+
+.heading {
+  display: flex;
+  font-size: 16px;
+  margin-top: auto;
 }
 
 @media screen and (max-width: 575px) {
-    .myclass{
-        font-size: 10px;
-    }
+  .myclass {
+    font-size: 10px;
   }
-
-
-
-
-
-
-
-
-
-
+}

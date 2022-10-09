@@ -8,12 +8,25 @@ import { DataTablesModule } from 'angular-datatables';
 import { NewsComponent } from './news/news.component';
 import { MarketSummaryComponent } from './market-summary/market-summary.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
-
 import { SharePatternComponent } from './share-pattern/share-pattern.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { OtherIndicatorsComponent } from './other-indicators/other-indicators.component';
 import { ReportsComponent } from './reports/reports.component';
 import { MatTableModule } from '@angular/material/table';
+import {
+  CandleSeriesService,
+  ChartModule,
+  LineSeriesService,
+  BollingerBandsService,
+  DateTimeService,
+  RangeAreaSeriesService,
+} from '@syncfusion/ej2-angular-charts';
+import { MatButtonModule } from '@angular/material/button';
+import { HealthSliderComponent } from './health-slider/components/health-slider/health-slider.component';
+import { HealthSliderDuplicateDirective } from './health-slider/directives/health-slider-duplicate.directive';
+import { HealthSliderInnerContentComponent } from './health-slider/components/health-slider-inner-content/health-slider-inner-content.component';
+import { OtherIndicatorsComponent } from './other-indicators/components/other-indicators/other-indicators.component';
+
+// @ts-ignore
 
 @NgModule({
   declarations: [
@@ -26,6 +39,9 @@ import { MatTableModule } from '@angular/material/table';
     OtherIndicatorsComponent,
     ProfileCardComponent,
     ReportsComponent,
+    HealthSliderComponent,
+    HealthSliderDuplicateDirective,
+    HealthSliderInnerContentComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +49,19 @@ import { MatTableModule } from '@angular/material/table';
     DataTablesModule,
     MatTableModule,
     NgApexchartsModule,
+    MatButtonModule,
   ],
-  exports: [CompanyProfileIndexComponent],
+  exports: [
+    CompanyProfileIndexComponent,
+    HealthSliderDuplicateDirective,
+    ChartModule,
+  ],
+  providers: [
+    CandleSeriesService,
+    LineSeriesService,
+    BollingerBandsService,
+    DateTimeService,
+    RangeAreaSeriesService,
+  ],
 })
 export class CompanyProfileModule {}

@@ -29,7 +29,7 @@ export class InnerContentComponent implements OnInit {
   timeOutVariable: any = null;
 
   public  animationPlayer: AnimationPlayer | any;
-  
+
   @ViewChild('slider') private slider: ElementRef | any;
   @ViewChild('content') private content: ElementRef | any;
   @ViewChild('innerContent') private innerContent: ElementRef | any;
@@ -40,9 +40,8 @@ export class InnerContentComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('asi');
     if(this.itemsQuantity>0){
-      console.log(this.itemsQuantity);
+      // console.log(this.itemsQuantity);
       this.startAutoScrolling();
     }
 
@@ -88,7 +87,7 @@ export class InnerContentComponent implements OnInit {
       }
     }
     this.animationPlayer.play();
-  
+
   }
 
   private buildAnimation(offset: any, time: any) {

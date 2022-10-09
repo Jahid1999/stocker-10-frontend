@@ -2,110 +2,196 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
 />
-<h3>MARKET SUMMARY</h3>
-<div class="row" style="margin:2em 0em 10em 0em;">
-  <div class="col-8">
-    <apx-chart
-      [series]="lineGraph.series"
-      [chart]="lineGraph.chart"
-      [xaxis]="lineGraph.xaxis"
-      [stroke]="lineGraph.stroke"
-      [tooltip]="lineGraph.tooltip"
-      [dataLabels]="lineGraph.dataLabels"
-      [legend]="lineGraph.legend"
-      [markers]="lineGraph.markers"
-      [grid]="lineGraph.grid"
-      [yaxis]="lineGraph.yaxis"
-      [fill]="lineGraph.fill"
-      [title]="lineGraph.title"
-    ></apx-chart>
-  </div>
-  <div class="col-4" style="align-self: flex-start;">
-    <div *ngIf="slide==0">
-      <div class="box-group">
-        <div class="box">
-          PREV CLOSE<br><h2><b>{{marketSummary.prevClose}}</b></h2>
-        </div>
-        <div class="box">
-          OPEN<br><h2><b>{{marketSummary.open}}</b></h2>
-        </div>
+<div>
+  <div class="header">
+    <div class="row">
+      <div class="col-md-3 report" style="padding-left: 0">
+        <b>MARKET SUMMARY</b>
+        <hr style="height: 3px; background: black" />
       </div>
-      <div class="box-group">
-        <div class="box">
-          DAYS RANGE<br><h2><b>{{marketSummary.daysRange}}</b></h2>
-        </div>
-        <div class="box">
-          Q1 EPS<br><h2><b>{{marketSummary.q1Eps}}</b></h2>
-        </div>
-      </div>
-      <div class="box-group">
-        <div class="box">
-          Q2 EPS<br><h2><b>{{marketSummary.q2Eps}}</b></h2>
-        </div>
-        <div class="box">
-          Q3 EPS<br><h2><b>{{marketSummary.q3Eps}}</b></h2>
-        </div>
-      </div>
-      <div class="box-group">
-        <div class="box">
-          Q4 EPS<br><h2><b>{{marketSummary.q4Eps}}</b></h2>
-        </div>
-        <div class="box">
-          AUTHORIZED CAPITAL(MN)<br><h2><b>{{marketSummary.authorizedCapital}}</b></h2>
-        </div>
-      </div>
-      <div class="box-group">
-        <div class="box" style="width:380px">
-          PAID-UP-CAP(MN) <br><h2><b>{{marketSummary.paidUpCap}}</b></h2>
-        </div>
-        </div>
     </div>
-      <div *ngIf="slide==1">
+  </div>
+  <div class="row" style="margin: 2em 0em 10em 0em">
+    <div class="col-md-8" *ngIf="graphReady">
+      <apx-chart
+        [series]="lineGraph.series"
+        [chart]="lineGraph.chart"
+        [xaxis]="lineGraph.xaxis"
+        [stroke]="lineGraph.stroke"
+        [tooltip]="lineGraph.tooltip"
+        [dataLabels]="lineGraph.dataLabels"
+        [legend]="lineGraph.legend"
+        [markers]="lineGraph.markers"
+        [grid]="lineGraph.grid"
+        [yaxis]="lineGraph.yaxis"
+        [fill]="lineGraph.fill"
+        [title]="lineGraph.title"
+      ></apx-chart>
+    </div>
+    <div class="col-md-4" style="align-self: flex-start">
+      <div *ngIf="slide == 0">
         <div class="box-group">
           <div class="box">
-           MCCAP(TK IN MN)<br><h2><b>{{marketSummary.mccap}}</b></h2>
+            PREV CLOSE<br />
+            <h2>
+              <b>{{ marketSummary.YCP }}</b>
+            </h2>
           </div>
           <div class="box">
-            TOTAL VOLUME<br><h2><b>{{marketSummary.volume}}</b></h2>
+            OPEN<br />
+            <h2>
+              <b>{{ marketSummary.OpenPrice }}</b>
+            </h2>
           </div>
         </div>
         <div class="box-group">
           <div class="box">
-            6M RETURN<br><h2><b>{{marketSummary.halfReturn}}%</b></h2>
+            DAYS RANGE<br />
+            <h2>
+              <b>{{ marketSummary.DayRange }}</b>
+            </h2>
           </div>
           <div class="box">
-            1Y RETURN<br><h2><b>{{marketSummary.fullReturn}}%</b></h2>
+            52-WEEK RANGE<br />
+            <h2>
+              <b>{{ marketSummary.Week52Range }}</b>
+            </h2>
           </div>
         </div>
         <div class="box-group">
           <div class="box">
-            LAST AGM<br><h2><b>{{marketSummary.lastAgm}}</b></h2>
+            Q1 EPS<br />
+            <h2>
+              <b>{{ marketSummary.Q1Eps }}</b>
+            </h2>
           </div>
           <div class="box">
-            LISTED SINCE<br><h2><b>{{marketSummary.listed}}</b></h2>
+            Q2 EPS<br />
+            <h2>
+              <b>{{ marketSummary.Q2Eps }}</b>
+            </h2>
           </div>
         </div>
         <div class="box-group">
           <div class="box">
-            CATEGORY<br><h2><b>{{marketSummary.category}}</b></h2>
+            Q3 EPS<br />
+            <h2>
+              <b>{{ marketSummary.Q3Eps }}</b>
+            </h2>
           </div>
           <div class="box">
-           CREDIT RATING <br><h2><b>{{marketSummary.creditRating}}</b></h2>
+            Q4 EPS<br />
+            <h2>
+              <b>{{ marketSummary.Q4Eps }}</b>
+            </h2>
           </div>
         </div>
         <div class="box-group">
-          <div class="box" style="width:380px">
-            TOTAL SHARES<br><h2><b>{{marketSummary.shares}}</b></h2>
+          <div class="box">
+            AUTHORIZED CAPITAL(MN)<br />
+            <h2>
+              <b>{{ marketSummary.AuthorizedCap }}</b>
+            </h2>
+          </div>
+          <div class="box">
+            PAID-UP-CAP(MN) <br />
+            <h2>
+              <b>{{ marketSummary.PaidUpCap }}</b>
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="slide == 1">
+        <div class="box-group">
+          <div class="box">
+            MCCAP(TK IN MN)<br />
+            <h2>
+              <b>{{ marketSummary.MCCAP }}</b>
+            </h2>
+          </div>
+          <div class="box">
+            TOTAL VOLUME<br />
+            <h2>
+              <b>{{ marketSummary.Volume }}</b>
+            </h2>
+          </div>
+        </div>
+        <div class="box-group">
+          <div class="box">
+            6M RETURN<br />
+            <h2>
+              <b>{{ marketSummary["6M_Return"] }}</b>
+            </h2>
+          </div>
+          <div class="box">
+            1Y RETURN<br />
+            <h2>
+              <b>{{ marketSummary["1Y_Return"] }}%</b>
+            </h2>
+          </div>
+        </div>
+        <div class="box-group">
+          <div class="box">
+            LAST AGM<br />
+            <h2>
+              <b>{{ marketSummary.LastAGMHeld }}</b>
+            </h2>
+          </div>
+          <div class="box">
+            LISTED SINCE<br />
+            <h2>
+              <b>{{ marketSummary.ListingYear }}</b>
+            </h2>
+          </div>
+        </div>
+        <div class="box-group">
+          <div class="box">
+            CATEGORY<br />
+            <h2>
+              <b>{{ marketSummary.MarketCategory }}</b>
+            </h2>
+          </div>
+          <div class="box">
+            CREDIT RATING <br />
+            <h2>
+              <b>{{ marketSummary.Credit_rating }}</b>
+            </h2>
+          </div>
+        </div>
+        <div class="box-group">
+          <div class="box" style="width: 380px">
+            TOTAL SHARES<br />
+            <h2>
+              <b>{{ marketSummary.Total_shares }}</b>
+            </h2>
           </div>
         </div>
       </div>
 
-
-    <div style="text-align: center; margin-left: 60px;margin-top: 20px;">
-    <button (click)="previous()" style="background-color: transparent;border: 0px;"><i class="fa fa-solid fa-chevron-left"></i></button>
-    <i style="margin-left: 6em;" [style.color]="slide== 0 ? '#000' : '#a3a3a3'" class="fa-solid fa-circle-dot"></i>
-    <i style="margin-left: 2em; margin-right: 6em; color:grey;" [style.color]="slide== 1 ? '#000' : '#a3a3a3'" class="fa-solid fa-circle-dot"></i>
-    <button (click)="next()" style="background-color: transparent;border: 0px;"><i class="fa fa-solid fa-chevron-right"></i></button>
+      <div style="text-align: center; margin-left: 60px; margin-top: 20px">
+        <button
+          (click)="previous()"
+          style="background-color: transparent; border: 0px"
+        >
+          <i class="fa fa-solid fa-chevron-left"></i>
+        </button>
+        <i
+          style="margin-left: 6em"
+          [style.color]="slide == 0 ? '#000' : '#a3a3a3'"
+          class="fa-solid fa-circle-dot"
+        ></i>
+        <i
+          style="margin-left: 2em; margin-right: 6em; color: grey"
+          [style.color]="slide == 1 ? '#000' : '#a3a3a3'"
+          class="fa-solid fa-circle-dot"
+        ></i>
+        <button
+          (click)="next()"
+          style="background-color: transparent; border: 0px"
+        >
+          <i class="fa fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

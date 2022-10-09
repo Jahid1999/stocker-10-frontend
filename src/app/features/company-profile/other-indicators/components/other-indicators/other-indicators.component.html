@@ -1,0 +1,30 @@
+<div>
+  <div class="header">
+    <div class="row">
+      <div class="col-md-3 report" style="padding-left: 0">
+        <b>OTHER INDICATOR</b>
+        <hr style="height: 3px; background: black" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12" *ngIf="isGraphReady">
+      <apx-chart
+        [title]="chartOptions.title"
+        [colors]="chartOptions.colors"
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions"
+        [yaxis]="chartOptions.yaxis"
+        [legend]="chartOptions.legend"
+        [fill]="chartOptions.fill"
+        [stroke]="chartOptions.stroke"
+        [tooltip]="chartOptions.tooltip"
+        [xaxis]="chartOptions.xaxis"
+        [legend]="chartOptions.legend"
+      ></apx-chart>
+    </div>
+  </div>
+</div>

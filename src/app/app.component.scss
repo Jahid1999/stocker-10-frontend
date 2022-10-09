@@ -1,10 +1,13 @@
+* {
+  font-family: "Karla";
+}
 .central-div {
   margin-top: 3%;
   margin-left: 5%;
   margin-right: 5%;
 }
-.stuck{
-  background-color: rgba(249, 249,249,0.9) !important;
+.stuck {
+  background-color: rgba(249, 249, 249, 0.9) !important;
   z-index: 999;
   position: sticky;
   top: 0;

@@ -1,0 +1,19 @@
+<div *ngIf="rsiGraphData.length !== 0">
+  <div class="row" style="margin: 2em 0em 10em 0em">
+    <div class="col-12">
+      <apx-chart
+        [series]="lineGraph.series"
+        [chart]="lineGraph.chart"
+        [xaxis]="lineGraph.xaxis"
+        [stroke]="lineGraph.stroke"
+        [tooltip]="lineGraph.tooltip"
+        [dataLabels]="lineGraph.dataLabels"
+        [legend]="lineGraph.legend"
+        [markers]="lineGraph.markers"
+        [grid]="lineGraph.grid"
+        [yaxis]="lineGraph.yaxis"
+        [fill]="lineGraph.fill"
+      ></apx-chart>
+    </div>
+  </div>
+</div>
