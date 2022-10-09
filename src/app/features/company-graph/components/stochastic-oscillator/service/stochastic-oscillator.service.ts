@@ -12,12 +12,12 @@ export class StochasticOscillatorService {
   constructor(private http: HttpClient) { }
 
   getStochasticData(companyCode: string){
-    companyCode = 'ACI';
+    //companyCode = 'ACI';
     return this.http.get(apiEndpoints.baseURL+'/stochastic/'+companyCode);
   }
 
   getCandleData(companyCode: string){
-    companyCode = 'ACI';
+    //companyCode = 'ACI';
     return this.http.get(apiEndpoints.baseURL+'/candle_graph/'+companyCode);
   }
 }
