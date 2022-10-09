@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
- 
   {
     path: '',
     loadChildren: () =>
@@ -20,6 +19,11 @@ const routes: Routes = [
       import('./features/company-graph/company-graph.module').then(
         (m) => m.CompanyGraphModule
       ),
+  },
+  {
+    path: 'faq',
+    loadChildren: () =>
+      import('./features/faq/faq.module').then((m) => m.FaqModule),
   },
 ];
 

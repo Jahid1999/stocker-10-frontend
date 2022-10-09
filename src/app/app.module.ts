@@ -10,10 +10,10 @@ import { CompanyProfileModule } from './features/company-profile/company-profile
 import { HomeModule } from './features/home/home.module';
 import { DatePipe } from '@angular/common';
 import { FaqComponent } from './features/faq/faq.component';
-
+import { FaqModule } from './features/faq/faq.module';
 
 @NgModule({
-  declarations: [AppComponent, FaqComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,6 +23,7 @@ import { FaqComponent } from './features/faq/faq.component';
     CompanyGraphModule,
     CoreModule,
     HttpClientModule,
+    FaqModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
