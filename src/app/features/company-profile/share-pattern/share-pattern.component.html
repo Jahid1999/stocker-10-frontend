@@ -9,7 +9,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8" *ngIf="lineGraphData">
       <apx-chart
         [series]="lineGraph.series"
         [chart]="lineGraph.chart"
@@ -24,9 +24,11 @@
         [title]="lineGraph.title"
         [colors]="lineGraph.colors"
         [fill]="lineGraph.fill"
+
+
       ></apx-chart>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" *ngIf="dataLoaded">
       <apx-chart
         [series]="pieChartOptions.series"
         [colors]="pieChartOptions.colors"
