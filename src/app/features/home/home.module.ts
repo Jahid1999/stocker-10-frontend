@@ -21,6 +21,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { TodayDataComponent } from './components/today-data/today-data.component';
 import { CategoryCompareComponent } from './components/category-compare/category-compare.component';
 import { GainerLooserComponent } from './components/gainer-looser/gainer-looser.component';
+import { FaqModule } from "../faq/faq.module";
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { GainerLooserComponent } from './components/gainer-looser/gainer-looser.
     MatTabsModule,
     MatSnackBarModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    FaqModule
   ],
   exports: [
     TradeStatBarchartComponent,
