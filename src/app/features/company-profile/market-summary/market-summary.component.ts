@@ -51,8 +51,8 @@ export class MarketSummaryComponent implements OnInit {
   graphReady = false;
 
   ngOnInit(): void {
-    this.setLineChart();
     this.loadData();
+    this.setLineChart();
   }
 
   loadData() {
