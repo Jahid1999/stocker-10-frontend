@@ -11,6 +11,29 @@ body {
 #DataTables_Table_0 {
   text-align: center;
 }
+#DataTables_Table_0_filter input[type="search"] {
+  //width: 400px;
+  //::placeholder{
+  //
+  //}
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(50vh - 20px);
+  background: transparent;
+}
+
+.twitter-like{
+  .mat-progress-spinner{
+    display: inline;
+  }
+}
+.inner {
+  background: transparent;
+  padding: 12px;
+}
 
 tbody,
 td,

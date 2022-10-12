@@ -2,6 +2,13 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
 />
+<div *ngIf = "!dataAvailable">
+  <div class="wrapper">
+    <div class="inner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>
 <div *ngIf="dataAvailable">
   <div class="bar-title">
     <!-- <i
@@ -103,7 +110,6 @@
     </div>
     <div style="display: inline-flex; margin-left: 35px">
       <button class="block-button">TODAY</button>
-      <button style="margin-left: 20px" class="block-button">10 DAYS</button>
     </div>
     <!-- <div class="box-group"></div> -->
   </div>

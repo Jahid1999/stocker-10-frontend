@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('main') main: any = null;
+  public path: any;
+
+
+  constructor(
+    private location: Location,
+  ) {
+  }
 
   ngOnInit(): void {
+    this.path = this.location.path();
   }
 
 }
