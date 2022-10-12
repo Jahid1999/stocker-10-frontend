@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subject, Observable, observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { apiEndpoints } from 'src/api-endpoints';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-comparison-table',
@@ -11,75 +12,18 @@ import { apiEndpoints } from 'src/api-endpoints';
 export class ComparisonTableComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   private _jsonURL = `${apiEndpoints.baseURL}/technical_indicators_staticis/`;
-  column = [
-    {
-      title: 'NAME',
-      data: 'Name',
-    },
-    {
-      title: 'VALUE',
-      data: 'value',
-    },
-    {
-      title: 'INTERPRETATION',
-      data: 'Interpretation',
-    },
-    {
-      title: 'VERDICT',
-      data: 'verdict',
-    },
-  ];
-  // dataAvail = true
-  // @Input() public tec_indctrs: any;
-  data = [
-    {
-      Name: 'SMA',
-      value: 10.07,
-      Interpretation: 'oversold',
-      verdict: 'Buy',
-    },
-    {
-      Name: 'MACD',
-      value: 0.05,
-      Interpretation: 'bearish',
-      verdict: 'sell/neutral',
-    },
-    {
-      Name: 'RSI',
-      value: 58.79,
-      Interpretation: 'compare',
-      verdict: 'sell',
-    },
-    {
-      Name: 'STOC',
-      value: 0.39,
-      Interpretation: 'oversold',
-      verdict: 'Buy',
-    },
-  ];
+  emailFormControl = new FormControl();
+  public search: string='';
+
   constructor(private http: HttpClient) {}
   addClicked() {
     console.log('kfrb');
   }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      searching: false,
-      lengthChange: false,
-      paging: false,
-      info: false,
-      responsive: true,
-      language: {
-        paginate: { next: '>', last: 'Last', first: 'First', previous: '<' },
-      },
-      pageLength: 8,
-      columnDefs: [
-        { width: '30em', targets: [0, 1, 2, 3] },
-        { name: 'some name', targets: 0 },
-        { orderable: true, targets: [0, 1] },
-      ],
-      data: this.data,
-      columns: this.column,
-    };
+
+  }
+  searchCompany(){
+
   }
 }
