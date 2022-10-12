@@ -28,7 +28,7 @@ import { OtherIndicatorsComponent } from './other-indicators/components/other-in
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from "@angular/material/icon";
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // @ts-ignore
 
 @NgModule({
@@ -55,7 +55,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonModule,
     FormsModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CompanyProfileIndexComponent,

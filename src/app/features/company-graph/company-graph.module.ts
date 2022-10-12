@@ -12,6 +12,7 @@ import { RsiGraphComponent } from './components/rsi-graph/rsi-graph.component';
 import * as CanvasJSAngularChart from 'src/assets/canvasjs.angular.component';
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 import { ComBbGraphComponent } from './components/com-bb-graph/com-bb-graph.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ComBbGraphComponent } from './components/com-bb-graph/com-bb-graph.comp
     RsiGraphComponent,
     ComBbGraphComponent,
   ],
-  imports: [CommonModule, CompanyGraphRoutingModule, NgApexchartsModule],
+  imports: [CommonModule, CompanyGraphRoutingModule, NgApexchartsModule, MatProgressSpinnerModule],
   exports: [CompanyGraphIndexComponent],
 })
 export class CompanyGraphModule {}
