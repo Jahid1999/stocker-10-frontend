@@ -28,6 +28,7 @@ export class HomeTableComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   private _jsonURL = `${apiEndpoints.baseURL}/home_company_data/`;
   dataAvail = true;
+  public spinner: boolean=true;
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -110,6 +111,7 @@ export class HomeTableComponent implements OnInit {
       data = data.filter(function (dat: any) {
         return dat.trading_code != '';
       });
+      this.spinner = false;
       this.dtOptions.data = data;
       this.dataAvail = true;
     });

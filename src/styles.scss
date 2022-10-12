@@ -17,6 +17,23 @@ body {
   //
   //}
 }
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(50vh - 20px);
+  background: transparent;
+}
+
+.twitter-like{
+  .mat-progress-spinner{
+    display: inline;
+  }
+}
+.inner {
+  background: transparent;
+  padding: 12px;
+}
 
 tbody,
 td,

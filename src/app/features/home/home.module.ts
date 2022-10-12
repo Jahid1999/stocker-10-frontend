@@ -22,6 +22,8 @@ import { TodayDataComponent } from './components/today-data/today-data.component
 import { CategoryCompareComponent } from './components/category-compare/category-compare.component';
 import { GainerLooserComponent } from './components/gainer-looser/gainer-looser.component';
 import { FaqModule } from "../faq/faq.module";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { FaqModule } from "../faq/faq.module";
     MatSnackBarModule,
     MatTableModule,
     HttpClientModule,
-    FaqModule
+    FaqModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     TradeStatBarchartComponent,

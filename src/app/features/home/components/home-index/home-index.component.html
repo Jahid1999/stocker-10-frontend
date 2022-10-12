@@ -13,17 +13,35 @@
       <mat-tab label="TODAY'S DATA">
         <div *ngIf="todays_data_list.length!=0">
           <app-today-data [todaysDataFromParent]='todays_data_list' *ngIf="tabGroup.selectedIndex === 0"></app-today-data></div>
-        <div *ngIf="todays_data_list.length==0"></div>
+        <div *ngIf="todays_data_list.length==0">
+          <div class="wrapper">
+            <div class="inner">
+              <mat-spinner></mat-spinner>
+            </div>
+          </div>
+        </div>
       </mat-tab>
       <mat-tab label="COMPARE">
         <div *ngIf="data_compare_list.length!=0">
           <app-category-compare [dataCompareFromParent]="data_compare_list" *ngIf="tabGroup.selectedIndex === 1"></app-category-compare></div>
-        <div *ngIf="data_compare_list.length==0"></div>
+        <div *ngIf="data_compare_list.length==0">
+          <div class="wrapper">
+            <div class="inner">
+              <mat-spinner></mat-spinner>
+            </div>
+          </div>
+        </div>
       </mat-tab>
       <mat-tab label="GAINER LOOSER">
         <div *ngIf="gainer_looser_data_list.length!=0">
           <app-gainer-looser [gainLooserDataFromParent]='gainer_looser_data_list' *ngIf="tabGroup.selectedIndex === 2"></app-gainer-looser> </div>
-        <div *ngIf="gainer_looser_data_list.length==0"></div>
+        <div *ngIf="gainer_looser_data_list.length==0">
+          <div class="wrapper">
+            <div class="inner">
+              <mat-spinner></mat-spinner>
+            </div>
+          </div>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </div>
