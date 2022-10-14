@@ -25,14 +25,16 @@ export class HealthSliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.company_code = this.route.snapshot.paramMap.get('company-name');
-    this.healthSliderService.getHealthSliderData(this.company_code).subscribe((response: any)=>{
+    this.healthSliderService.getHealthSliderData(this.company_code).subscribe( {next:(response: any)=>{
       if(response){
+        console.log(response);
         this.dataProcessingForSlider(response);
         this.itemsQuantity = this.healthIndicatorSliders.length;
         this.isLoad = true;
       }
-    },(error: any)=>{
+    }, error: (error: any)=>{
       console.log(error.message);
+    }
     });
   }
 
