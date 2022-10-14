@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { apiEndpoints } from 'src/api-endpoints';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SliderService {
 
-  private url:string = 'http://63.33.210.220/api/slidebar/data/'
+  private url: string = `${apiEndpoints.baseURL}/slidebar/data`;
 
   constructor(private http: HttpClient) { }
 

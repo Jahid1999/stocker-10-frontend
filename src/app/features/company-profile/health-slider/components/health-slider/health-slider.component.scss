@@ -32,3 +32,15 @@
   color: black;
   padding-left: 0.2%;
 }
+
+.myclass{
+  position: relative;
+  // overflow: auto;
+}
+
+@media screen and (max-width: 575px) {
+  .myclass{
+    font-size: 10px;
+  }
+}
+
