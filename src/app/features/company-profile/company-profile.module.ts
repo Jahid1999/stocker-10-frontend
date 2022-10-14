@@ -29,6 +29,7 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from "@angular/material/icon";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PrdeictionGraphComponent } from './prdeiction-graph/prdeiction-graph.component';
 // @ts-ignore
 
 @NgModule({
@@ -45,6 +46,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HealthSliderComponent,
     HealthSliderDuplicateDirective,
     HealthSliderInnerContentComponent,
+    PrdeictionGraphComponent,
   ],
   imports: [
     CommonModule,
