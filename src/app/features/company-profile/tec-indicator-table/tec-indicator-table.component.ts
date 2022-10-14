@@ -92,6 +92,6 @@ export class TecIndicatorTableComponent implements OnInit {
   }
 
   navigateToGraphPage() {
-    this.router.navigateByUrl(`company-profile/${this.company_name}/graph`);
+    this.router.navigateByUrl(`profile/${this.company_name}/graph`);
   }
 }

@@ -7,14 +7,14 @@ const routes: Routes = [
       import('./features/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'company-profile',
+    path: 'company-profile/',
     loadChildren: () =>
       import('./features/company-profile/company-profile.module').then(
         (m) => m.CompanyProfileModule
       ),
   },
   {
-    path: 'company-profile/:company-name',
+    path: 'page/company/',
     loadChildren: () =>
       import('./features/company-graph/company-graph.module').then(
         (m) => m.CompanyGraphModule
