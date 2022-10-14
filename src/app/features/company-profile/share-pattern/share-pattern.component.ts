@@ -165,7 +165,7 @@ export class SharePatternComponent implements OnInit {
       grid: {
         borderColor: "#f1f1f1"
       },
-      colors:['#7FBCD2', '#FECD70', '#94B49F', '#FFC4C4','#645CAA'],
+      colors:['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
     };
   }
 
@@ -205,9 +205,9 @@ export class SharePatternComponent implements OnInit {
       legend:{
         show:false,
       },
-      colors:['#7FBCD2', '#FECD70', '#94B49F', '#FFC4C4','#645CAA'],
+      colors:['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
       fill: {
-        colors:['#7FBCD2', '#FECD70', '#94B49F', '#FFC4C4','#645CAA'],
+        colors:['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
       },
       responsive: [
         {
@@ -222,114 +222,4 @@ export class SharePatternComponent implements OnInit {
 
     };
   }
-/*  setNewChartData(){
-    this.lineGraph = {
-      series: [
-        {
-          name: "Government",
-          data: [30, 27, 14, 44, 31, 21, 67, 15, 9, 2, 55, 19]
-        },
-        {
-          name: "Institute",
-          data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-        },
-        {
-          name: "Foreign",
-          data: [76, 12, 28, 64, 63, 76, 22, 53, 1, 9, 25, 88]
-        },
-        {
-          name: "Directors",
-          data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
-        },
-        {
-          name: "Public Share",
-          data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
-        }
-      ],
-      chart: {
-        height: 350,
-        type: "line"
-      },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        width: 5,
-        curve: "straight",
-        dashArray: [0, 8, 5]
-      },
-      title: {
-        text: "Page Statistics",
-        align: "left"
-      },
-      legend: {
-        tooltipHoverFormatter: function(val: string, opts: { w: { globals: { series: { [x: string]: { [x: string]: string; }; }; }; }; seriesIndex: string | number; dataPointIndex: string | number; }) {
-          return (
-            val +
-            " - <strong>" +
-            opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] +
-            "</strong>"
-          );
-        }
-      },
-      markers: {
-        size: 0,
-        hover: {
-          sizeOffset: 6
-        }
-      },
-      xaxis: {
-        labels: {
-          trim: false
-        },
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec"
-        ]
-      },
-      tooltip: {
-        y: [
-          {
-            title: {
-              formatter: function(val: any) {
-                return val + " (mins)";
-              }
-            }
-          },
-          {
-            title: {
-              formatter: function(val: any) {
-                return val + " per session";
-              }
-            }
-          },
-          {
-            title: {
-              formatter: function(val: any) {
-                return val;
-              }
-            }
-          }
-        ]
-      },
-      grid: {
-        borderColor: "#f1f1f1"
-      },
-      colors:['#7FBCD2', '#FECD70', '#94B49F', '#FFC4C4','#645CAA'],
-      fill: {
-        colors:['#7FBCD2', '#FECD70', '#94B49F', '#FFC4C4','#645CAA'],
-      },
-    };
-  }*/
-
 }
