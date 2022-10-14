@@ -1,0 +1,27 @@
+<div class="header">
+  <div class="row">
+    <div class="col-md-3 report" style="padding-left: 0">
+      <b>COMPANY PROFILE</b>
+      <hr style="height: 3px; background: black" />
+    </div>
+  </div>
+</div>
+<div *ngIf="!dataReady">
+  <div class="wrapper">
+    <div class="inner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>
+<div *ngIf="dataReady">
+  <apx-chart
+    [series]="oscillatorChart.series"
+    [chart]="oscillatorChart.chart"
+    [xaxis]="oscillatorChart.xaxis"
+    [legend]="oscillatorChart.legend"
+    [yaxis]="oscillatorChart.yaxis"
+    [colors]="oscillatorChart.colors"
+    [title]="oscillatorChart.title"
+    [stroke]="oscillatorChart.stroke"
+  ></apx-chart>
+</div>
