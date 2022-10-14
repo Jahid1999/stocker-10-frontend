@@ -20,7 +20,7 @@ export class ProfileCardComponent implements OnInit {
   ngOnInit(): void {
     this.company_name = this.activatedRoute.snapshot.params['company-name'];
     this.service.getProfile(this.company_name).subscribe((response: any) => {
-      //this.profile = response;
+      this.profile = response;
     });
   }
   navigateToGraphPage() {

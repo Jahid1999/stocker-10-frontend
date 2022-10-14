@@ -11,6 +11,6 @@ export class ProfileCardService {
   url = apiEndpoints.baseURL;
 
   getProfile(companyname: any) {
-    return this.http.get<any>(this.url + '/market_category/' + companyname);
+    return this.http.get<any>(this.url + '/company_description/' + companyname);
   }
 }

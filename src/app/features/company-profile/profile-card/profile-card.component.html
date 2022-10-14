@@ -14,14 +14,19 @@
 <div class="row p-2">
   <div class="col-md-6 left">
     <br />
-    <h2>XYZ COMPANY LIMITED{{profile.name}}</h2>
+    <h2>{{profile.CompanyId}}</h2>
     <br />
-    <h5>YEAR END <b>JUNE</b></h5>
+    <!-- <h5>YEAR END <b>JUNE</b></h5>
     <h5>INCORPORATION <b>1976</b></h5>
     <h5>COMMECEMENT OF OPERATION <b>N/A</b></h5>
     <h5>LISTING YEAR <b>DSE1893</b></h5>
     <h5>SCRIPT CODE <b>DSE-123</b></h5>
-    <h5>DEBUT TRADING DATE <b>NOV, 1995</b></h5>
+    <h5>DEBUT TRADING DATE <b>NOV, 1995</b></h5> -->
+    <h5><b>Email</b> : {{profile.Email}}</h5>
+    <h5><b>Contact</b> : {{profile.Contact}}</h5>
+    <h5><b>Address</b> : {{profile.Address}}</h5>
+
+
   </div>
   <div class="col-md-6 right">
     <br />
@@ -32,11 +37,7 @@
     </div>
     <br /><br />
     <p style="font-size: 15px">
-      Bangladesh Export Import Company Limited, commonly known by its trade name
-      BEXIMCO, is a multinational conglomerate holding company, headquartered in
-      Dhaka, Bangladesh. It was founded in the early 1970s. Beximco is
-      Bangladesh's largest conglomerate, with the largest market capitalisation
-      on the country's stock market.
+      {{profile.Details}}
     </p>
   </div>
 </div>
