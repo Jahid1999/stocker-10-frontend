@@ -14,34 +14,6 @@ export class TecIndicatorTableComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   private _jsonURL = `${apiEndpoints.baseURL}/technical_indicators_staticis/`;
-  // dataAvail = true
-  // @Input() public tec_indctrs: any;
-  tec_indctrs = [
-    {
-      name: 'SMA',
-      value: 10.07,
-      interpretation: 'oversold',
-      verdict: 'Buy',
-    },
-    {
-      name: 'MACD',
-      value: 0.05,
-      interpretation: 'bearish',
-      verdict: 'sell/neutral',
-    },
-    {
-      name: 'RSI',
-      value: 58.79,
-      interpretation: 'compare',
-      verdict: 'sell',
-    },
-    {
-      name: 'STOC',
-      value: 0.39,
-      interpretation: 'oversold',
-      verdict: 'Buy',
-    },
-  ];
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
@@ -120,8 +92,6 @@ export class TecIndicatorTableComponent implements OnInit {
   }
 
   navigateToGraphPage() {
-    // console.log(this.company_name);
-
     this.router.navigateByUrl(`company-profile/${this.company_name}/graph`);
   }
 }
