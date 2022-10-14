@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { News } from './news.model';
+import { NewsService } from './news.service';
 
 @Component({
   selector: 'app-news',
@@ -8,29 +10,17 @@ import { News } from './news.model';
 })
 export class NewsComponent implements OnInit {
 
+  company_code:string = ''
   public allNews: News[] = []
 
-  constructor() {
-    this.allNews = [
-      {
-        title: 'Resumption after record date',
-        body: 'Trading of the shares of the company will resume on 11.08.2022 after record date.',
-        date: 'August 10, 2022'
-      },
-      {
-        title: 'Suspension for Record date',
-        body: 'Trading of the shares of the Company will remain suspended on record date i.e., 10.08.2022 for entitlement of interim dividend.',
-        date: 'August 8, 2022'
-      },
-      {
-        title: 'Resumption after record date',
-        body: 'Trading of the shares of the company will resume on 11.08.2022 after record date.Trading of the shares of the company will resume on 11.08.2022 after record date.Trading of the shares of the company will resume on 11.08.2022 after record date.',
-        date: 'August 10, 2022'
-      },
-    ]
+  constructor(private service:NewsService, private activatedRoute: ActivatedRoute,) {
   }
 
   ngOnInit(): void {
+    this.company_code = this.activatedRoute.snapshot.params['company-name'];
+    this.service.getNewsData(this.company_code).subscribe((res:any)=>{
+      this.allNews = res['news'];
+    })
   }
 
 }

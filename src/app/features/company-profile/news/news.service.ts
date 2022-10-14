@@ -7,12 +7,12 @@ import { apiEndpoints } from 'src/api-endpoints';
 @Injectable({
   providedIn: 'root',
 })
-export class DataCompareService {
-  private url: string = `${apiEndpoints.baseURL}/cat_compare`;
+export class NewsService {
+  private url: string = `${apiEndpoints.baseURL}/report_with_news/`;
   constructor(private http: HttpClient) {}
 
-  getNewsData() {
-    return this.http.get<News[]>(this.url).pipe(
+  getNewsData(company_code:string ) {
+    return this.http.get<News[]>(this.url+company_code).pipe(
       map((res: News[]) => {
         return res;
       })
