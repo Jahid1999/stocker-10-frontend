@@ -8,6 +8,7 @@ table.table-bordered {
 }
 table {
   text-align: center;
+  table-layout: fixed;
 }
 table.table-bordered tr {
   height: 45px;
@@ -16,6 +17,7 @@ table.table-bordered tr > th {
   border: 5px solid white;
   background-color: black;
   color: white;
+  width: 14%;
 }
 table.table-bordered > tr > td {
   background-color: #eff5f4;
@@ -25,14 +27,35 @@ table.table-bordered > tr > td {
 .table-striped {
   background-color: #eff5f4;
 }
-.action-row {
-  width: 15%;
-}
-.head-row {
-  width: 20%;
-}
+
 .add {
   cursor: pointer;
+  font-size: 25px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.heading {
+  padding-top: 4%;
+  padding-left: 10px;
+  font-weight: bold;
+}
+.report {
+  padding-top: 2%;
+  padding-left: 10px;
+}
+hr {
+  text-align: center;
+  color: gray;
+  height: 5px;
+  display: block;
 }
 
 .header {
@@ -44,3 +67,4 @@ table.table-bordered > tr > td {
   color: black;
   padding-left: 0.2%;
 }
+

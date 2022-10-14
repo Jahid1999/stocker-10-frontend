@@ -25,7 +25,11 @@ import { HealthSliderComponent } from './health-slider/components/health-slider/
 import { HealthSliderDuplicateDirective } from './health-slider/directives/health-slider-duplicate.directive';
 import { HealthSliderInnerContentComponent } from './health-slider/components/health-slider-inner-content/health-slider-inner-content.component';
 import { OtherIndicatorsComponent } from './other-indicators/components/other-indicators/other-indicators.component';
-
+import {FormsModule} from "@angular/forms";
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from "@angular/material/icon";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PrdeictionGraphComponent } from './prdeiction-graph/prdeiction-graph.component';
 // @ts-ignore
 
 @NgModule({
@@ -42,6 +46,7 @@ import { OtherIndicatorsComponent } from './other-indicators/components/other-in
     HealthSliderComponent,
     HealthSliderDuplicateDirective,
     HealthSliderInnerContentComponent,
+    PrdeictionGraphComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +55,10 @@ import { OtherIndicatorsComponent } from './other-indicators/components/other-in
     MatTableModule,
     NgApexchartsModule,
     MatButtonModule,
+    FormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CompanyProfileIndexComponent,

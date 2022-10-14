@@ -1,3 +1,11 @@
+<div class="header">
+  <div class="row">
+    <div class="col-md-3 report" style="padding-left: 0">
+      <b>COMPANY PROFILE</b>
+      <hr style="height: 3px; background: black" />
+    </div>
+  </div>
+</div>
 <div *ngIf="!dataReady">
   <div class="wrapper">
     <div class="inner">
@@ -7,19 +15,12 @@
 </div>
 <div *ngIf="dataReady">
   <apx-chart
-    [series]="candlestickChart.series"
-    [chart]="candlestickChart.chart"
-    [xaxis]="candlestickChart.xaxis"
-    [yaxis]="candlestickChart.yaxis"
-    [title]="candlestickChart.title"
-  ></apx-chart>
-  <apx-chart
     [series]="oscillatorChart.series"
     [chart]="oscillatorChart.chart"
     [xaxis]="oscillatorChart.xaxis"
-    [colors]="oscillatorChart.colors"
     [legend]="oscillatorChart.legend"
     [yaxis]="oscillatorChart.yaxis"
+    [colors]="oscillatorChart.colors"
     [title]="oscillatorChart.title"
     [stroke]="oscillatorChart.stroke"
   ></apx-chart>

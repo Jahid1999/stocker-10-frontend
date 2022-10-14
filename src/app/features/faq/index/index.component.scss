@@ -1,0 +1,59 @@
+
+.works-features {
+  padding: 30px 0 30px 0;
+}
+
+.works-features .works-container {}
+
+
+.works-features .works-container .cards {
+  grid-row: 2/-1;
+}
+
+.works-features .works-container .cards .card {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.works-features .works-container .cards .card:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
+
+.works-features .works-container .cards .card .card-header {
+  padding: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0 !important;
+  border-bottom: 0 !important;
+  min-height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  margin-top: -1px;
+  background: transparent;
+}
+
+.works-features .works-container .cards .card .card-header button {
+  padding: 0;
+  font-size: 18px;
+  color: #9296c5;
+  text-decoration: none;
+  font-family: 'karla';
+}
+
+.works-features .works-container .cards .card .card-header button[aria-expanded="true"] {
+  color: #252D44;
+}
+
+.works-features .works-container .cards .card .collapse.show .card-body,
+.works-features .works-container .cards .card .collapsing .card-body {
+  padding: 0px 0 15px 21px;
+}
+.fontfamily{
+  font-family: "karla";
+}

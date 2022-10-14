@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import { apiEndpoints } from 'src/api-endpoints';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HealthSliderService {
 
-  private url:string = 'http://63.33.210.220/api/health_indicator/'
-
+  private url: string = `${apiEndpoints.baseURL}/health_indicator/`;
   constructor(private http: HttpClient) { }
 
   public getHealthSliderData(company_name: string): Observable<any>{
