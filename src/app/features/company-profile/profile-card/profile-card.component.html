@@ -6,38 +6,28 @@
   <div class="row">
     <div class="col-md-3 report" style="padding-left: 0">
       <b>COMPANY PROFILE</b>
-      <hr style="height: 3px; background: black" />
+      <hr style="height: 3px; background: black"/>
     </div>
   </div>
 </div>
-
-<div class="row p-2">
-  <div class="col-md-6 left">
-    <br />
-    <h2>XYZ COMPANY LIMITED</h2>
-    <br />
-    <h5>YEAR END <b>JUNE</b></h5>
-    <h5>INCORPORATION <b>1976</b></h5>
-    <h5>COMMECEMENT OF OPERATION <b>N/A</b></h5>
-    <h5>LISTING YEAR <b>DSE1893</b></h5>
-    <h5>SCRIPT CODE <b>DSE-123</b></h5>
-    <h5>DEBUT TRADING DATE <b>NOV, 1995</b></h5>
-  </div>
-  <div class="col-md-6 right">
-    <br />
-    <div class="d-flex justify-content-end">
-      <i class="fa-brands fa-instagram fa-2x" style="padding: 5px"></i>
-      <i class="fa-brands fa-facebook-f fa-2x" style="padding: 5px"></i>
-      <i class="fa-brands fa-youtube fa-2x" style="padding: 5px"></i>
+<div *ngIf="!profile">
+  <div class="wrapper">
+    <div class="inner">
+      <mat-spinner></mat-spinner>
     </div>
-    <br /><br />
+  </div>
+</div>
+<div class="row p-2" *ngIf="profile">
+  <div class="col-12">
+    <h2>{{full_name}}</h2>
+    <hr>
     <p style="font-size: 15px">
-      Bangladesh Export Import Company Limited, commonly known by its trade name
-      BEXIMCO, is a multinational conglomerate holding company, headquartered in
-      Dhaka, Bangladesh. It was founded in the early 1970s. Beximco is
-      Bangladesh's largest conglomerate, with the largest market capitalisation
-      on the country's stock market.
+      {{profile.Details}}
     </p>
+    <hr>
+    <h5><b>Email</b> : <a [href]="'mailto:'+ profile.Email">{{profile.Email}}</a></h5>
+    <h5><b>Contact</b> : {{profile.Contact}}</h5>
+    <h5><b>Address</b> : {{profile.Address}}</h5>
   </div>
 </div>
 <button

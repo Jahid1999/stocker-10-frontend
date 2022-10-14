@@ -24,6 +24,12 @@ body {
   height: calc(50vh - 20px);
   background: transparent;
 }
+.mini-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
 
 .twitter-like{
   .mat-progress-spinner{

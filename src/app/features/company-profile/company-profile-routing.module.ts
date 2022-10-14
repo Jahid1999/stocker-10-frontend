@@ -4,7 +4,7 @@ import { CompanyProfileIndexComponent } from './company-profile-index/company-pr
 
 const routes: Routes = [
   {
-    path: ':company-name',
+    path: ':company-name/:full-name',
     component: CompanyProfileIndexComponent
   },
 ];

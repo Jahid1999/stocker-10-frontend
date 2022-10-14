@@ -12,6 +12,7 @@ export class NewsComponent implements OnInit {
 
   company_code:string = ''
   public allNews: any[] = []
+  public allReports: any[] = []
 
   constructor(private service:NewsService, private activatedRoute: ActivatedRoute,) {
   }
