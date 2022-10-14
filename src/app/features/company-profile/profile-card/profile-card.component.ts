@@ -29,6 +29,6 @@ export class ProfileCardComponent implements OnInit {
   }
   navigateToGraphPage() {
     // console.log(this.company_name);
-    this.router.navigateByUrl(`company-profile/${this.company_name}/graph`);
+    this.router.navigateByUrl(`profile/${this.company_name}/graph`);
   }
 }
