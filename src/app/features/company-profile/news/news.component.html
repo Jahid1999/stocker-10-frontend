@@ -1,13 +1,25 @@
+
 <div >
   <div>
     <p class="px-3 py-2 bg-dark text-white w-50 text-center">NEWS</p>
   </div>
-  <div class="overflow-auto p-3 news-body shadow-sm bg-white">
+  <div class="overflow-auto p-3 news-body shadow-sm bg-white" *ngIf="allNews.length != 0">
     <ul>
-      <li *ngFor="let news of allNews">
-        <h3>{{news.title}}</h3>
-        <p class="">{{news.body}}</p>
+      <li>
+        <h3>{{allNews[0]['title:']}}</h3>
+        <p class="">{{allNews[0].body}}</p>
+      </li>
+      <li>
+        <h3>{{allNews[1]['title']}}</h3>
+        <p class="">{{allNews[1].body}}</p>
       </li>
     </ul>
+  </div>
+  <div *ngIf="allNews.length == 0">
+    <div class="wrapper">
+      <div class="inner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
   </div>
 </div>

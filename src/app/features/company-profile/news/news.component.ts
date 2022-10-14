@@ -11,7 +11,7 @@ import { NewsService } from './news.service';
 export class NewsComponent implements OnInit {
 
   company_code:string = ''
-  public allNews: News[] = []
+  public allNews: any[] = []
 
   constructor(private service:NewsService, private activatedRoute: ActivatedRoute,) {
   }
