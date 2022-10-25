@@ -2,7 +2,7 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
 />
-<div *ngIf = "!dataAvailable">
+<div *ngIf="!dataAvailable">
   <div class="wrapper">
     <div class="inner">
       <mat-spinner></mat-spinner>
@@ -10,107 +10,102 @@
   </div>
 </div>
 <div *ngIf="dataAvailable">
-  <div class="bar-title">
-    <!-- <i
-      style="margin: 0px 85px 0px 10px"
-      class="fa fa-solid fa-chevron-left"
-    ></i> -->
+  <div class="mini-wrapper">
+    <div class="inner">
+      <div class="bar-title">
+        <p>TRADE STATISTICS</p>
+      </div>
+      <br />
+      <button
+        style="background-color: transparent; border: transparent"
+        (click)="toggleChart()"
+      >
+        <i *ngIf="isBarChart" class="fa fa-pie-chart fa-xl"></i>
+        <i *ngIf="!isBarChart" class="fa fa-chart-simple fa-xl"></i>
+      </button>
 
-    <p>TRADE STATISTICS</p>
-    <!-- <i
-      style="margin: 0px 10px 0px 85px"
-      class="fa fa-solid fa-chevron-right"
-    ></i> -->
-  </div>
-  <br />
-  <button
-    style="background-color: transparent; border: transparent"
-    (click)="toggleChart()"
-  >
-    <i *ngIf="isBarChart" class="fa fa-pie-chart fa-xl"></i>
-    <i *ngIf="!isBarChart" class="fa fa-chart-simple fa-xl"></i>
-  </button>
-
-  <div id="chart">
-    <div *ngIf="isBarChart">
-      <apx-chart
-        [series]="chartOptions.series"
-        [chart]="chartOptions.chart"
-        [dataLabels]="chartOptions.dataLabels"
-        [plotOptions]="chartOptions.plotOptions"
-        [xaxis]="chartOptions.xaxis"
-        [stroke]="chartOptions.stroke"
-        [fill]="chartOptions.fill"
-        [grid]="chartOptions.grid"
-        [legend]="chartOptions.legend"
-      ></apx-chart>
-    </div>
-    <div *ngIf="!isBarChart">
-      <apx-chart
-        [series]="pieChartOptions.series"
-        [colors]="pieChartOptions.colors"
-        [dataLabels]="pieChartOptions.dataLabels"
-        [plotOptions]="pieChartOptions.plotOptions"
-        [chart]="pieChartOptions.chart"
-        [fill]="pieChartOptions.fill"
-        [legend]="pieChartOptions.legend"
-        [labels]="pieChartOptions.labels"
-        [responsive]="pieChartOptions.responsive"
-      ></apx-chart>
-    </div>
-    <div class="box-group">
-      <div class="box" style="color: #0085de">
-        {{ tradeStatDataLabel.unchanged }}
-        <div style="margin-left: 5px">
-          <i class="fa fa-down-long"></i><i class="fa fa-up-long"></i>
+      <div id="chart">
+        <div *ngIf="isBarChart">
+          <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [dataLabels]="chartOptions.dataLabels"
+            [plotOptions]="chartOptions.plotOptions"
+            [xaxis]="chartOptions.xaxis"
+            [stroke]="chartOptions.stroke"
+            [fill]="chartOptions.fill"
+            [grid]="chartOptions.grid"
+            [legend]="chartOptions.legend"
+          ></apx-chart>
         </div>
-      </div>
-      <div class="box" style="color: #17d540">
-        {{ tradeStatDataLabel.up }}
-        <div style="margin-left: 5px">
-          <i class="fa fa-up-long"></i>
+        <div *ngIf="!isBarChart">
+          <apx-chart
+            [series]="pieChartOptions.series"
+            [colors]="pieChartOptions.colors"
+            [dataLabels]="pieChartOptions.dataLabels"
+            [plotOptions]="pieChartOptions.plotOptions"
+            [chart]="pieChartOptions.chart"
+            [fill]="pieChartOptions.fill"
+            [legend]="pieChartOptions.legend"
+            [labels]="pieChartOptions.labels"
+            [responsive]="pieChartOptions.responsive"
+          ></apx-chart>
         </div>
-      </div>
-      <div class="box" style="color: #bc0404">
-        {{ tradeStatDataLabel.down }}
-        <div style="margin-left: 5px">
-          <i class="fa fa-down-long"></i>
+        <div class="mini-wrapper">
+          <div class="box" style="color: #0085de">
+            {{ tradeStatDataLabel.unchanged }}
+            <div style="margin-left: 5px">
+              <i class="fa fa-down-long"></i><i class="fa fa-up-long"></i>
+            </div>
+          </div>
+          <div class="box" style="color: #17d540">
+            {{ tradeStatDataLabel.up }}
+            <div style="margin-left: 5px">
+              <i class="fa fa-up-long"></i>
+            </div>
+          </div>
+          <div class="box" style="color: #bc0404">
+            {{ tradeStatDataLabel.down }}
+            <div style="margin-left: 5px">
+              <i class="fa fa-down-long"></i>
+            </div>
+          </div>
         </div>
+        <br />
+        <div class="mini-wrapper">
+          <div class="box" style="color: #0085de">
+            {{ tradeStatDataLabel.unchanged_percentage }}%
+            <div style="margin-left: 5px">
+              <i class="fa fa-down-long"></i><i class="fa fa-up-long"></i>
+            </div>
+          </div>
+          <div class="box" style="color: #17d540">
+            {{ tradeStatDataLabel.up_percentage }}%
+            <div style="margin-left: 5px">
+              <i class="fa fa-up-long"></i>
+            </div>
+          </div>
+          <div class="box" style="color: #bc0404">
+            {{ tradeStatDataLabel.down_percentage }}%
+            <div style="margin-left: 5px">
+              <i class="fa fa-down-long"></i>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            font-weight: 600;
+            margin: 20px 0px 20px 120px;
+            color: rgb(81, 81, 81);
+          "
+        >
+          {{ today | date: "medium" }}
+        </div>
+        <div style="display: inline-flex; margin-left: 35px">
+          <button class="block-button">TODAY</button>
+        </div>
+        <!-- <div class="box-group"></div> -->
       </div>
     </div>
-    <br />
-    <div class="box-group">
-      <div class="box" style="color: #0085de">
-        {{ tradeStatDataLabel.unchanged_percentage }}%
-        <div style="margin-left: 5px">
-          <i class="fa fa-down-long"></i><i class="fa fa-up-long"></i>
-        </div>
-      </div>
-      <div class="box" style="color: #17d540">
-        {{ tradeStatDataLabel.up_percentage }}%
-        <div style="margin-left: 5px">
-          <i class="fa fa-up-long"></i>
-        </div>
-      </div>
-      <div class="box" style="color: #bc0404">
-        {{ tradeStatDataLabel.down_percentage }}%
-        <div style="margin-left: 5px">
-          <i class="fa fa-down-long"></i>
-        </div>
-      </div>
-    </div>
-    <div
-      style="
-        font-weight: 600;
-        margin: 20px 0px 20px 120px;
-        color: rgb(81, 81, 81);
-      "
-    >
-      {{ today | date: "medium" }}
-    </div>
-    <div style="display: inline-flex; margin-left: 35px">
-      <button class="block-button">TODAY</button>
-    </div>
-    <!-- <div class="box-group"></div> -->
   </div>
 </div>
