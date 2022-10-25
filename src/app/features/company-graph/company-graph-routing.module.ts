@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompanyGraphIndexComponent } from './components/company-graph-index/company-graph-index.component';
 const routes: Routes = [
   {
-    path: 'profile/:company-name/graph',
+    path: 'profile/:company-name/:company-full-name/graph',
     component: CompanyGraphIndexComponent
   }
 ];
