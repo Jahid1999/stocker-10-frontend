@@ -17,7 +17,7 @@ export class TecIndicatorTableComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -92,6 +92,7 @@ export class TecIndicatorTableComponent implements OnInit {
   }
 
   navigateToGraphPage() {
-    this.router.navigateByUrl(`profile/${this.company_name}/graph`);
+    let fullname = this.route.snapshot.params['full-name'];
+    this.router.navigateByUrl(`profile/${this.company_name}/${fullname}/graph`);
   }
 }
