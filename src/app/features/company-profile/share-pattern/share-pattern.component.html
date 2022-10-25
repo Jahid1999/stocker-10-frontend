@@ -1,13 +1,4 @@
 <div>
-  <div class="header">
-    <div class="row">
-      <div class="col-md-3 report" style="padding-left: 0">
-        <b>SHARE PATTERN</b>
-        <hr style="height: 3px; background: black" />
-      </div>
-    </div>
-  </div>
-
   <div class="row">
     <div class="col-md-8" *ngIf="lineGraphData">
       <apx-chart
@@ -24,8 +15,6 @@
         [title]="lineGraph.title"
         [colors]="lineGraph.colors"
         [fill]="lineGraph.fill"
-
-
       ></apx-chart>
     </div>
     <div class="col-md-4" *ngIf="dataLoaded">

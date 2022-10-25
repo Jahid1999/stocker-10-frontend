@@ -3,37 +3,37 @@
     <div class="row">
       <div class="col col-lg-12 col-xl-12">
         <div id="accordionId" class="works-container">
-          <div class="header">
-            <div class="row">
-              <div class="col-md-3 report" style="padding-left: 0">
-                <b>Frequently Asked Questions (FAQ)</b>
-                <hr style="height: 3px; background: black" />
-              </div>
-            </div>
-          </div>
           <div class="cards">
             <div class="card">
               <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-                <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                <mat-nested-tree-node
+                  *matTreeNodeDef="let node; when: hasChild"
+                >
                   <div class="card-header" id="accordionItemHeading">
                     <h5 class="mb-0">
-
                       <div *ngIf="node.heading === itemHeading">
-                        <button matTreeNodeToggle class="btn btn-link"
-                                aria-expanded="false"
-                                [attr.aria-label]="'Toggle ' + node.heading"  (click)="change(node.heading)">
-                          {{node.heading}}
+                        <button
+                          matTreeNodeToggle
+                          class="btn btn-link"
+                          aria-expanded="false"
+                          [attr.aria-label]="'Toggle ' + node.heading"
+                          (click)="change(node.heading)"
+                        >
+                          {{ node.heading }}
                         </button>
                       </div>
 
                       <div *ngIf="node.heading !== itemHeading">
-                        <button matTreeNodeToggle class="btn btn-link"
-                                aria-expanded="false"
-                                [attr.aria-label]="'Toggle ' + node.heading"  (click)="change(node.heading)">
-                          {{node.heading}}
+                        <button
+                          matTreeNodeToggle
+                          class="btn btn-link"
+                          aria-expanded="false"
+                          [attr.aria-label]="'Toggle ' + node.heading"
+                          (click)="change(node.heading)"
+                        >
+                          {{ node.heading }}
                         </button>
                       </div>
-
                     </h5>
                   </div>
                   <div *ngIf="node.heading == itemHeading" class="fontfamily">
@@ -49,4 +49,3 @@
     </div>
   </div>
 </div>
-

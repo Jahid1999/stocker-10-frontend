@@ -2,14 +2,7 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
 />
-<div class="header">
-  <div class="row">
-    <div class="col-md-3 report" style="padding-left: 0">
-      <b>COMPANY PROFILE</b>
-      <hr style="height: 3px; background: black"/>
-    </div>
-  </div>
-</div>
+
 <div *ngIf="!profile">
   <div class="wrapper">
     <div class="inner">
@@ -19,20 +12,23 @@
 </div>
 <div class="row p-2" *ngIf="profile">
   <div class="col-12">
-    <h2>{{full_name}}</h2>
-    <hr>
+    <h2>{{ full_name }}</h2>
+    <hr />
     <p style="font-size: 15px">
-      {{profile.Details}}
+      {{ profile.Details }}
     </p>
-    <hr>
-    <h5><b>Email</b> : <a [href]="'mailto:'+ profile.Email">{{profile.Email}}</a></h5>
-    <h5><b>Contact</b> : {{profile.Contact}}</h5>
-    <h5><b>Address</b> : {{profile.Address}}</h5>
+    <hr />
+    <h5>
+      <b>Email</b> :
+      <a [href]="'mailto:' + profile.Email">{{ profile.Email }}</a>
+    </h5>
+    <h5><b>Contact</b> : {{ profile.Contact }}</h5>
+    <h5><b>Address</b> : {{ profile.Address }}</h5>
   </div>
 </div>
 <button
   (click)="navigateToGraphPage()"
-  class="navigation-btn"
+  class="navigation-btn mb-2"
   mat-raised-button
   color="primary"
 >
