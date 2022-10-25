@@ -1,12 +1,14 @@
 <section>
-  <div class="row hometable">
-    <div class="col-md-8 col-12 mb-2"><app-home-table></app-home-table></div>
-    <div class="col-md-4 col-12 mb-2">
-      <app-trade-stat-barchart></app-trade-stat-barchart>
+  <div class="trade-state-div">
+    <div  class="row hometable" style="margin: 0px;padding: 0px">
+      <div class="col-md-8 col-12 mb-2"><app-home-table></app-home-table></div>
+      <div class="col-md-4 col-12 mb-2">
+        <app-trade-stat-barchart></app-trade-stat-barchart>
+      </div>
     </div>
   </div>
 
-  <div>
+  <div class="central-div">
     <mat-tab-group #tabGroup>
       <mat-tab label="TODAY'S DATA">
         <div *ngIf="todays_data_list.length != 0">
@@ -55,7 +57,7 @@
       </mat-tab>
     </mat-tab-group>
   </div>
-  <div>
+  <div class="central-div">
     <div class="graph-header mb-2">
       <span>Frequently Asked Questions (FAQ)</span>
     </div>

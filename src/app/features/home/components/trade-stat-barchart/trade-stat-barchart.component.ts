@@ -51,14 +51,13 @@ export class TradeStatBarchartComponent implements OnInit {
 
   loadData() {
     this.chartServices.getTradeStatBarchartData().subscribe((data: any) => {
-      // console.log(data)
       this.tradeStatDataLabel = data;
       this.tradeStatData.push(data.unchanged);
       this.tradeStatData.push(data.up);
       this.tradeStatData.push(data.down);
-      /*  this.pieChartData.push(data.unchanged_percentage);
+        this.pieChartData.push(data.unchanged_percentage);
       this.pieChartData.push(data.up_percentage);
-      this.pieChartData.push(data.down_percentage);*/
+      this.pieChartData.push(data.down_percentage);
       this.dataAvailable = true;
       this.today = new Date();
       // console.log(data)
@@ -70,7 +69,7 @@ export class TradeStatBarchartComponent implements OnInit {
       series: [
         {
           name: 'Trade Statistics',
-          data: this.tradeStatData,
+          data: this.pieChartData,
         },
       ],
       chart: {
@@ -85,7 +84,10 @@ export class TradeStatBarchartComponent implements OnInit {
         },
       },
       dataLabels: {
-        enabled: false,
+        enabled: true,
+        formatter: function (val: any) {
+          return val.toFixed(2) + '%';
+        },
       },
       grid: {
         show: false,
@@ -104,6 +106,7 @@ export class TradeStatBarchartComponent implements OnInit {
           },
         },
       },
+      colors: ['#0e274d', '#164d22', '#5c020b'],
       fill: {
         colors: ['#0e274d', '#164d22', '#5c020b'],
       },
