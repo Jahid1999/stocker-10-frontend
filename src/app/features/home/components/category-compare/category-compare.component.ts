@@ -99,7 +99,7 @@ export class CategoryCompareComponent implements OnInit {
           dataLabels: {
             position: "top",
           },
-          barHeight:'85'
+          barHeight:'70'
         }
       },
       // dataLabels: {
@@ -116,7 +116,7 @@ export class CategoryCompareComponent implements OnInit {
         },
         formatter: function(val:number, opts?) {
           let text = '';
-          text += Math.ceil(val) + '  '
+          text += Math.ceil(val) + ' , '
           if(opts.seriesIndex === 0){
             text += CategoryCompareComponent.todayParcentages[opts.dataPointIndex]
           }
