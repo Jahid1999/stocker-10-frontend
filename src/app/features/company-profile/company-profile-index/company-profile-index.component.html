@@ -1,78 +1,80 @@
-<div>
-  <div class="graph-header mb-2">
-    <span>COMPANY PROFILE</span>
-  </div>
-  <app-profile-card></app-profile-card>
-</div>
-
-<div>
-  <div class="graph-header">
-    <span
-      >TECHNICAL INDICATORS
-      <img
-        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8Zz4KICA8cGF0aCBkPSJtMzU5LjI5IDU1OS4wNGM0NC4wODYtMC4wNjI1IDg2LjM1Mi0xNy42MDUgMTE3LjUyLTQ4Ljc4NSAzMS4xNzItMzEuMTggNDguNzAzLTczLjQ0OSA0OC43NTQtMTE3LjU0IDAtOC40NjA5LTQuNTExNy0xNi4yNzctMTEuODQtMjAuNTA4LTcuMzI4MS00LjIzMDUtMTYuMzUyLTQuMjMwNS0yMy42OCAwLTcuMzI0MiA0LjIzMDUtMTEuODQgMTIuMDQ3LTExLjg0IDIwLjUwOCAwIDMxLjUzOS0xMi41MjcgNjEuNzg1LTM0LjgyOCA4NC4wODYtMjIuMzAxIDIyLjMwMS01Mi41NDcgMzQuODMyLTg0LjA4NiAzNC44MzItMzEuNTM5IDAtNjEuNzg1LTEyLjUzMS04NC4wODYtMzQuODMyLTIyLjMwNS0yMi4zMDEtMzQuODMyLTUyLjU0Ny0zNC44MzItODQuMDg2czEyLjUyNy02MS43ODUgMzQuODMyLTg0LjA4NmMyMi4zMDEtMjIuMzAxIDUyLjU0Ny0zNC44MzIgODQuMDg2LTM0LjgzMiA4LjQ1NyAwIDE2LjI3Ny00LjUxMTcgMjAuNTA0LTExLjgzNiA0LjIzMDUtNy4zMjgxIDQuMjMwNS0xNi4zNTUgMC0yMy42OC00LjIyNjYtNy4zMjgxLTEyLjA0Ny0xMS44NC0yMC41MDQtMTEuODQtNDMuNjIxIDAuNzM0MzgtODUuMjAzIDE4LjU3OC0xMTUuNzkgNDkuNjg4LTMwLjU4NiAzMS4xMDUtNDcuNzI3IDcyLjk4NC00Ny43MjcgMTE2LjYxczE3LjE0MSA4NS41MDQgNDcuNzI3IDExNi42MWMzMC41ODYgMzEuMTA5IDcyLjE2OCA0OC45NTMgMTE1Ljc5IDQ5LjY4OHoiLz4KICA8cGF0aCBkPSJtNTM0LjcgMTkyLjk2LTEwNS4xNCAzLjA3ODFjLTguNDU3IDAuMjM4MjgtMTYuMTQ4IDQuOTY4OC0yMC4xNzYgMTIuNDE0LTQuMDIzNCA3LjQ0NTMtMy43Njk1IDE2LjQ3MyAwLjY2NDA2IDIzLjY4IDQuNDMzNiA3LjIwNyAxMi4zNzkgMTEuNTA0IDIwLjg0IDExLjI2Nmw0NS42NTItMS4yNzczLTEzMi4xOCAxMzIuMDRjLTQuNTcwMyA0LjQxMDItNy4xNzU4IDEwLjQ3My03LjIzMDUgMTYuODI0LTAuMDU0Njg4IDYuMzUxNiAyLjQ0NTMgMTIuNDU3IDYuOTM3NSAxNi45NDkgNC40ODgzIDQuNDkyMiAxMC41OTggNi45ODgzIDE2Ljk0OSA2LjkzMzYgNi4zNTE2LTAuMDU0Njg3IDEyLjQxNC0yLjY1NjIgMTYuODI0LTcuMjI2NmwxMzIuMTgtMTMyLjE4LTEuNDE4IDQ1LjY1MmMtMC4xNzk2OSA2LjI4MTIgMi4xNDQ1IDEyLjM3NSA2LjQ2MDkgMTYuOTQxIDQuMzE2NCA0LjU2NjQgMTAuMjczIDcuMjI2NiAxNi41NTUgNy40MDIzaDAuNjYwMTZjNi4xNjggMCAxMi4wOTQtMi40MDIzIDE2LjUxNi02LjY5OTIgNC40MjE5LTQuMzAwOCA2Ljk5MjItMTAuMTUyIDcuMTY0MS0xNi4zMmwyLjkzNzUtMTA1LjE0djAuMDAzOTA3YzAuMTgzNTktNi41MTE3LTIuMzIwMy0xMi44MTItNi45MjU4LTE3LjQxOC00LjYwNTUtNC42MDU1LTEwLjkwNi03LjEwOTQtMTcuNDE4LTYuOTI1OHoiLz4KIDwvZz4KPC9zdmc+Cg=="
-        height="30px"
-        width="30px"
-        (click)="navigateToGraphPage()"
-        style="cursor: pointer; padding-bottom: 5px"
-      />
-    </span>
-  </div>
-  <app-tec-indicator-table></app-tec-indicator-table>
-</div>
-
-<div>
-  <div class="graph-header mt-2">
-    <span>PREDICTION GRAPH</span>
-  </div>
-  <app-prdeiction-graph></app-prdeiction-graph>
-</div>
-
-<div>
-  <div class="graph-header">
-    <span>HEALTH INDICATORS</span>
-  </div>
-  <app-health-slider></app-health-slider>
-</div>
-
-<div>
-  <div class="graph-header">
-    <span>MARKET SUMMARY</span>
-  </div>
-  <app-market-summary [companyCode]="company_name"></app-market-summary>
-</div>
-
-<div>
-  <div class="graph-header">
-    <span>SHARE PATTERN</span>
-  </div>
-  <app-share-pattern></app-share-pattern>
-</div>
-
-<div>
-  <div class="graph-header">
-    <span>COMPARISON WITH OTHERS</span>
-  </div>
-  <app-comparison-table></app-comparison-table>
-</div>
-
-<div>
-  <div class="graph-header">
-    <span>OTHER INDICATORS</span>
-  </div>
-  <app-other-indicators></app-other-indicators>
-</div>
-
-<div>
-  <div class="graph-header">
-    <span>REPORTS AND NEWS</span>
-  </div>
-  <div class="row mt-2">
-    <div class="col-md-4">
-      <app-reports></app-reports>
+<div class="p-4">
+  <div>
+    <div class="graph-header mb-2">
+      <span>COMPANY PROFILE</span>
     </div>
-    <div class="col-md-8">
-      <app-news></app-news>
+    <app-profile-card></app-profile-card>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span
+        >TECHNICAL INDICATORS
+        <img
+          src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8Zz4KICA8cGF0aCBkPSJtMzU5LjI5IDU1OS4wNGM0NC4wODYtMC4wNjI1IDg2LjM1Mi0xNy42MDUgMTE3LjUyLTQ4Ljc4NSAzMS4xNzItMzEuMTggNDguNzAzLTczLjQ0OSA0OC43NTQtMTE3LjU0IDAtOC40NjA5LTQuNTExNy0xNi4yNzctMTEuODQtMjAuNTA4LTcuMzI4MS00LjIzMDUtMTYuMzUyLTQuMjMwNS0yMy42OCAwLTcuMzI0MiA0LjIzMDUtMTEuODQgMTIuMDQ3LTExLjg0IDIwLjUwOCAwIDMxLjUzOS0xMi41MjcgNjEuNzg1LTM0LjgyOCA4NC4wODYtMjIuMzAxIDIyLjMwMS01Mi41NDcgMzQuODMyLTg0LjA4NiAzNC44MzItMzEuNTM5IDAtNjEuNzg1LTEyLjUzMS04NC4wODYtMzQuODMyLTIyLjMwNS0yMi4zMDEtMzQuODMyLTUyLjU0Ny0zNC44MzItODQuMDg2czEyLjUyNy02MS43ODUgMzQuODMyLTg0LjA4NmMyMi4zMDEtMjIuMzAxIDUyLjU0Ny0zNC44MzIgODQuMDg2LTM0LjgzMiA4LjQ1NyAwIDE2LjI3Ny00LjUxMTcgMjAuNTA0LTExLjgzNiA0LjIzMDUtNy4zMjgxIDQuMjMwNS0xNi4zNTUgMC0yMy42OC00LjIyNjYtNy4zMjgxLTEyLjA0Ny0xMS44NC0yMC41MDQtMTEuODQtNDMuNjIxIDAuNzM0MzgtODUuMjAzIDE4LjU3OC0xMTUuNzkgNDkuNjg4LTMwLjU4NiAzMS4xMDUtNDcuNzI3IDcyLjk4NC00Ny43MjcgMTE2LjYxczE3LjE0MSA4NS41MDQgNDcuNzI3IDExNi42MWMzMC41ODYgMzEuMTA5IDcyLjE2OCA0OC45NTMgMTE1Ljc5IDQ5LjY4OHoiLz4KICA8cGF0aCBkPSJtNTM0LjcgMTkyLjk2LTEwNS4xNCAzLjA3ODFjLTguNDU3IDAuMjM4MjgtMTYuMTQ4IDQuOTY4OC0yMC4xNzYgMTIuNDE0LTQuMDIzNCA3LjQ0NTMtMy43Njk1IDE2LjQ3MyAwLjY2NDA2IDIzLjY4IDQuNDMzNiA3LjIwNyAxMi4zNzkgMTEuNTA0IDIwLjg0IDExLjI2Nmw0NS42NTItMS4yNzczLTEzMi4xOCAxMzIuMDRjLTQuNTcwMyA0LjQxMDItNy4xNzU4IDEwLjQ3My03LjIzMDUgMTYuODI0LTAuMDU0Njg4IDYuMzUxNiAyLjQ0NTMgMTIuNDU3IDYuOTM3NSAxNi45NDkgNC40ODgzIDQuNDkyMiAxMC41OTggNi45ODgzIDE2Ljk0OSA2LjkzMzYgNi4zNTE2LTAuMDU0Njg3IDEyLjQxNC0yLjY1NjIgMTYuODI0LTcuMjI2NmwxMzIuMTgtMTMyLjE4LTEuNDE4IDQ1LjY1MmMtMC4xNzk2OSA2LjI4MTIgMi4xNDQ1IDEyLjM3NSA2LjQ2MDkgMTYuOTQxIDQuMzE2NCA0LjU2NjQgMTAuMjczIDcuMjI2NiAxNi41NTUgNy40MDIzaDAuNjYwMTZjNi4xNjggMCAxMi4wOTQtMi40MDIzIDE2LjUxNi02LjY5OTIgNC40MjE5LTQuMzAwOCA2Ljk5MjItMTAuMTUyIDcuMTY0MS0xNi4zMmwyLjkzNzUtMTA1LjE0djAuMDAzOTA3YzAuMTgzNTktNi41MTE3LTIuMzIwMy0xMi44MTItNi45MjU4LTE3LjQxOC00LjYwNTUtNC42MDU1LTEwLjkwNi03LjEwOTQtMTcuNDE4LTYuOTI1OHoiLz4KIDwvZz4KPC9zdmc+Cg=="
+          height="30px"
+          width="30px"
+          (click)="navigateToGraphPage()"
+          style="cursor: pointer; padding-bottom: 5px"
+        />
+      </span>
+    </div>
+    <app-tec-indicator-table></app-tec-indicator-table>
+  </div>
+
+  <div>
+    <div class="graph-header mt-2">
+      <span>PREDICTION GRAPH</span>
+    </div>
+    <app-prdeiction-graph></app-prdeiction-graph>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>HEALTH INDICATORS</span>
+    </div>
+    <app-health-slider></app-health-slider>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>MARKET SUMMARY</span>
+    </div>
+    <app-market-summary [companyCode]="company_name"></app-market-summary>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>SHARE PATTERN</span>
+    </div>
+    <app-share-pattern></app-share-pattern>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>COMPARISON WITH OTHERS</span>
+    </div>
+    <app-comparison-table></app-comparison-table>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>OTHER INDICATORS</span>
+    </div>
+    <app-other-indicators></app-other-indicators>
+  </div>
+
+  <div>
+    <div class="graph-header">
+      <span>REPORTS AND NEWS</span>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-4">
+        <app-reports></app-reports>
+      </div>
+      <div class="col-md-8">
+        <app-news></app-news>
+      </div>
     </div>
   </div>
 </div>
