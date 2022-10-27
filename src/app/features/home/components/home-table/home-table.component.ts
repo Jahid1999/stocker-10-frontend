@@ -30,11 +30,13 @@ export class HomeTableComponent implements OnInit {
   dataAvail = true;
   public spinner: boolean = true;
 
+  public search: string = '';
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.dtOptions = {
-      searching: true,
+      // searching: true,
       lengthChange: false,
       language: {
         paginate: { next: '>', last: 'Last', first: 'First', previous: '<' },
@@ -131,5 +133,19 @@ export class HomeTableComponent implements OnInit {
 
   public getJSON(): Observable<any> {
     return this.http.get<any>(this._jsonURL);
+  }
+
+  searchCompany() {
+    // console.log(this.search)
+    // this.searchedItems = [];
+    // if (this.search === '') {
+    //   this.searchedItems = this.modalData;
+    //   return;
+    // }
+    // this.modalData.forEach((data: any) => {
+    //   if (data.Full_name.toLowerCase().includes(this.search.toLowerCase())) {
+    //     this.searchedItems.push(data);
+    //   }
+    // });
   }
 }
