@@ -83,7 +83,7 @@ export class CategoryCompareComponent implements OnInit {
       ],
       chart: {
         type: "bar",
-        height: 550,
+        height: 1100,
         toolbar: {
           show: true
         },
@@ -116,24 +116,22 @@ export class CategoryCompareComponent implements OnInit {
         },
         formatter: function(val:number, opts?) {
           let text = '';
-          if(val > opts.w.config.series[1-opts.seriesIndex].data[opts.dataPointIndex]){
-            text += Math.ceil(val) + '  '
-            if(opts.seriesIndex === 0){
-              text += CategoryCompareComponent.todayParcentages[opts.dataPointIndex]
-            }
-            else{
-              text += CategoryCompareComponent.yesterdayParcentages[opts.dataPointIndex]
-            }
-            text += '%'
+          text += Math.ceil(val) + '  '
+          if(opts.seriesIndex === 0){
+            text += CategoryCompareComponent.todayParcentages[opts.dataPointIndex]
           }
+          else{
+            text += CategoryCompareComponent.yesterdayParcentages[opts.dataPointIndex]
+          }
+          text += '%'
           return text
         },
-        dropShadow: {
-          enabled: true,
-          top: 1,
-          left: 1,
-          color: '#ffffff',
-        },
+        // dropShadow: {
+        //   enabled: true,
+        //   top: 1,
+        //   left: 1,
+        //   color: '#ffffff',
+        // },
       },
       stroke: {
         show: true,
