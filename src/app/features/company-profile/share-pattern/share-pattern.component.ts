@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -12,10 +12,11 @@ import {
   ApexPlotOptions,
   ApexTitleSubtitle,
   ApexFill,
-  ApexLegend,ApexTooltip,
-} from "ng-apexcharts";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SharePatternService} from "./service/share-pattern.service";
+  ApexLegend,
+  ApexTooltip,
+} from 'ng-apexcharts';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharePatternService } from './service/share-pattern.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -35,21 +36,21 @@ export type ChartOptions = {
 @Component({
   selector: 'app-share-pattern',
   templateUrl: './share-pattern.component.html',
-  styleUrls: ['./share-pattern.component.scss']
+  styleUrls: ['./share-pattern.component.scss'],
 })
 export class SharePatternComponent implements OnInit {
-  @ViewChild("chart") chart : ChartComponent|any;
-  public lineGraph : Partial<ChartOptions>|any;
+  @ViewChild('chart') chart: ChartComponent | any;
+  public lineGraph: Partial<ChartOptions> | any;
   public pieChartOptions!: Partial<ChartOptions> | any;
-  public company_code:any;
-  public pieChartSeriesList:any = [];
-  public pieChartLabelsList:any = [];
-  public govt:any = [];
-  public foreign:any = [];
-  public institute:any = [];
-  public public:any = [];
-  public sponsorDirector:any = [];
-  public monthList:any = [];
+  public company_code: any;
+  public pieChartSeriesList: any = [];
+  public pieChartLabelsList: any = [];
+  public govt: any = [];
+  public foreign: any = [];
+  public institute: any = [];
+  public public: any = [];
+  public sponsorDirector: any = [];
+  public monthList: any = [];
   public dataLoaded = false;
   public lineGraphData = false;
 
@@ -64,7 +65,7 @@ export class SharePatternComponent implements OnInit {
     this._sharePatternService.getSharePattern(this.company_code).subscribe(
       (response: any) => {
         array = [...response];
-        console.log(array);
+        // console.log(array);
         this.setLineChart(array);
         this.setPieChart(array);
       },
@@ -78,82 +79,91 @@ export class SharePatternComponent implements OnInit {
     this.company_code = this.activatedRoute.snapshot.params['company-name'];
     this.getSharePatternData();
   }
-  setLineChart(array:any){
-    array.reverse().forEach((item:any)=>{
-      const month = item['ShareHoldingPercentage'].split(" ")[0];
-      const year = item['ShareHoldingPercentage'].split(" ")[2];
-      console.log(month+" "+year);
+  setLineChart(array: any) {
+    array.reverse().forEach((item: any) => {
+      const month = item['ShareHoldingPercentage'].split(' ')[0];
+      const year = item['ShareHoldingPercentage'].split(' ')[2];
+      // console.log(month+" "+year);
       this.govt.push(item['Govt']);
       this.foreign.push(item['Foreign']);
       this.institute.push(item['Institute']);
       this.public.push(item['Public']);
       this.sponsorDirector.push(item['SponsorDirector']);
-      this.monthList.push(month+" "+year);
+      this.monthList.push(month + ' ' + year);
     });
     this.lineGraphData = true;
     this.lineGraph = {
       //"Foreign","Government","Institute", "Public Share","Directors",
       series: [
         {
-          name: "Foreign",
+          name: 'Foreign',
           data: this.foreign,
         },
         {
-          name: "Government",
+          name: 'Government',
           data: this.govt,
         },
         {
-          name: "Institute",
+          name: 'Institute',
           data: this.institute,
         },
         {
-          name: "Public Share",
+          name: 'Public Share',
           data: this.public,
         },
         {
-          name: "Directors",
+          name: 'Directors',
           data: this.sponsorDirector,
-        }
+        },
       ],
       chart: {
-        type: "bar",
-        height: 350
+        type: 'bar',
+        height: 350,
       },
       plotOptions: {
         bar: {
           horizontal: false,
-          columnWidth: "55%",
-          endingShape: "rounded"
-        }
+          columnWidth: '55%',
+          endingShape: 'rounded',
+        },
       },
       dataLabels: {
-        enabled: false
+        enabled: false,
       },
       legend: {
-        tooltipHoverFormatter: function(val: string, opts: { w: { globals: { series: { [x: string]: { [x: string]: string; }; }; }; }; seriesIndex: string | number; dataPointIndex: string | number; }) {
+        tooltipHoverFormatter: function (
+          val: string,
+          opts: {
+            w: {
+              globals: { series: { [x: string]: { [x: string]: string } } };
+            };
+            seriesIndex: string | number;
+            dataPointIndex: string | number;
+          }
+        ) {
           return (
             val +
-            " - <strong>" +
+            ' - <strong>' +
             opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] +
-            "</strong>"
+            '</strong>'
           );
-        }
+        },
       },
       stroke: {
         show: true,
         width: 2,
-        colors: ["transparent"]
+        colors: ['transparent'],
       },
       xaxis: {
-        categories: this.monthList
+        categories: this.monthList,
       },
       yaxis: {
         title: {
-          text: "Share (Percentage)"
-        }
+          text: 'Share (Percentage)',
+        },
       },
       fill: {
-        opacity: 1
+        opacity: 1,
       },
       tooltip: {
         y: {
@@ -163,13 +173,13 @@ export class SharePatternComponent implements OnInit {
         },
       },
       grid: {
-        borderColor: "#f1f1f1"
+        borderColor: '#f1f1f1',
       },
-      colors:['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
+      colors: ['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
     };
   }
 
-  setPieChart(array:any){
+  setPieChart(array: any) {
     this.pieChartSeriesList.push(array[0]['Foreign']);
     this.pieChartSeriesList.push(array[0]['Govt']);
     this.pieChartSeriesList.push(array[0]['Institute']);
@@ -177,49 +187,54 @@ export class SharePatternComponent implements OnInit {
     this.pieChartSeriesList.push(array[0]['SponsorDirector']);
     this.dataLoaded = true;
     this.pieChartOptions = {
-      series:this.pieChartSeriesList,
+      series: this.pieChartSeriesList,
       chart: {
-        type: "donut",
+        type: 'donut',
         height: 350,
-        width:350,
+        width: 350,
         stacked: true,
       },
-      labels: [ "Foreign","Government","Institute", "Public Share","Directors",],
+      labels: [
+        'Foreign',
+        'Government',
+        'Institute',
+        'Public Share',
+        'Directors',
+      ],
       dataLabels: {
         enabled: true,
-        formatter: function (val:any) {
-          return val.toFixed(2) + "%"
+        formatter: function (val: any) {
+          return val.toFixed(2) + '%';
         },
       },
       plotOptions: {
         pie: {
           donut: {
-            size: '65%'
-          }
-        }
+            size: '65%',
+          },
+        },
       },
       stroke: {
         width: 1,
-        colors: ["#fff"]
+        colors: ['#fff'],
       },
-      legend:{
-        show:false,
+      legend: {
+        show: false,
       },
-      colors:['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
+      colors: ['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
       fill: {
-        colors:['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
+        colors: ['#7FBCD2', '#FECD70', '#285E33', '#5E2828', '#284E5E'],
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200
+              width: 200,
             },
-          }
-        }
-      ]
-
+          },
+        },
+      ],
     };
   }
 }

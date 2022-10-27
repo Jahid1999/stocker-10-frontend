@@ -18,13 +18,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SliderComponent,
     InnerContentComponent,
-    DuplicateDirective
+    DuplicateDirective,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -42,12 +44,13 @@ import {MatTableModule} from '@angular/material/table';
     MatSnackBarModule,
     MatTableModule
   ],
-  exports: [
-    HeaderComponent,
-    SliderComponent,
-    InnerContentComponent,
-    DuplicateDirective,
-  ],
+    exports: [
+        HeaderComponent,
+        SliderComponent,
+        InnerContentComponent,
+        DuplicateDirective,
+        FooterComponent,
+    ],
   providers: [
     SliderService
   ]

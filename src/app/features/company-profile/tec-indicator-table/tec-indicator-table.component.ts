@@ -17,7 +17,7 @@ export class TecIndicatorTableComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -53,22 +53,42 @@ export class TecIndicatorTableComponent implements OnInit {
           data: 'interpretation',
           render: function (data, type, row, meta) {
             if (type === 'display') {
-              data =
-                '<span title="' +
-                'hello ' +
-                row.interpretation +
-                '">' +
-                data +
-                '</span>';
-              // if(row.interpretation=="bearish"){
-              //   data = '<span title="'+"hello bearish"+'">'+ data +'</span>';
-              // }
-              // else if(row.interpretation=="compare"){
-              //   data = '<span title="'+"hello compare"+'">'+ data +'</span>';
-              // }
-              // else if(row.interpretation=="oversold"){
-              //   data = '<span title="'+"hello oversold"+'">'+ data +'</span>';
-              // }
+              if (data.toLowerCase() == 'bearish') {
+                data =
+                  '<span title="' +
+                  "'Bearish Trend' in financial markets can be defined as a downward trend in the prices of an industry's stocks or the overall fall in broad market indices" +
+                  '">' +
+                  data +
+                  '</span>';
+              } else if (data.toLowerCase() == 'bullish') {
+                data =
+                  '<span title="' +
+                  "'Bullish Trend' is an upward trend in the prices of an industry's stocks or the overall rise in broad market indices, characterized by high investor confidence." +
+                  '">' +
+                  data +
+                  '</span>';
+              } else if (data.toLowerCase() == 'overbought') {
+                data =
+                  '<span title="' +
+                  "'Overbought' is a term used when a security is believed to be trading at a level above its intrinsic or fair value. Overbought generally describes recent or short-term movement in the price of the security, and reflects an expectation that the market will correct the price in the near future" +
+                  '">' +
+                  data +
+                  '</span>';
+              } else if (data.toLowerCase() == 'oversold') {
+                data =
+                  '<span title="' +
+                  "The term 'Oversold' refers to a condition where an asset has traded lower in price and has the potential for a price bounce. An oversold condition can last for a long time, and therefore being oversold doesn't mean a price rally will come soon, or at all." +
+                  '">' +
+                  data +
+                  '</span>';
+              } else if (data.toLowerCase() == 'neutral') {
+                data =
+                  '<span title="' +
+                  "The term 'Neutral' is used to describe a situation where there is no clear trend in the market. This is a situation where the market is neither bullish nor bearish." +
+                  '">' +
+                  data +
+                  '</span>';
+              }
             }
 
             return data;
@@ -92,6 +112,7 @@ export class TecIndicatorTableComponent implements OnInit {
   }
 
   navigateToGraphPage() {
-    this.router.navigateByUrl(`profile/${this.company_name}/graph`);
+    let fullname = this.route.snapshot.params['full-name'];
+    this.router.navigateByUrl(`profile/${this.company_name}/${fullname}/graph`);
   }
 }
