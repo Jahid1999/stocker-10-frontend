@@ -496,7 +496,7 @@ export class SmaGraphComponent implements OnInit {
       this.chartCandleOptions.series[1].data = nData;
       if (this.readyAll) this.ready = true;
       this.readyAll = true;
-      // console.log(this.chartCandleOptions)
+      console.log(this.chartCandleOptions);
     });
   }
 
