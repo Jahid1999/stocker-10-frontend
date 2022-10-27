@@ -21,10 +21,10 @@ export class ProfileCardComponent implements OnInit {
   ngOnInit(): void {
     this.company_name = this.activatedRoute.snapshot.params['company-name'];
     this.full_name = this.activatedRoute.snapshot.params['full-name'];
-    this.full_name = this.full_name.replace(/-/g, " ");
+    this.full_name = this.full_name.replace(/-/g, ' ');
     this.service.getProfile(this.company_name).subscribe((response: any) => {
       this.profile = response;
-      console.log(response)
+      // console.log(response)
     });
   }
   navigateToGraphPage() {
