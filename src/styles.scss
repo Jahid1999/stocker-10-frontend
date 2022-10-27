@@ -11,11 +11,18 @@ body {
 #DataTables_Table_0 {
   text-align: center;
 }
-#DataTables_Table_0_filter input[type="search"] {
-  //width: 400px;
-  //::placeholder{
-  //
-  //}
+#DataTables_Table_0_filter{
+  float: left;
+}
+#DataTables_Table_0_filter input[type="search"]:focus {
+  // width: 400px;
+  // width: 250px;width: 250px;
+  // border: 3px solid rgb(19, 177, 80);
+  
+}
+#DataTables_Table_0_filter input[type="search"]:focus-visible{
+  border: 2px solid black;
+  outline-offset: 0px;
 }
 .wrapper {
   display: flex;

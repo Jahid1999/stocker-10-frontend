@@ -40,6 +40,8 @@ export class HomeTableComponent implements OnInit {
       lengthChange: false,
       language: {
         paginate: { next: '>', last: 'Last', first: 'First', previous: '<' },
+        searchPlaceholder:"Search",
+        search:""
       },
       pageLength: 8,
       columnDefs: [
