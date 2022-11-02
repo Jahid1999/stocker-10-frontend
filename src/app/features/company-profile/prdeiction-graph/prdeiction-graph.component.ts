@@ -55,6 +55,8 @@ export class PrdeictionGraphComponent implements OnInit {
   closing_price: any[][] = [];
   buy: any[][] = [];
   sell: any[][] = [];
+  min_price = 270;
+  max_price = 290;
 
 
   constructor(private router: ActivatedRoute, private http: HttpClient,
@@ -71,14 +73,21 @@ export class PrdeictionGraphComponent implements OnInit {
     void {
     this.company_name = this.router.snapshot.params['company-name'];
     this.getData().subscribe((data: any) => {
+      this.min_price = Math.min(...data.closing_price) - 5;
+      this.max_price = Math.max(...data.closing_price) + 5;
       for (let i = 0; i < 30; i++) {
         this.obv.push([data.days[i], data.obv[i]])
         this.obv_ema.push([data.days[i], data.obv_ema[i]])
         this.closing_price.push([data.days[i], data.closing_price[i]])
         let b = data.sigPriceBuy[i] === -1 ? 0 : parseInt(data.sigPriceBuy[i]);
         let s = data.sigPriceSell[i] === -1 ? 0 : parseInt(data.sigPriceSell[i]);
-        this.buy.push([data.days[i], b])
-        this.sell.push([data.days[i], s])
+        //if(b!==0){
+          this.buy.push([data.days[i], b])
+        // }
+        // if(s!==0){
+          this.sell.push([data.days[i], s])
+
+        //}
 
       }
       this.setOscillatorChart(this.obv, this.closing_price, this.buy, this.sell, this.obv_ema)
@@ -165,6 +174,8 @@ export class PrdeictionGraphComponent implements OnInit {
         categories: this.date.slice(2)
       },
       yaxis: [{
+        min: this.min_price,
+        max: this.max_price,
         labels: {
           formatter: function (val: any) {
             if (val) return val.toFixed(2)
